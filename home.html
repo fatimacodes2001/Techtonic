@@ -6,11 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #F2F1EF;
+            
+
+        }
+        
+        .padded{
+
+            padding-left: 2%;
+            padding-right: 2%;
+
+        }
+
+        .nav-link.nav-item:hover{
+            cursor: pointer;
+
+        }
+
+
+        .header-sec{
+            padding: 7vh;
+            text-align: center;
+        }
+        .bg-image{
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .head{
+            font-size: 5vw;
+        }
+
+        .sub{
+            font-size: 1.5vw;
+        }
+
+        .main-img{
+            height: auto;
+            width: 100%;
+            border-radius: 5vw;
+            max-height: 800px;
+
+        }
+        .splendour{
+            padding-top: 10%;
+            padding-left: 4%;
+            position: absolute;
+            color: white;
+            font-size: 7vw;
+            
+        }
+
+        footer{
+            background-color: #EDECE9;
+            margin-top: 4vh;
+            height: 200px;
+        }
+        
+        
+    </style>
 </head>
+
 
 <body>
 
+    <div class="padded">
+        
+          <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" style="margin-left: 5px;">
+                    <img src="img/logo.svg" height="35" alt="CoolBrand">
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a  class="nav-item nav-link">  <img src="img/shop.svg" height="25" alt="CoolBrand"> Store </a>
+                    <a  class="nav-item nav-link">  <img src="img/bar-chart.svg" height="25" alt="CoolBrand"> Exclusives</a>
+                    <a  class="nav-item nav-link">  <img src="img/layers.svg" height="25" alt="CoolBrand">  Support</a>
+                    <a  class="nav-item nav-link"> <img src="img/thumbs-up.svg" height="25" alt="CoolBrand"> Testimonials</a>
+                    <a  class="nav-item nav-link">  <img src="img/cart.svg" height="25" alt="CoolBrand"> Cart </a>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn" type="submit"><img src="img/search.svg" height="25" alt="CoolBrand"></button>
+                </form>
+              </div>
+          </nav>
 
+
+
+
+       
+
+        <div class="main-sec">
+            <header class="header-sec">
+                <h1 class="head">TECHTONIC</h1>
+                <p class="sub">Welcome to the world of luxury</p>
+            </header>
+
+        </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="image-sec">
+                    <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
+                    <img src="img/unsplash.png" alt="" class="main-img ">
+                </div>              </div>
+              <div class="carousel-item">
+                <div class="image-sec">
+                    <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
+                    <img src="img/unsplash.png" alt="" class="main-img ">
+                </div>              </div>
+              <div class="carousel-item">
+                <div class="image-sec">
+                    <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
+                    <img src="img/unsplash.png" alt="" class="main-img ">
+                </div>              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+
+    
+
+   <footer>
+       
+
+   </footer>
+    
 
 
 
