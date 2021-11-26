@@ -1,66 +1,45 @@
 body {
   font-family: 'Raleway', sans-serif;
   background-color: #f2f1ef;
-  text-align: center;
-  margin: 30px 0;
+  color: #000000;
+  font-weight: 300;
 }
 
-.category {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+  color: inherit;
+}
+
+.page-title {
   font-family: 'Jost', sans-serif;
-  text-transform: uppercase;
-  color: black;
-  font-size: 35px;
+  font-size: 4.5rem;
   font-weight: 500;
-  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
-.flex {
-  display: flex;
-  align-items: flex-end;
+.page-subtitle {
+  font-size: 1.6rem;
+  margin-top: -1.25rem;
+  color: #888888;
 }
 
-.category-tag {
-  font-weight: 300;
-  color: #494949;
-  font-size: 19px;
+.gap {
+  margin: 4.25rem 0;
 }
 
-.browse {
-  color: #434343;
-  font-size: 14px;
+@media only screen and (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
 }
 
-.card {
-  border-radius: 18px;
-  height: 350px;
-  text-align: center;
-  color: #f2f1ef;
-}
-
-.card-img {
-  border-radius: 18px;
-  object-fit: cover;
-  height: 100%;
-}
-
-.card-img-overlay {
-  border-radius: 18px;
-  background: linear-gradient(to bottom, transparent, #1d1d1d);
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.card-img-overlay:hover {
-  opacity: 1;
-  transition: ease-in all 0.3s;
-}
-
-.card-title {
-  font-weight: 600;
-}
-
-.card-text {
-  font-weight: 300;
+@media only screen and (max-width: 576px) {
+  html {
+    font-size: 12px;
+  }
 }
