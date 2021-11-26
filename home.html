@@ -6,276 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/home.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: #F2F1EF;
-            
-
-        }
-
-        .nav-link.nav-item:hover{
-            cursor: pointer;
-
-        }
-
-        .header-sec{
-            padding: 2vh;
-            text-align: center;
-        }
-
-
-        .head{
-            font-size: 1.8rem;
-        }
-
-        .sub{
-            font-size: 0.8rem;
-        }
-
-        .main-img{
-            height: auto;
-            width: 100%;
-            border-radius: 4vw;
-            max-height: 500px;
-            min-height: 300px;
-            object-fit: cover;
-
-        }
-
-       
-
-
-        .splendour{
-            padding-top: 10%;
-            padding-left: 4%;
-            position: absolute;
-            color: white;
-            font-size: 1.7rem;
-            
-        }
-
-        .icons>img:hover{
-              background-color: #FAF9F6;
-            }
-  
-  
-        .footer-sec:last-of-type{
-              border-right: 1vw solid #EDECE9;
-  
-            }
-
-        .footer-sec:first-of-type{
-          background-color: #f2f1ee;
-
-        }
-
-        .footer-sec:first-of-type:hover{
-          background-color: #faf9f6;
-        }
-
-
-
-        .footer{
-            background-color: #EDECE9;
-            margin-top: 4vh;
-            padding-top: 2vh;
-            padding-bottom: 2vh;
-            display: flex;
-            flex-direction: row;
-            }
-
-        .footer-sec{
-          border: 1vw solid #EDECE9;
-          border-right: 0px;
-          border-radius: 20px;
-          padding: 0.5vw;
-        }
-
-
-
-            .items, .right{
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-            }
-            .right{
-              align-items: flex-end;
-              justify-content: flex-end;
-            }
-
-            
-            .icons{
-              display: flex;
-  
-            }
-  
-            .icons > img{
-              background-color: #F2F1EE;
-              flex-basis: 25%;
-              padding: 3px;
-              object-fit: contain;
-              min-height: 30px;
-              border-radius: 8px;
-              margin-right: 4px;
-            }
-  
-            .icons > img:last-of-type{
-              margin-right: 0;
-            }
-  
-            .icons>img:hover{
-              background-color: #FAF9F6;
-            }
-  
-  
-            .footer-sec:last-of-type{
-              border-right: 1vw solid #EDECE9;
-  
-            }
-  
-            .bottom-logo{
-              width: 8vw;
-              height: auto;
-              min-width: 50px;
-            }
-
-            
-            .normal{
-                text-align: right;
-                font-size: 0.8em;
-
-              }
-
-
-
-
-        @media (min-width: 360px)
-        {
-          .splendour{
-            font-size: 2.1rem ;
-          }
-
-
-        }
-
-
-        @media (min-width: 500px){
-          body{
-            padding-left: 1.5vw;
-            padding-right: 1.5vw;
-          }
-
-          .main-img{
-            border-radius: 2vw;
-            max-height: 500px;
-
-          }
-
-          .head{
-            font-size: 3rem;
-        }
-
-          .sub{
-            font-size: 1.5rem;
-        }
-
-          .splendour{
-            font-size: 3rem ;
-          }
-
-          
-
-        }
-
-
-        @media (min-width: 920px){
-          body{
-            padding-left: 1.5vw;
-            padding-right: 1.5vw;
-          }
-
-          .main-img{
-            border-radius: 2vw;
-            max-height: 600px;
-          }
-          .icons > img{
-            min-height: 45px;
-          }
-
-
-
-        .head{
-            font-size: 3.2rem;
-        }
-
-        .sub{
-            font-size: 1.7rem;
-        }
-        .splendour{
-            font-size: 4rem ;
-          }
-        .normal{
-            font-size: 1em;
-          }
-          
-
-          }
-
-
-
-        @media (max-width: 575.98px) { 
-              .footer{
-                flex-direction: column;
-                min-height: 0;
-                padding: 1vw;
-              }
-
-              .right{
-                align-items: center;
-              }
-
-              .footer-sec{
-                margin-top: 0.5vw;
-              }
-
-              .normal{
-                text-align: center;
-              }
-
-              
-              
-            }
-
-            
-        
-
-       
-        
-
-
-
-        
-    </style>
 </head>
 
 
 <body>
 
-    <div class="padded">
+    <div class="container-lg">
         
           <nav class="navbar navbar-expand-lg navbar-light ">
               <a class="navbar-brand" style="margin-left: 5px;">
                     <img src="img/logo.svg" height="35" alt="CoolBrand">
               </a>
 
-              <a  class="nav-item nav-link mob">  <img src="img/cat.svg" alt=""> </a>
+              <a  class="nav-item nav-link mob">  <img src="img/cart.svg" alt=""> </a>
               <a  class="nav-item nav-link mob">    <img src="img/layers.svg" alt=""></a>
               
                   
@@ -315,42 +62,62 @@
         </div>
 
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
+        <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="image-sec">
                     <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
                     <img src="img/unsplash.png" alt="" class="main-img ">
-                </div>              </div>
+                </div>              
+              </div>
+
               <div class="carousel-item">
                 <div class="image-sec">
                     <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
                     <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" class="main-img ">
                 </div>              </div>
+
+
               <div class="carousel-item">
                 <div class="image-sec">
                     <div class="splendour">OUTCLASSED <br/> SPLENDOUR</div>
                     <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="" class="main-img ">
                 </div>              </div>
+                
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <button  class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span   class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span  class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
-    </div>
+          
+        </div>
+
+
+
+        
       <div class="footer">
 
-        <div class="footer-sec col-sm-4 col-12">Reach out to us</div>
+        <div class="footer-sec col-sm-4 col-12 d-flex flex-column justify-content-between">
+          <div class="address">
+            <div class="lines address-parts"> <span class="dark">781 </span>Sheila Lane</div>
+            <div class="lines address-parts"><span class="dark">City </span>Goshute</div>
+            <div class="lines address-parts"><span class="dark">State/Province </span>Nevada</div>
+          </div>
+          <div class="address">
+            <div class="lines address-parts"><span class="dark">2187</span> College Street</div>
+            <div class="lines address-parts"><span class="dark">City </span>Florence</div>
+            <div class="lines address-parts"><span class="dark">State/Province  </span>Albama</div>
+          </div>
+        </div>
         <div class="footer-sec col-sm-4 col-12 items">
           <h2 class="bottom-name">
             TECHTONIC
@@ -371,9 +138,13 @@
           <p class="normal" >Copyright © 2021 Techtonic Inc. All rights reserved</p>
 
 
-        </div>
+      </div>
 
-        </div>
+    </div>
+
+
+
+   
 
 
 
