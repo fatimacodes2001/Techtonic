@@ -1,59 +1,98 @@
 .category {
+  margin: 1.5rem 0 3.5rem 0;
+}
+
+.category-title {
   font-family: 'Jost', sans-serif;
   text-transform: uppercase;
   color: black;
-  font-size: 35px;
+  font-size: 2rem;
   font-weight: 500;
   margin-bottom: 0;
 }
 
-.flex {
-  display: flex;
-  align-items: flex-end;
-}
-
-.category-tag {
-  font-weight: 300;
+.category-subtitle {
   color: #494949;
-  font-size: 19px;
+  font-size: 1.1rem;
 }
 
 .browse {
+  font-weight: 400;
   color: #434343;
-  font-size: 14px;
+  font-size: 0.82rem;
+  margin-top: -2.4rem;
+  margin-bottom: 1rem;
 }
 
 .card {
-  border-radius: 25px;
-  height: 350px;
+  border-radius: 1.5rem;
+  height: 22rem;
+  min-width: 14rem;
+  margin: 0.8rem 0;
   text-align: center;
-  color: #f2f1ef;
+  transition: transform 0.5s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .card-img {
-  border-radius: 25px;
+  border-radius: 1.5rem;
   object-fit: cover;
   height: 100%;
 }
 
 .card-img-overlay {
-  border-radius: 25px;
+  border-radius: 1.5rem;
   background: linear-gradient(to bottom, transparent, #1d1d1d);
+  color: #f2f1ef;
   opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: all 0.75s ease;
 }
 
 .card-img-overlay:hover {
   opacity: 1;
-  transition: ease-in all 0.3s;
 }
 
 .card-title {
   font-weight: 600;
+  margin-bottom: 0;
 }
 
-.card-text {
-  font-weight: 300;
+.card a:hover {
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+i {
+  font-size: 0.75rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .card {
+    height: 18rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .row {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .row::-webkit-scrollbar {
+    display: none;
+  }
 }
