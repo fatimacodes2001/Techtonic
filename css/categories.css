@@ -1,109 +1,106 @@
 .category-row {
-  margin: 1.5rem 0 3.5rem 0;
+    margin: 1.5rem 0 3.5rem 0;
 }
 
 .category-title {
-  font-family: 'Jost', sans-serif;
-  text-transform: uppercase;
-  color: black;
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 0;
+    font-family: 'Beckman', sans-serif;
+    text-transform: uppercase;
+    color: black;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
 .category-subtitle {
-  color: #494949;
-  font-size: 1.1rem;
+    color: #494949;
+    font-size: 1.1rem;
 }
 
 .browse {
-  font-weight: 400;
-  color: #434343;
-  font-size: 0.9rem;
-  margin-top: -2.5rem;
-  margin-bottom: 1rem;
+    font-weight: 400;
+    color: #434343;
+    font-size: 0.9rem;
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
 }
 
 .browse-md {
-  font-weight: 400;
-  color: #434343;
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
-  display: none;
+    font-weight: 400;
+    color: #434343;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
 }
 
 .card {
-  border-radius: 1.5rem;
-  height: 22rem;
-  margin: 0.8rem 0;
-  text-align: center;
-  transition: transform 0.5s ease;
+    border-radius: 1.5rem;
+    height: 22rem;
+    margin: 0.8rem 0;
+    text-align: center;
+    transition: transform 0.5s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .card-img {
-  border-radius: 1.5rem;
-  object-fit: cover;
-  height: 100%;
+    border-radius: 1.5rem;
+    object-fit: cover;
+    height: 100%;
 }
 
 .card-img-overlay {
-  border-radius: 1.5rem;
-  background: linear-gradient(to bottom, transparent, #1d1d1d);
-  color: #f2f1ef;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  transition: all 0.75s ease;
+    border-radius: 1.5rem;
+    background: linear-gradient(to bottom, transparent, #1d1d1d);
+    color: #f2f1ef;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.75s ease;
 }
 
 .card-img-overlay:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .card-title {
-  font-weight: 600;
-  margin-bottom: 0;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 
 .card a:hover {
-  opacity: 0.8;
-  transition: all 0.3s;
+    opacity: 0.8;
+    transition: all 0.3s;
 }
 
 i {
-  font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 @media only screen and (max-width: 992px) {
-  .card {
-    height: 18rem;
-  }
+    .card {
+        height: 18rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  #categories .row {
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap !important;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  #categories .row::-webkit-scrollbar {
-    display: none;
-  }
-
-  .browse {
-    display: none;
-  }
-
-  .browse-md {
-    display: block;
-  }
+    #categories .row {
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    #categories .row::-webkit-scrollbar {
+        display: none;
+    }
+    .browse {
+        display: none;
+    }
+    .browse-md {
+        display: block;
+    }
 }
