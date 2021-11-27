@@ -25,6 +25,10 @@ body {
   padding: 0 25px;
   background-color: #F2F1EF;
 }
+
+.added{
+
+}
 .order-details {
   background-color: #EDECE9;
   border-radius: 24px;
@@ -34,7 +38,7 @@ body {
   margin-bottom: 25px;
 }
 .order-item {
-  background-color: #FAF9F6 !important;
+  background-color: #FAF9F6 ;
   border-radius: 16px;
   padding: 27px !important;
   margin-bottom: 15px;
@@ -96,6 +100,18 @@ body {
   margin-left: 13px;
 }
 
+.sum{
+  background-color: #F2F1EE;
+}
+
+#summary-first{
+  margin-top: 30vh;
+}
+
+
+
+
+
 @media only screen and (max-width: 768px) {
   .text-lg {
     font-size: 30px;
@@ -131,9 +147,16 @@ body {
   .checkout-button {
     padding: 20px 35px;
   }
+
+  #summary-first{
+    margin-top: 20vh;
+  }
+  
+  
 }
 
 @media only screen and (max-width: 576px) {
+  
   .text-lg {
     font-size: 27px;
   }
@@ -146,4 +169,9 @@ body {
   .item-info {
     padding: 0 15px !important;
   }
+
+  #summary-first{
+    margin-top: 15vh;
+  }
+  
 }
