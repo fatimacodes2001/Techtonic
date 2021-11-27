@@ -1,13 +1,16 @@
 *{
-    margin: 0;
-    padding: 0;
+    
     box-sizing: border-box;
 }
-body{
-    background-color: #F2F1EF;
-    
 
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #f2f1ef;
+  color: #000000;
+  font-weight: 300;
 }
+
 
 
 .nav-link.nav-item:hover{
