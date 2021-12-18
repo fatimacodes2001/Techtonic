@@ -1,0 +1,54 @@
+#trends {
+    margin-bottom: 3.5rem;
+}
+
+.trends-left {
+    margin: auto 0;
+}
+
+.trends-right div[class*="col-"] {
+    padding: 0 0.5rem;
+}
+
+.trend-card {
+    height: 16rem;
+    text-align: left;
+    margin: 0.5rem 0;
+}
+
+.trend-card .category-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.category-card {
+    height: 19rem;
+    width: 19rem;
+    margin: 0.8rem 0.5rem;
+    text-align: left;
+    display: inline-block;
+}
+
+.category-card .category-title {
+    font-size: 1.75rem;
+    color: white;
+}
+
+.card-img-overlay {
+    background: linear-gradient(20deg, #000000, transparent);
+    opacity: 1;
+}
+
+.slick-prev:before {
+    content: url("/img/chevron-l.svg");
+}
+
+.slick-next:before {
+    content: url("/img/chevron-r.svg");
+}
+
+@media only screen and (max-width: 992px) {
+    button {
+        margin-bottom: 2.75rem;
+    }
+}
