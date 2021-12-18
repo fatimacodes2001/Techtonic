@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="icon" type="image/svg" href="/img/logo.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+</head>
+
+
+<body>
+
+    <div class="container-lg">
+        
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" style="margin-left: 5px;">
+              <img src="/img/logo.svg" height="35" alt="CoolBrand">
+        </a>
+
+        <a  class="nav-item nav-link mob" href="cart-items.html">  <img src="/img/cart.svg" alt=""> </a>
+        <a  class="nav-item nav-link mob">    <img src="/img/layers.svg" alt=""></a>
+        
+            
+        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        <div class="" style="width: 100%;">
+          <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="navbarTogglerDemo01">
+              <ul class="navbar-nav ">
+                <a  class="nav-item nav-link" href="about-us.html">  About Us </a>
+                <a  class="nav-item nav-link">    Store</a>
+                <a  class="nav-item nav-link" href="categories.html">  Categories</a>
+                <a  class="nav-item nav-link">  Testimonials </a>
+                <a  class="nav-item nav-link">  Team </a>
+              </ul>
+              
+
+          </div>
+      </div>
+
+        
+    </nav>
+         
+          
+
+
+
+       
+
+        <h1 class="page-title text-center gap">CHECKOUT</h1>
+
+       
+
+
+        
+        <div class="order-section d-flex flex-column align-items-center" >
+
+           
+            <div class="order-details w-100 d-flex flex-column">
+              <h2 class="order-title w-100 fw-bold text-lg">Order - 729213</h2>
+
+              <div class="alert alert-success added" role="alert">
+                <h4 class="alert-heading">Cart Finalized!</h4>
+                <p>You have added all the items to cart successfully. Kindly look at your final order</p>
+                <hr>
+                <p class="mb-0">Proceed to payment after confirmation of the order items.</p>
+              </div>  
+
+
+
+
+              <div class="table-responsive">
+              <table class="order-items-table table table-borderless">
+                <tbody class="d-flex flex-column">
+                  <!-- Order Item -->
+                  <tr class="order-item d-flex">
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+                  <!-- End Order Item -->
+
+                  <tr class="order-item d-flex">
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+                  <!-- End Order Item -->
+
+                  <tr class="order-item d-flex">
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+                  <!-- End Order Item -->
+        
+                 
+        
+                  
+
+                  <tr class="order-item d-flex sum" id="summary-first"  >
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Total</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+
+                  <tr class="order-item d-flex sum" >
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Discounts</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+
+                  <tr class="order-item d-flex sum" >
+                    
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">Grand Total</p>
+                        
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        <div class="item-price mt-auto">
+                          <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                        </div>
+                    </td>
+                  </tr>
+
+
+
+
+
+
+                  <!-- End Order Item -->
+                </tbody>
+              </table>
+              </div>
+            </div>
+            <button class="btn btn-dark checkout-button text-center text-sm">
+              Proceed to Payment
+              <img src="/img/chevron-right.svg" alt="checkout">
+            </button>
+          </div>
+          <!-- End Orders section -->
+
+
+
+        
+  
+    
+
+    <div class="footer">
+
+      <div class="footer-sec col-sm-4 col-12 d-flex flex-column justify-content-between">
+        <div class="address">
+          <div class="lines address-parts"> <span class="dark">781 </span>Sheila Lane</div>
+          <div class="lines address-parts"><span class="dark">City </span>Goshute</div>
+          <div class="lines address-parts"><span class="dark">State/Province </span>Nevada</div>
+        </div>
+        <div class="address">
+          <div class="lines address-parts"><span class="dark">2187</span> College Street</div>
+          <div class="lines address-parts"><span class="dark">City </span>Florence</div>
+          <div class="lines address-parts"><span class="dark">State/Province </span>Albama</div>
+        </div>
+      </div>
+      <div class="footer-sec col-sm-4 col-12 items">
+        <h2 class="bottom-name">
+          TECHTONIC
+        </h2>
+        <P class="normal">
+          Welcome to the world of Luxury
+        </P>
+        <img class="bottom-logo" src="/img/big-logo.svg" alt="">
+      </div>
+      <div class="footer-sec col-sm-4 col-12 right">
+        <h4>Reach Out</h4>
+        <div class="icons">
+          <img src="/img/sn1.png" alt="">
+          <img src="/img/sn2.png" alt="">
+          <img src="/img/sn3.png" alt="">
+          <img src="/img/sn4.svg" alt="">
+        </div>
+        <p class="normal">Copyright © 2021 Techtonic Inc. All rights reserved</p>
+
+
+      </div>
+
+    </div>
+
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/effects.js"></script>
+
+</body>
+
+</html>
