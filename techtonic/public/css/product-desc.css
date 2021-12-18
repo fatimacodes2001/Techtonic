@@ -26,7 +26,7 @@ ul.desc-card-text {
     border-radius: 1rem;
 }
 
-ul.desc-card-text>p {
+ul.desc-card-text > p {
     margin: 0.25rem;
 }
 
@@ -44,11 +44,11 @@ ul.desc-card-text>p {
     justify-content: center;
 }
 
-.cart-button>button {
+.cart-button > button {
     margin-top: 0;
 }
 
-.color-card-text>p {
+.color-card-text > p {
     padding: 0.75rem;
     margin: 0.35rem;
     vertical-align: baseline;
@@ -68,7 +68,7 @@ ul.desc-card-text>p {
     cursor: pointer;
 }
 
-.color-card-text>p:hover {
+.color-card-text > p:hover {
     transition: all 0.5s;
     transform: scale(1.05);
 }
@@ -81,21 +81,21 @@ ul.desc-card-text>p {
 }
 
 #color-card-blue {
-    background-image: linear-gradient(to bottom right, #4460A7, #05102D);
-    color: #FCFCFC;
+    background-image: linear-gradient(to bottom right, #4460a7, #05102d);
+    color: #fcfcfc;
 }
 
 #color-card-green {
-    background-image: linear-gradient(to bottom right, #60BBA5, #103F3F);
-    color: #FCFCFC;
+    background-image: linear-gradient(to bottom right, #60bba5, #103f3f);
+    color: #fcfcfc;
 }
 
 #color-card-gold {
-    background-image: linear-gradient(to bottom right, #F1DEC2, #FFC46D);
+    background-image: linear-gradient(to bottom right, #f1dec2, #ffc46d);
     color: #202020;
 }
 
 #color-card-black {
     background-image: linear-gradient(to bottom right, #343434, #000000);
-    color: #FCFCFC;
+    color: #fcfcfc;
 }
