@@ -40,11 +40,11 @@
 }
 
 .slick-prev:before {
-  content: url('../img/chevron-left.svg');
+  content: url('../img/chevron-l.svg');
 }
 
 .slick-next:before {
-  content: url('../img/chevron-right.svg');
+  content: url('../img/chevron-r.svg');
 }
 
 @media only screen and (max-width: 992px) {
