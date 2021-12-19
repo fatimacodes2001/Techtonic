@@ -13,23 +13,23 @@
   </div>
 
   <div class="footer-sec col-sm-4 col-12 items">
-    <h2 class="bottom-name">
+    <h2 class="page-title bottom-name">
       TECHTONIC
     </h2>
-    <P class="normal">
-      Welcome to the world of Luxury
+    <P class="normal bottom-subtitle">
+      Welcome to a world of Luxury
     </P>
     <img class="bottom-logo" src="/img/big-logo.svg" alt="logo">
   </div>
 
   <div class="footer-sec col-sm-4 col-12 right">
-    <h4>Reach Out</h4>
+    <h4 class="footer-heading">Reach Out</h4>
     <div class="icons">
-      <img src="/img/sn1.png" alt="facebook">
-      <img src="/img/sn2.png" alt="linkedin">
-      <img src="/img/sn3.png" alt="twitter">
+      <img src="/img/sn1.svg" alt="facebook">
+      <img src="/img/sn2.svg" alt="linkedin">
+      <img src="/img/sn3.svg" alt="twitter">
       <img src="/img/sn4.svg" alt="phone">
     </div>
-    <p class="normal">Copyright © 2021 Techtonic Inc. All rights reserved</p>
+    <p class="normal copyright">Copyright © 2021 <span>TECHTONIC</span> Inc. All rights reserved</p>
   </div>
 </div>

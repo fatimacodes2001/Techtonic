@@ -2,28 +2,26 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Raleway", sans-serif;
-    background-color: #f2f1ef;
+.navbar {
     color: #000000;
-    font-weight: 300;
+    font-weight: 400;
+}
+
+.navbar-toggler {
+    margin-top: 0;
 }
 
 .nav-link.nav-item:hover {
     cursor: pointer;
 }
 
+.show {
+    display: none;
+}
+
 .header-sec {
     padding: 2vh;
     text-align: center;
-}
-
-.head {
-    font-size: 1.8em;
-}
-
-.sub {
-    font-size: 0.8em;
 }
 
 .main-img {
@@ -37,11 +35,17 @@ body {
 }
 
 .splendour {
-    padding-top: 7%;
-    padding-left: 7%;
+    padding-top: 14%;
+    padding-left: 4%;
     position: absolute;
     color: white;
-    font-size: 1.7em;
+    font-size: 1.8em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE support */
 }
 
 .icons > img:hover {
@@ -54,17 +58,24 @@ body {
 
 .footer {
     background-color: #edece9;
-    margin-top: 4vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    margin: 4vh 0;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
     display: flex;
     flex-direction: row;
+    border-radius: 1.5rem;
 }
 
 .footer-sec {
     border: 1vw solid #edece9;
+    border-radius: 1.5rem;
     border-right: 0px;
     padding: 0.5vw;
+}
+
+.footer-heading {
+    color: #4d4d4d;
+    font-weight: 800;
 }
 
 .items,
@@ -80,16 +91,17 @@ body {
 
 .icons {
     display: flex;
+    margin-top: 0.2rem;
 }
 
 .icons > img {
     background-color: #f2f1ee;
     flex-basis: 25%;
-    padding: 3px;
+    padding: 0.625rem;
     object-fit: contain;
-    min-height: 30px;
-    border-radius: 8px;
-    margin-right: 4px;
+    width: 3rem;
+    border-radius: 0.625rem;
+    margin-right: 0.5rem;
 }
 
 .icons > img:last-of-type {
@@ -104,7 +116,24 @@ body {
     border-right: 1vw solid #edece9;
 }
 
+.normal {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #4d4d4d;
+}
+
+.bottom-name {
+    font-size: 3rem;
+    margin-bottom: -0.5rem;
+}
+
+.bottom-subtitle {
+    color: #888888;
+    font-size: 1.1rem;
+}
+
 .bottom-logo {
+    margin-top: 1rem;
     width: 8vw;
     height: auto;
     min-width: 50px;
@@ -113,7 +142,7 @@ body {
 .address {
     background-color: #f2f1ee;
     flex-basis: 50%;
-    margin-bottom: 1vh;
+    margin: 1.25vh 0;
     border-radius: 16px;
     padding: 2.5vw;
 }
@@ -122,17 +151,23 @@ body {
     background-color: #faf9f6;
 }
 
-.normal {
-    text-align: right;
-    font-size: 0.8em;
-}
 .address-parts {
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: #888888;
 }
 
 .dark {
     font-weight: bold;
+}
+
+.copyright {
+    font-weight: 400;
+    margin-top: 1.2rem;
+}
+
+.copyright span {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
 }
 
 @media (min-width: 360px) {
@@ -147,16 +182,18 @@ body {
         max-height: 500px;
     }
 
-    .head {
-        font-size: 3rem;
-    }
-
-    .sub {
-        font-size: 1.5em;
-    }
-
     .splendour {
         font-size: 3em;
+    }
+}
+
+@media (max-width: 992px) {
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: inline-block;
     }
 }
 
@@ -165,23 +202,20 @@ body {
         border-radius: 2vw;
         max-height: 600px;
     }
-    .icons > img {
-        min-height: 45px;
-    }
 
-    .head {
-        font-size: 3.2em;
-    }
-
-    .sub {
-        font-size: 1.7em;
-    }
     .splendour {
         font-size: 4em;
     }
-    .normal,
+
     .address-parts {
         font-size: 1em;
+    }
+}
+
+@media (max-width: 800px) {
+    .bottom-name,
+    .bottom-subtitle {
+        display: none;
     }
 }
 
@@ -198,6 +232,7 @@ body {
 
     .footer-sec {
         margin-top: 0.5vw;
+        border-right: 1vw solid #edece9;
     }
 
     .normal {
