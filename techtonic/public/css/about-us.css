@@ -1,0 +1,42 @@
+.card {
+  background-color: #edece9;
+  border: none;
+  border-radius: 1.5rem;
+  margin-bottom: 1.75rem;
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.card-text{
+  font-size: 1.15rem;
+  text-align: justify;
+}
+
+.card-text.side{
+  flex-basis: 50%;
+}
+
+.owner{
+  border-radius: 50%;
+  width: 15vw;
+  margin-right: 8vw;
+  height: 15vw;
+  min-width: 170px;
+  min-height: 170px;
+  object-fit: cover;
+  float: left;
+}
+
+@media only screen and (max-width: 576px){
+  .owner{
+    min-width: 120px;
+    min-height: 120px;
+
+  }
+}
+

@@ -1,0 +1,101 @@
+.desc-card {
+    border: none;
+    border-radius: 1.5rem;
+    margin-bottom: 1.75rem;
+    padding: 1.25rem;
+}
+
+.desc-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.desc-card-text {
+    background-color: #faf9f6;
+    font-size: 1.15rem;
+    text-align: justify;
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+ul.desc-card-text {
+    background-color: #faf9f6;
+    font-size: 1.5rem;
+    text-align: justify;
+    border-radius: 1rem;
+}
+
+ul.desc-card-text > p {
+    margin: 0.25rem;
+}
+
+.desc-card-text-price {
+    background-color: #faf9f6;
+    font-size: 1.25rem;
+    display: inline-block;
+    text-align: justify;
+    padding: 1.25rem;
+    border-radius: 1rem;
+}
+
+.cart-button {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-button > button {
+    margin-top: 0;
+}
+
+.color-card-text > p {
+    padding: 0.75rem;
+    margin: 0.35rem;
+    vertical-align: baseline;
+    height: 7.5rem;
+    width: 7.5rem;
+    font-size: 1rem;
+    line-height: 0.95rem;
+    text-align: justify;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    display: flex;
+    float: left;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.5s;
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.color-card-text > p:hover {
+    transition: all 0.5s;
+    transform: scale(1.05);
+}
+
+.color-card-text {
+    padding: 0rem;
+    margin-bottom: 0rem;
+    clear: both;
+    overflow: hidden;
+}
+
+#color-card-blue {
+    background-image: linear-gradient(to bottom right, #4460a7, #05102d);
+    color: #fcfcfc;
+}
+
+#color-card-green {
+    background-image: linear-gradient(to bottom right, #60bba5, #103f3f);
+    color: #fcfcfc;
+}
+
+#color-card-gold {
+    background-image: linear-gradient(to bottom right, #f1dec2, #ffc46d);
+    color: #202020;
+}
+
+#color-card-black {
+    background-image: linear-gradient(to bottom right, #343434, #000000);
+    color: #fcfcfc;
+}
