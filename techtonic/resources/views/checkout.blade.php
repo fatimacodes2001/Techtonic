@@ -23,58 +23,49 @@
           <hr>
           <p class="mb-0">Proceed to payment after confirmation of the order items.</p>
         </div>
+        <?php
+
+            $grand = 0;
+            
+            
+            
+            ?>
 
         <div class="table-responsive">
           <table class="order-items-table table table-borderless">
             <tbody class="d-flex flex-column">
+
+            @foreach ($products as $product)
+            <tr class="order-item d-flex">
+
+                    <td class="item-info">
+                      <div class="d-flex flex-column">
+                        <p class="item-title fw-bold text-md m-0">{{$product->name}} x{{$product->pivot->quantity}}</p>
+
+                      </div>
+                    </td>
+                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                      <div class="item-price mt-auto">
+                        <p class="m-0 d-block fw-light text-end text-md">{{$product->price}}  PKR</p>
+                      </div>
+                    </td>
+            </tr>
+            <?php
+
+            $mul = (int)$product->pivot->quantity;
+            $price = (int)$product->price;
+            $grand = $grand + ($mul*$price)
+
+            
+            
+            ?>
+            @endforeach
+
               <!-- Order Item -->
-              <tr class="order-item d-flex">
 
-                <td class="item-info">
-                  <div class="d-flex flex-column">
-                    <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
-
-                  </div>
-                </td>
-                <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
-                  <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
-                  </div>
-                </td>
-              </tr>
-              <!-- End Order Item -->
-
-              <tr class="order-item d-flex">
-
-                <td class="item-info">
-                  <div class="d-flex flex-column">
-                    <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
-
-                  </div>
-                </td>
-                <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
-                  <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
-                  </div>
-                </td>
-              </tr>
-              <!-- End Order Item -->
-
-              <tr class="order-item d-flex">
-
-                <td class="item-info">
-                  <div class="d-flex flex-column">
-                    <p class="item-title fw-bold text-md m-0">Iphone 13 Pro Max</p>
-
-                  </div>
-                </td>
-                <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
-                  <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
-                  </div>
-                </td>
-              </tr>
-              <!-- End Order Item -->
+            
+              
+              
 
               <tr class="order-item d-flex sum" id="summary-first">
 
@@ -101,7 +92,7 @@
                 </td>
                 <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                   <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR </p>
                   </div>
                 </td>
               </tr>
@@ -116,7 +107,7 @@
                 </td>
                 <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                   <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR</p>
+                    <p class="m-0 d-block fw-light text-end text-md"><?php echo $grand?> PKR</p>
                   </div>
                 </td>
               </tr>

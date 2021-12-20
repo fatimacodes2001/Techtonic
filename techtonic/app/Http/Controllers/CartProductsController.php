@@ -17,7 +17,8 @@ class CartProductsController extends Controller
         $user = User::find("fatima@abc.com");
         $cart = Cart::where("customer_email",$user->email)->first();
         $prods = $cart->products;
-        return view('cart-items',['products' => $prods]);
+        
+        return view('cart-items', ['products' => $prods]);
 
     }
 }

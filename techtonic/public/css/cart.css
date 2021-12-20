@@ -15,6 +15,15 @@ body {
   font-size: 18px;
   line-height: 24px;
 }
+
+.comments{
+  background-color: transparent;
+  border: none;
+}
+
+.comments:focus{
+  outline: none;
+}
 .icon-btn {
   border: 0;
   outline: 0;
@@ -26,9 +35,7 @@ body {
   background-color: #F2F1EF;
 }
 
-.added{
 
-}
 .order-details {
   background-color: #EDECE9;
   border-radius: 24px;
