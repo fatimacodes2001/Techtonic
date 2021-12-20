@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2021 at 10:54 AM
+-- Generation Time: Dec 20, 2021 at 08:50 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -112,6 +112,7 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `price` double NOT NULL,
+  `color_id` int(11) NOT NULL,
   `stock_quantity` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -125,8 +126,7 @@ CREATE TABLE `products` (
 CREATE TABLE `product_colors` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `hex` varchar(7) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `hex` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -226,14 +226,14 @@ ALTER TABLE `order_has_products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `color_id` (`color_id`);
 
 --
 -- Indexes for table `product_colors`
 --
 ALTER TABLE `product_colors`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product_images`
@@ -344,13 +344,8 @@ ALTER TABLE `order_has_products`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `product_colors`
---
-ALTER TABLE `product_colors`
-  ADD CONSTRAINT `product_colors_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`color_id`) REFERENCES `product_colors` (`id`);
 
 --
 -- Constraints for table `product_images`
