@@ -19,6 +19,19 @@
         <div class="table-responsive">
         <table class="order-items-table table table-borderless">
           <tbody class="d-flex flex-column">
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Order Item -->
             <tr class="order-item d-flex">
               <td class="item-img p-0">
@@ -56,6 +69,25 @@
               </td>
             </tr>
             <!-- End Order Item -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
   
             <!-- Order Item -->
             <tr class="order-item d-flex">
