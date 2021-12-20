@@ -99,3 +99,15 @@ ul.desc-card-text > p {
     background-image: linear-gradient(to bottom right, #343434, #000000);
     color: #fcfcfc;
 }
+
+.number-control-buttons {
+    background-color: #f2f1ee;
+    padding: 0.5rem 0.75rem;
+    border-radius: 1rem;
+}
+
+.number-control-buttons img {
+    height: 1.35rem;
+    width: 1.35rem;
+    padding: 0.15rem;
+}

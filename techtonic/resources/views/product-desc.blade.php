@@ -81,7 +81,6 @@
         </div>
 
 
-
         <div class="desc-card-body">
             <h5 class="desc-card-title">Description</h5>
             <p class="desc-card-text">The iPhone 12 Pro Max display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle
@@ -109,12 +108,12 @@
         </div>
     </div>
 
-    <div div id="top-categories" class="category-row">
-        <h1 class="category-title text-center">Appraisals</h1>
+    <div id="top-categories" class="category-row">
+        <h1 class="category-title text-center mt-5">Appraisals</h1>
         <p class="category-subtitle text-center">Beyond satisfaction</p>
         <table class="order-items-table table table-borderless">
             <tbody class="d-flex flex-column">
-                <!-- Order Item -->
+
                 <tr class="order-item d-flex">
                     <td class="item-img p-0">
                         <img class="responsive-img" src="https://images.unsplash.com/photo-1456444029056-7dfaeeb83a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="item img">
@@ -138,9 +137,7 @@
                         </div>
                     </td>
                 </tr>
-                <!-- End Order Item -->
 
-                <!-- Order Item -->
                 <tr class="order-item d-flex">
                     <td class="item-img p-0">
                         <img class="responsive-img" src="https://images.unsplash.com/photo-1616645004064-aebe96923cbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="item img">
@@ -164,9 +161,7 @@
                         </div>
                     </td>
                 </tr>
-                <!-- End Order Item -->
 
-                <!-- Order Item -->
                 <tr class="order-item d-flex">
                     <td class="item-img p-0">
                         <img class="responsive-img" src="https://images.unsplash.com/photo-1551299335-7337a578ef8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="item img">
@@ -190,9 +185,6 @@
                         </div>
                     </td>
                 </tr>
-                <!-- End Order Item -->
-
-
 
             </tbody>
         </table>
