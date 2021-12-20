@@ -12,4 +12,9 @@ class ProductImage extends Model
     protected $table = 'product_images';
 
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }
