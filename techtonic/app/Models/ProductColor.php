@@ -12,4 +12,9 @@ class ProductColor extends Model
     protected $table = 'product_colors';
 
     public $timestamps = false;
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'color_id');
+    }
 }
