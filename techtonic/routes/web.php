@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartProductsController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('product-desc');
 });
+
+
+
+Route::get('/cart', [CartProductsController::class, 'show']);
+
+
+
+Route::post('/checkout', function(Request $req){
+    return view('checkout',['products' => json_decode($req->data)]);
+    //return count(json_decode($req->data, true));
+
+
+
+})->name("checkout");
