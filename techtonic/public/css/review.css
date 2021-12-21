@@ -1,0 +1,51 @@
+.review-heading {
+    color: #4c4c4c;
+    font-weight: 800;
+}
+
+.review-btn {
+    background-color: #000;
+    color: #f2f1ef;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    border-radius: 0.75rem;
+    padding: 0.5rem 2rem;
+}
+
+.btn-big {
+    margin: 1rem 0;
+    border-radius: 1.25rem;
+    padding: 1.2rem 6rem;
+}
+
+.item-info {
+    padding-left: 0 !important;
+}
+
+.review-input {
+    background-color: #faf9f6;
+    font-size: 1.15rem;
+    text-align: justify;
+    border-color: #faf9f6;
+    padding: 1.25rem;
+    padding-bottom: 5rem;
+    border-radius: 1rem;
+    width: inherit;
+}
+
+.review-input:focus-visible {
+    outline: none;
+    border-color: #000000;
+}
+
+.number-control-buttons img {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.15rem;
+}
+
+.margin {
+    margin-bottom: 3.125rem;
+}

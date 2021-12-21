@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
       integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-    <link rel="stylesheet" href="/css/home.css">
+    
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/categories.css">
     <link rel="stylesheet" href="/css/home-categories.css">
 @endsection
@@ -22,7 +22,7 @@
 @section('content')
     <div class="gap">
       <h1 class="page-title text-center">TECHTONIC</h1>
-      <p class="page-subtitle text-center">Welcome to the world of luxury</p>
+      <p class="page-subtitle text-center">Welcome to a world of luxury</p>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -38,26 +38,26 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="image-sec">
-            <div class="splendour">OUTCLASSED <br /> SPLENDOUR</div>
-            <img src="/img/unsplash.png" alt="" class="main-img ">
+             <div class="page-title splendour">Outclassed <br /> Splendour</div>
+            <img src="/img/unsplash.png" alt="carousel-img-1" class="main-img ">
           </div>
         </div>
 
         <div class="carousel-item">
           <div class="image-sec">
-            <div class="splendour">OUTCLASSED <br /> SPLENDOUR</div>
+             <div class="page-title splendour">Outclassed <br /> Splendour</div>
             <img
               src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              alt="" class="main-img ">
+              alt="carousel-img-2" class="main-img ">
           </div>
         </div>
 
         <div class="carousel-item">
           <div class="image-sec">
-            <div class="splendour">OUTCLASSED <br /> SPLENDOUR</div>
+             <div class="page-title splendour">Outclassed <br /> Splendour</div>
             <img
               src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              alt="" class="main-img ">
+              alt="carousel-img-3" class="main-img ">
           </div>
         </div>
       </div>
