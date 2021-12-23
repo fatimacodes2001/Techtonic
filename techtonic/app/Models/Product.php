@@ -13,7 +13,7 @@ class Product extends Model
 
     public $timestamps = false;
 
-    // protected $with = ['color', 'specs', 'images'];
+    protected $with = ['images'];
 
     public function color()
     {

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartProductsController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 
 /*
@@ -16,10 +17,18 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('product-desc');
+    return view('home');
 });
 
+//Category Routes
 
+Route::get('/categories', [CategoryController::class, 'index'])
+    ->name('categories');
+
+Route::get('/categories/{category}', [CategoryController::class, 'show'])
+    ->name('categories.show');
+
+//Cart Routes
 
 Route::get('/cart', [CartProductsController::class, 'show']);
 

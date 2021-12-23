@@ -16,7 +16,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'description' => $this->faker->text(),
+            'description' => $this->faker->sentence(5),
             'pic_path' => 'https://images.unsplash.com/photo-1578840602674-bd891cb7ea5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
         ];
     }

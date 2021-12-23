@@ -5,16 +5,13 @@
 @section('styles')
     @parent
 
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="/css/style.css">
 @endsection
 
 @section('content')
     <h1 class="page-title text-center gap">Cart</h1>
-
-    
-
 
     <div class="order-section d-flex flex-column align-items-center">
       <div class="order-details w-100 d-flex flex-column">
