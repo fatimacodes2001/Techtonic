@@ -17,7 +17,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'cutsomer_email');
+        return $this->hasOne(User::class, 'customer_email');
     }
 
     public function products()

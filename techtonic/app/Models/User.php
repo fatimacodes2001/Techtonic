@@ -22,4 +22,8 @@ class User extends Model
         return $this->belongsTo(Cart::class, 'customer_email');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'customer_email');
+    }
 }
