@@ -1,3 +1,13 @@
+.out-of-stock {
+    font-family: "Jost", sans-serif;
+    color: #dc3545;
+    font-weight: 800;
+    text-align: center;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
 .desc-card {
     border: none;
     border-radius: 1.5rem;

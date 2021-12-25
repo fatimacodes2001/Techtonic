@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Product;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::has('products')->get();
-        
-        return view('categories', [
-            'categories' => $categories
-        ]);
+        //
     }
 
     /**
@@ -50,10 +46,15 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::with('products')->find($id);
+        $product = Product::with('color', 'specs')->find($id);
+        $similarMerch = Product::where('category_id', $product->category_id)
+                        ->where('id', '<>', $product->id)
+                        ->limit(5)
+                        ->get();
         
-        return view('category', [
-            'category' => $category
+        return view('product-desc', [
+            'product' => $product,
+            'similarMerch' => $similarMerch,
         ]);
     }
 
