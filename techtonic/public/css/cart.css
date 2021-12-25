@@ -16,13 +16,13 @@ body {
     line-height: 24px;
 }
 
-.comments{
-  background-color: transparent;
-  border: none;
+.comments {
+    background-color: transparent;
+    border: none;
 }
 
-.comments:focus{
-  outline: none;
+.comments:focus {
+    outline: none;
 }
 .icon-btn {
     border: 0;
@@ -33,7 +33,6 @@ body {
 .order-section {
     background-color: #f2f1ef;
 }
-
 
 .order-details {
     background-color: #edece9;
@@ -53,6 +52,7 @@ body {
     border-radius: 9px;
     width: 143px;
     height: 143px;
+    object-fit: cover;
 }
 .item-info {
     padding: 0 27px !important;

@@ -9,6 +9,7 @@ class Cart extends Model
 {
     use HasFactory;
     protected $table = 'cart';
+    public $timestamps = false;
 
     public function user()
     {

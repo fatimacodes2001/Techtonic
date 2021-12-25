@@ -9,6 +9,7 @@ class User extends Model
 {
     use HasFactory;
     protected $table = 'users';
+    public $timestamps = false;
     protected $primaryKey = 'email';
     protected $keyType = 'string';
 
@@ -24,6 +25,6 @@ class User extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'customer_email');
+        return $this->hasMany(Review::class, 'email');
     }
 }

@@ -9,6 +9,7 @@ class Review extends Model
 {
     use HasFactory;
     protected $table = 'reviews';
+    protected $with = ['user:email,first_name,last_name,profile_pic'];
     public $timestamps = false;
 
     public function product()
@@ -18,6 +19,6 @@ class Review extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'cutsomer_email');
+        return $this->belongsTo(User::class, 'customer_email');
     }
 }

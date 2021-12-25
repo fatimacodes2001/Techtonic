@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with('color', 'specs')->find($id);
+        $product = Product::with('color', 'specs', 'reviews')->find($id);
         $similarMerch = Product::where('category_id', $product->category_id)
                         ->where('id', '<>', $product->id)
                         ->limit(5)

@@ -37,6 +37,11 @@ class Product extends Model
         return $this->hasMany(Review::class, 'product_id');
     }
 
+    public function reviewsThree()
+    {
+        return $this->hasMany(Review::class)->limit(3);
+    }
+
     public function orders()
     {
         return $this->belongsToMany(Order::class, "order_has_products", "product_id", "order_id")->withPivot('quantity','product_total');
