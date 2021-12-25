@@ -19,40 +19,36 @@
             <p class="page-subtitle text-center">Furnishing your every Desire</p>
         </div>
 
-        @foreach ($categories as $category)
+        @foreach ($categories as $category)            
 
-            @if(count($category->products) > 0)
+            <div class="category-row">
+                <h1 class="category-title text-center">{{ $category->name }}</h1>
+                <p class="category-subtitle text-center">{{ $category->description }}</p>
+                <p class="browse text-end"><a href="{{route('categories.show', $category->id)}}">Browse our Collection <i class="bi bi-chevron-right"></i></a></p>
 
-                <div class="category-row">
-                    <h1 class="category-title text-center">{{ $category->name }}</h1>
-                    <p class="category-subtitle text-center">{{ $category->description }}</p>
-                    <p class="browse text-end"><a href="{{route('categories.show', $category->id)}}">Browse our Collection <i class="bi bi-chevron-right"></i></a></p>
+                <div class="row">
 
-                    <div class="row">
+                    @foreach ($category->productsThree as $product)
 
-                        @foreach ($category->products as $product)
-
-                            <div class="col-6 col-md-4">
-                                <div class="card text-white">
-                                    <img src="{{ $product->images->first()->pic_path }}"
-                                        class="card-img" alt="{{ $product->name }}">
-                                    <div class="card-img-overlay">
-                                        <h5 class="card-title">{{ $product->name }}</h5>
-                                        <a href="">Explore <i class="bi bi-chevron-down"></i></a>
-                                    </div>
+                        <div class="col-6 col-md-4">
+                            <div class="card text-white">
+                                <img src="{{ $product->images->first()->pic_path }}"
+                                    class="card-img" alt="{{ $product->name }}">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title">{{ $product->name }}</h5>
+                                    <a href="{{route('products.show', $product->id)}}">Explore <i class="bi bi-chevron-down"></i></a>
                                 </div>
                             </div>
+                        </div>
 
-                        @endforeach
+                    @endforeach
 
-                    </div>
-
-                    <p class="browse-md text-center"><a href="{{route('categories.show', $category->id)}}">Browse our Collection <i
-                                class="bi bi-chevron-right"></i></a>
-                    </p>
                 </div>
 
-            @endif
+                <p class="browse-md text-center"><a href="{{route('categories.show', $category->id)}}">Browse our Collection <i
+                            class="bi bi-chevron-right"></i></a>
+                </p>
+            </div>       
 
         @endforeach
 
