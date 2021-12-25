@@ -122,77 +122,37 @@
         <table class="order-items-table table table-borderless">
             <tbody class="d-flex flex-column">
 
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1456444029056-7dfaeeb83a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Jeff Bezos</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">You've saved our business! It's exactly what I've been looking for. Absolutely wonderful! I could probably go into sales for you</p>
+                @foreach ($product->reviewsThree as $review)
+
+                    <tr class="order-item d-flex">
+                        <td class="item-img p-0">
+                            <img class="responsive-img" src="{{ $review->user->profile_pic }}" alt="{{ $review->user->first_name }}">
+                        </td>
+                        <td class="item-info">
+                            <div class="d-flex flex-column">
+                                <p class="item-title fw-bold text-md m-0">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
+                                <div class="item-description">
+                                    <p class="d-block text-sm fw-light m-0">{{ $review->text }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        </td>
+                        <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
 
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
+                            <div class="number-control-buttons d-flex align-items-center">
 
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1616645004064-aebe96923cbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Elon Musk</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">Just what I was looking for.</p>
+                                @for ($i = 0; $i < $review->rating; $i++)
+                                    <img src="/img/star-fill.svg">
+                                @endfor
+
+                                @for ($i = 0; $i < (5-$review->rating); $i++)
+                                    <img src="/img/star-empty.svg">
+                                @endfor
+
                             </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        </td>
+                    </tr>
 
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-empty.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
-
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1551299335-7337a578ef8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Mr.Beast</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">Iphone 12 pro max saved my business. Iphone 12 pro max saved my business. Iphone 12 pro max is awesome! No matter where you go, iphone 12 pro max is the coolest, most happening thing around!</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
-
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
+                @endforeach
 
             </tbody>
         </table>

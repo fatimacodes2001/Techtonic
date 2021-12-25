@@ -9,6 +9,7 @@ class User extends Model
 {
     use HasFactory;
     protected $table = 'users';
+    public $timestamps = false;
     protected $primaryKey = 'email';
     protected $keyType = 'string';
 
@@ -22,4 +23,8 @@ class User extends Model
         return $this->belongsTo(Cart::class, 'customer_email');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'email');
+    }
 }

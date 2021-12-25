@@ -9,10 +9,11 @@ class Cart extends Model
 {
     use HasFactory;
     protected $table = 'cart';
+    public $timestamps = false;
 
     public function user()
     {
-        return $this->hasOne(User::class, 'cutsomer_email');
+        return $this->hasOne(User::class, 'customer_email');
     }
 
     public function products()

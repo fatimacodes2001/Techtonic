@@ -9,7 +9,6 @@ class Address extends Model
 {
     use HasFactory;
     protected $table = 'addresses';
-
     public $timestamps = false;
 
     public function user()
