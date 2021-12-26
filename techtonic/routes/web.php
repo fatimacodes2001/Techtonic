@@ -4,11 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
-<<<<<<< Updated upstream
 use App\Http\Controllers\ReviewController;
-=======
 use App\Http\Controllers\Orders;
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
 /*
@@ -26,13 +23,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/about-us', function () {
-    return view('about-us');
-})->name("about-us");
 
 // ABOUT-US ROUTE
 
-<<<<<<< Updated upstream
 Route::get('/about-us', function () {
     return view('about-us');
 })->name('about-us');
@@ -54,27 +47,17 @@ Route::get('/products/{product}', [ProductController::class, 'show'])
 
 
 // REVIEW ROUTES
-=======
 Route::get('/cart', [CartProductsController::class, 'show'])->name("cart");
 
-Route::get('/categories', function () {
-    return view('categories');
-})->name("categories");
 
-Route::post('/checkout', function(Request $req){
-    return view('checkout',['products' => json_decode($req->data), "comment" => $req->comments ]);
-
-
-
-})->name("checkout");
->>>>>>> Stashed changes
 
 Route::get('/products/{product}/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
 
-<<<<<<< Updated upstream
 Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
     ->name('reviews.store');
+
+
 
 
 // CART ROUTES
@@ -83,9 +66,11 @@ Route::get('/cart', [CartProductsController::class, 'show'])
     ->name('cart');
 
 Route::post('/checkout', function(Request $req){
-    return view('checkout',['products' => json_decode($req->data)]);
-    //return count(json_decode($req->data, true));
+    return view('checkout',['products' => json_decode($req->data), "comment" => $req->comments ]);
+
+
+
 })->name("checkout");
-=======
+
+
 Route::post('/final', [Orders::class, 'placeOrder'])->name("final");
->>>>>>> Stashed changes
