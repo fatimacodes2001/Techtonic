@@ -95,10 +95,10 @@
         </div>
         <div class="desc-card-body">
             <h5 class="desc-card-title">Specifications</h5>
-            <ul class="desc-card-text">
+            <ul class="desc-card-text px-5">
                 @foreach ($product->specs as $specification)
 
-                    <p>{{ $specification->spec }}</p>
+                    <li class="pb-1">{{ $specification->spec }}</li>
 
                 @endforeach
             </ul>
@@ -130,8 +130,8 @@
                         </td>
                         <td class="item-info">
                             <div class="d-flex flex-column">
-                                <p class="item-title fw-bold text-md m-0">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
-                                <div class="item-description">
+                                <p class="item-title fw-bold text-md m-0 mb-2">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
+                                <div class="item-description px-0">
                                     <p class="d-block text-sm fw-light m-0">{{ $review->text }}</p>
                                 </div>
                             </div>

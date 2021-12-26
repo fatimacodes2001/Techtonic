@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 
 /*
@@ -42,6 +43,15 @@ Route::get('/categories/{category}', [CategoryController::class, 'show'])
 
 Route::get('/products/{product}', [ProductController::class, 'show'])
     ->name('products.show');
+
+
+// REVIEW ROUTES
+
+Route::get('/products/{product}/reviews/create', [ReviewController::class, 'create'])
+    ->name('reviews.create');
+
+Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
+    ->name('reviews.store');
 
 
 // CART ROUTES

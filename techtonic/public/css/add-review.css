@@ -32,7 +32,10 @@
     padding: 1.25rem;
     padding-bottom: 5rem;
     border-radius: 1rem;
-    width: inherit;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .review-input:focus-visible {
@@ -40,12 +43,33 @@
     border-color: #000000;
 }
 
-.number-control-buttons img {
-    height: 1.5rem;
-    width: 1.5rem;
-    padding: 0.15rem;
-}
-
 .margin {
     margin-bottom: 3.125rem;
+}
+
+.rating-sec {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rating-sec label {
+    color: #d9d9d9;
+    padding: 0.1rem;
+    transition: color 0.2s;
+}
+
+.rating-sec svg {
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.rating-sec label:hover,
+.rating-sec label:hover ~ label,
+.rating-sec label.active,
+.rating-sec label.active ~ label {
+    color: #414141;
+}
+
+.rating-sec input {
+    display: none;
 }
