@@ -107,8 +107,38 @@ body {
     margin-left: 13px;
 }
 
+<<<<<<< Updated upstream
 .sum {
     background-color: #f2f1ee;
+=======
+.address-button{
+
+  background-color: #000;
+  color: #F2F1EF;
+  border: 0;
+  border-radius: 21px;
+  font-weight: 500;
+  margin: 5px 0;
+  padding: 13px 55px;
+
+
+} 
+
+#payment-options{
+  background-color:  #F2F1EE;
+  padding: 12px 15px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+}
+
+.divide{
+  margin-bottom: 30px;
+}
+
+.sum{
+  background-color: #F2F1EE;
+>>>>>>> Stashed changes
 }
 
 #summary-first {

@@ -26,7 +26,7 @@
 
 
           <!-- Order Item -->
-          <tr class="order-item d-flex">
+          <tr class="order-item d-flex" item="{{ $product->id }}">
               <td class="item-img p-0">
                 <img class="responsive-img" src="/img/phone.png" alt="item img">
               </td>
@@ -48,6 +48,7 @@
                     <button class="delete-item-btn icon-btn">
                       <img src="/img/trash.svg" alt="Delete">
                     </button>
+
                     <div class="number-control-buttons d-flex align-items-center">
                       <button class="fw-bold minus">
                         <img src="/img/minus.svg">
@@ -57,6 +58,8 @@
                         <img src="/img/plus.svg">
                       </button>
                     </div>
+
+
                   </div>
                   <div class="item-price mt-auto">
                     <h4 class="m-0 d-block fw-bold text-end text-md">Price </h4>
@@ -88,9 +91,9 @@
         </table>
         </div>
       </div>
-      <form action="{{ route('checkout') }}" method="post">
+      <form class="next" action="{{ route('checkout') }}" method="post">
           {{ csrf_field() }}
-          <input type="hidden" name="data" value="{{ $products }}">
+          <input type="hidden" name="data" class="data">
 
         <button type="submit" class="btn btn-dark checkout-button text-center text-sm">
           Proceed to Checkout
@@ -106,12 +109,118 @@
 @section('scripts')
     @parent
 
-    <script>
 
-    </script>
     
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+      var $arr = <?php echo json_encode($products); ?>;
+
+
+      $(".fw-bold.plus").on('click',function(){
+        var $parent = $(this).parent();
+        var $field = $parent.children("input");
+        var $name = $parent.parents("tr").attr("item");
+
+        for (var i = 0; i < $arr.length; i++){
+
+          if($arr[i].id === parseInt($name)){
+
+            if($arr[i].stock_quantity > 1){
+
+              $arr[i].pivot.quantity += 1;
+              $arr[i].stock_quantity -= 1;
+              $field.val(parseInt($field.val()) + 1);
+
+
+            }
+           
+          }
+
+      } 
+      })
+
+
+      $(".fw-bold.minus").on('click',function(){
+
+        var $parent = $(this).parent();
+        var $field = $parent.children("input");
+        var $name = $parent.parents("tr").attr("item");
+
+        if(parseInt($field.val()) == 1){
+            $parent.parents("tr").remove();
+            for (var i = 0; i < $arr.length; i++){
+
+              if($arr[i].id === parseInt($name)){
+
+                $arr[i].pivot.quantity -= 1;
+                $arr[i].stock_quantity += 1;
+                delete $arr[i];
+              }
+
+              }
+        }
+        
+        else{
+
+          $field.val(parseInt($field.val()) - 1);
+          for (var i = 0; i < $arr.length; i++){
+
+            if($arr[i].id === parseInt($name)){
+
+              $arr[i].pivot.quantity -= 1;
+              $arr[i].stock_quantity += 1;
+
+            }
+          }
+
+        }
+
+        
+      
+
+
+      })
+
+      $(".delete-item-btn").on("click", function(){
+
+          var $parent = $(this).parent();
+          $parent.parents("tr").remove();
+          var $name = $parent.parents("tr").attr("item");
+
+
+          for (var i = 0; i < $arr.length; i++){
+
+              if($arr[i].id === parseInt($name)){
+
+                $arr[i].stock_quantity += $arr[i].pivot.quantity;
+                delete $arr[i];
+
+              }
+
+            }
+
+
+
+        
+      })
+
+      $(".next").submit(function (e) { 
+        e.preventDefault
+        var $comm = $('<input type="hidden" name="comments"></input>')
+        $comm.val($("input.comments").val())
+        $(this).append($comm)
+        $("input.data").val(JSON.stringify($arr));
+        return true;
+
+
+       })
+
+
+
+    </script>
     
 @endsection
