@@ -47,6 +47,9 @@ Route::get('/products/{product}', [ProductController::class, 'show'])
 
 // REVIEW ROUTES
 
+Route::get('/products/{product}/reviews', [ReviewController::class, 'index'])
+    ->name('reviews.index');
+
 Route::get('/products/{product}/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
 

@@ -11,11 +11,18 @@ class ReviewController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($productId)
     {
-        //
+        $product = Product::find($productId)->only('id', 'name');
+        $reviews = Review::where('product_id', $product['id'])->get();
+        
+        return view('reviews', [
+            'product' => $product,
+            'reviews' => $reviews,
+        ]);
     }
 
     /**
