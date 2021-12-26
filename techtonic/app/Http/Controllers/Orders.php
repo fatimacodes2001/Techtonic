@@ -6,17 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Address;
+use App\Models\Product;
+
 use Carbon\Carbon;
 
 
 
 class Orders extends Controller
 {
-    //
+    
 
     public function placeOrder(Request $req){
         $order = new Order;
-        $order->remarks = $req->comment;
+        if(empty($req->comment)){
+            $order->remarks = "None";
+        }else{
+            $order->remarks = $req->comment;
+        }
+
         $order->status = "Placed";
         $order->order_total = (int)$req->total;
         $order->payment_method = $req->mode;
@@ -25,7 +33,16 @@ class Orders extends Controller
         $order->address_id = 1;
         $order->save();
 
-        return view('order-final',['data' => json_decode($req->data), "total" => $req->total, "remarks" => $req->comment, "mode" => $req->mode]);
+        foreach (json_decode($req->data) as $product) {
+
+            $prod = Product::find($product->id);
+            $order->products()->attach($prod, array('quantity' => (int) $product->pivot->quantity, "product_total" => (int) $product->pivot->quantity * (int) $product->price));
+
+        }
+
+    
+        $address = Address::find($order->address_id);
+        return view('order-final',['order' => $order, "address" => $address]);
 
     }
 }

@@ -107,10 +107,12 @@ body {
     margin-left: 13px;
 }
 
-<<<<<<< Updated upstream
-.sum {
-    background-color: #f2f1ee;
-=======
+strong{
+    font-weight: bolder;
+}
+
+
+
 .address-button{
 
   background-color: #000;
@@ -138,7 +140,6 @@ body {
 
 .sum{
   background-color: #F2F1EE;
->>>>>>> Stashed changes
 }
 
 #summary-first {
