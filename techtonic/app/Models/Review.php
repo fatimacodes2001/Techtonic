@@ -9,8 +9,9 @@ class Review extends Model
 {
     use HasFactory;
     protected $table = 'reviews';
-    protected $with = ['user:email,first_name,last_name,profile_pic'];
+    protected $fillable = ['text', 'rating', 'customer_email'];
     public $timestamps = false;
+    protected $with = ['user:email,first_name,last_name,profile_pic'];
 
     public function product()
     {

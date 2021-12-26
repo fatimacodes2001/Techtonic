@@ -31,7 +31,6 @@
 
 ul.desc-card-text {
     background-color: #faf9f6;
-    font-size: 1.5rem;
     text-align: justify;
     border-radius: 1rem;
 }
@@ -84,8 +83,8 @@ ul.desc-card-text > p {
 }
 
 .color-card-text {
-    padding: 0rem;
-    margin-bottom: 0rem;
+    padding: 0;
+    margin-bottom: 0;
     clear: both;
     overflow: hidden;
 }
@@ -117,7 +116,7 @@ ul.desc-card-text > p {
 }
 
 .number-control-buttons img {
-    height: 1.35rem;
-    width: 1.35rem;
-    padding: 0.15rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    padding: 0.1rem;
 }

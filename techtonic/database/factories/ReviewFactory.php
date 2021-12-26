@@ -15,7 +15,7 @@ class ReviewFactory extends Factory
     {
         return [
             'text' => $this->faker->text(),
-            'rating' => $this->faker->numberBetween(1, 5),
+            'rating' => $this->faker->numberBetween(0, 5),
             'customer_email' => "fatima@abc.com",
         ];
     }
