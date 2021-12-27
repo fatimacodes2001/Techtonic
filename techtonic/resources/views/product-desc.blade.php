@@ -87,7 +87,6 @@
 
         </div>
 
-
         <div class="desc-card-body">
             <h5 class="desc-card-title">Description</h5>
             <p class="desc-card-text">{{ $product->description }}
@@ -119,6 +118,7 @@
     <div id="top-categories" class="category-row">
         <h1 class="category-title text-center mt-5">Appraisals</h1>
         <p class="category-subtitle text-center">Beyond satisfaction</p>
+        <p class="browse text-end"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i class="bi bi-chevron-right"></i></a></p>
         <table class="order-items-table table table-borderless">
             <tbody class="d-flex flex-column">
 
@@ -156,6 +156,9 @@
 
             </tbody>
         </table>
+        <p class="browse-md text-center"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i
+            class="bi bi-chevron-right"></i></a>
+        </p>
     </div>
     <div id="top-categories" class="category-row">
         <h1 class="category-title text-center">Similar Merchandise</h1>

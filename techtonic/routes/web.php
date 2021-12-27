@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
@@ -19,9 +20,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// HOME ROUTE
+
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home');
 
 
 // ABOUT-US ROUTE
@@ -50,6 +52,9 @@ Route::get('/products/{product}', [ProductController::class, 'show'])
 Route::get('/cart', [CartProductsController::class, 'show'])->name("cart");
 
 
+
+Route::get('/products/{product}/reviews', [ReviewController::class, 'index'])
+    ->name('reviews.index');
 
 Route::get('/products/{product}/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');

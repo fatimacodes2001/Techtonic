@@ -3,65 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\Review;
 
-class ReviewController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function index($productId)
+    public function index()
     {
-        $product = Product::find($productId)->only('id', 'name');
-        $reviews = Review::where('product_id', $product['id'])->get();
+        $topTrends = Category::has('products')->limit(4)->get();
+        $topProducts = Product::limit(5)->get();
         
-        return view('reviews', [
-            'product' => $product,
-            'reviews' => $reviews,
+        return view('home', [
+            'topTrends' => $topTrends,
+            'topProducts' => $topProducts
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function create($productId)
+    public function create()
     {
-        $product = Product::find($productId)->only('id', 'name');
-        
-        return view('add-review', [
-            'product' => $product,
-        ]);
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request, int  $productId
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $productId)
+    public function store(Request $request)
     {
-        $request->validate([
-            'text' => 'required|string',
-            'rating' => 'required|numeric|min:0|max:5',
-        ]);
-
-        $review = new Review([
-            'text' => $request->text, 
-            'rating' => $request->rating,
-            'customer_email' => 'fatima@abc.com',
-        ]);
-
-        $product = Product::find($productId);
-        $product->reviews()->save($review);
-        return redirect()->route('home');
+        //
     }
 
     /**

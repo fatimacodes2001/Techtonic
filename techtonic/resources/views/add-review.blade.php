@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add Review')
+@section('title', 'Add Review - ' . $product['name'])
 
 @section('styles')
     @parent
