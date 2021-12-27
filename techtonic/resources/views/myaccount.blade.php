@@ -1,24 +1,23 @@
-@extends('layouts.app')
 
-@section('title', 'Categories')
 
-@section('styles')
-    @parent
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Css main -->
+    <link rel="stylesheet" href="css/master.css" />
     
-    <link rel="stylesheet" href="/css/master.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/home.css">
-
-    
-
-    
-@endsection
-
-@section('content')
-
-<section id="jeff">
+  </head>
+  <body>
+    <section id="jeff">
       <div class="img-holder text-center">
         <img src="img/unsplash__1bPErRSKco.png" alt="">
       </div>
@@ -215,15 +214,6 @@
         
       </div>
     </section>
-    
-@endsection
-
-@section('scripts')
-    @parent
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/script.js"></script>
-
-@endsection
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

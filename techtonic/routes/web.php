@@ -72,6 +72,7 @@ Route::post('/checkout', function(Request $req){
 
 })->name("checkout");
 
+Route::post('/final', [Orders::class, 'placeOrder'])->name("final");
 
 Route::get('/account', function () {
     return view('myaccount');
