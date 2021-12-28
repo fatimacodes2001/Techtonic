@@ -65,14 +65,31 @@
 
     @php
         $outOfStock = ($product->stock_quantity) === 0 ? true : false;
+
+        $inCart = false;
+        foreach ($cartItems as $item) {
+            if ($item->id === $product->id){
+                $inCart = true;
+                break;
+            }
+        }
     @endphp
 
-    <div class="cart-button">
-        <button @class(['btn', 'btn-dark', 'checkout-button', 'text-center', 'text-sm', 'disabled' => $outOfStock])>
-            Add to Cart
-            <img src="/img/cart-light.svg" alt="checkout">
-        </button>
-    </div>
+    <form action="{{ route('cart.update', $product->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div class="cart-button">
+            <button type="submit" @class(['btn', 'btn-dark', 'checkout-button', 'text-center', 'text-sm', 'disabled' => ($outOfStock || $inCart)])>
+                @if ($inCart)
+                    Added to Cart
+                @else
+                    Add to Cart
+                @endif
+                <img src="/img/cart-light.svg" alt="checkout">
+            </button>
+        </div>
+    </form>
 
     @if($outOfStock)
         <h5 class="out-of-stock">Out of Stock</h5>
