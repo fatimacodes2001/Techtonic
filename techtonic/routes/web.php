@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Orders;
 use Illuminate\Http\Request;
 
@@ -50,9 +51,8 @@ Route::get('/products/{product}', [ProductController::class, 'show'])
 
 
 // REVIEW ROUTES
+
 Route::get('/cart', [CartProductsController::class, 'show'])->name("cart");
-
-
 
 Route::get('/products/{product}/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');
@@ -64,9 +64,7 @@ Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
     ->name('reviews.store');
 
 
-
-
-// CART ROUTES
+// CART AND CHECKOUT ROUTES
 
 Route::put('/add-to-cart/{product}', [CartProductsController::class, 'update'])
     ->name('cart.update');
@@ -76,20 +74,37 @@ Route::get('/cart', [CartProductsController::class, 'show'])
 
 Route::post('/checkout', function(Request $req){
     return view('checkout',['products' => json_decode($req->data), "comment" => $req->comments ]);
-
-
-
 })->name("checkout");
+
+
+// ORDER ROUTES
 
 Route::post('/final', [Orders::class, 'placeOrder'])->name("final");
 
+Route::post('/order', [Orders::class, 'viewOrder'])->name('order');
 
 Route::post('/change-quantity', [CartProductsController::class, 'changeQuantity'])->name("change");
 
 
 
 
+// ACCOUNT ROUTES
+
 Route::get('/account', [ProfileController::class, 'show'])->name('account');
 
-Route::post('/order', [Orders::class, 'viewOrder'])->name('order');
+
+//ADMIN ROUTES
+
+Route::get('/admin/users', [UserController::class, 'adminIndex'])
+    ->name('admin.users.index');
+
+Route::get('/admin/categories', [CategoryController::class, 'adminIndex'])
+    ->name('admin.categories.index');
+
+Route::get('/admin/categories/{category}', [CategoryController::class, 'adminShow'])
+    ->name('admin.categories.show');
+
+Route::get('/admin/orders', [Orders::class, 'adminIndex'])
+    ->name('admin.orders.index');
+
 
