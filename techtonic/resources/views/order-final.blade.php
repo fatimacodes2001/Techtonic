@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/add-review.css">
+
 @endsection
 
 @section('content')
@@ -57,8 +59,10 @@
                      ?>
 
                     @if ($leave)
-                       <button><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
+                       <button class="btn btn-dark review-btn btn-small" ><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
                     @endif
+                    <button class="btn btn-dark review-btn btn-small" ><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
+
 
 
                   </div>

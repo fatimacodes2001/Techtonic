@@ -15,6 +15,7 @@
     cursor: pointer;
 }
 
+
 .show {
     display: none;
 }
@@ -173,6 +174,8 @@
     font-family: "Jost", sans-serif;
     font-weight: 500;
 }
+
+
 
 @media (min-width: 360px) {
     .splendour {
