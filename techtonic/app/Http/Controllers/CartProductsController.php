@@ -10,7 +10,6 @@ use App\Models\Product;
 
 
 
-
 class CartProductsController extends Controller
 {
     //
@@ -47,9 +46,25 @@ class CartProductsController extends Controller
                 'quantity' => $quantity
             ]);
 
-        }
+        }}
 
         
         
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $productId
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $productId)
+    {
+        $user = User::find("fatima@abc.com");
+        $cart = Cart::where("customer_email",$user->email)->first();
+        $prods = $cart->products;
+        $prod = Product::find($productId);
+        $cart->products()->attach($prod, array('quantity' => 1));
+
+        return redirect('cart');
     }
 }

@@ -5,9 +5,9 @@
 @section('styles')
     @parent
 
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/add-review.css">
 
 @endsection

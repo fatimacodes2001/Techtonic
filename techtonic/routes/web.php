@@ -68,6 +68,9 @@ Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
 
 // CART ROUTES
 
+Route::put('/add-to-cart/{product}', [CartProductsController::class, 'update'])
+    ->name('cart.update');
+
 Route::get('/cart', [CartProductsController::class, 'show'])
     ->name('cart');
 

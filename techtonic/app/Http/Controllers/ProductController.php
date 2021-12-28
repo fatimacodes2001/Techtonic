@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
+use App\Models\Cart;
 
 class ProductController extends Controller
 {
@@ -51,10 +53,14 @@ class ProductController extends Controller
                         ->where('id', '<>', $product->id)
                         ->limit(5)
                         ->get();
+        $user = User::find("fatima@abc.com");
+        $cart = Cart::where("customer_email",$user->email)->first();
+        $cartItems = $cart->products;
         
         return view('product-desc', [
             'product' => $product,
             'similarMerch' => $similarMerch,
+            'cartItems' => $cartItems
         ]);
     }
 
