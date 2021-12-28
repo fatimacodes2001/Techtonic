@@ -49,7 +49,7 @@ body {
     margin-bottom: 15px;
 }
 .item-img img {
-    border-radius: 9px;
+    border-radius:next 9px;
     width: 143px;
     height: 143px;
     object-fit: cover;
