@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\User;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,22 +14,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::has('products')->get();
-        
-        return view('categories', [
-            'categories' => $categories
-        ]);
+        //
     }
 
     public function adminIndex()
     {
-        $categories = Category::get();
+        $users = User::with('address')->where('is_admin', 0)->get();
         
-        return view('admin.categories', [
-            'categories' => $categories
+        return view('admin.users', [
+            'users' => $users
         ]);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -60,20 +55,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::with('products')->find($id);
-        
-        return view('category', [
-            'category' => $category
-        ]);
-    }
-
-     public function adminShow($id)
-    {
-        $category = Category::with('products')->find($id);
-        
-        return view('admin.category', [
-            'category' => $category
-        ]);
+        //
     }
 
     /**

@@ -53,4 +53,18 @@ class Orders extends Controller
         return view('order-final',['order' => $order, "address" => $address]);
 
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function adminIndex()
+    {
+        $orders = Order::with('address')->get();
+        
+        return view('admin.orders', [
+            'orders' => $orders
+        ]);
+    }
 }
