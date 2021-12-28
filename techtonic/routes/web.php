@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Orders;
 use Illuminate\Http\Request;
 
@@ -79,6 +80,9 @@ Route::post('/checkout', function(Request $req){
 
 Route::post('/final', [Orders::class, 'placeOrder'])->name("final");
 
-Route::get('/account', function () {
-    return view('myaccount');
-})->name('account');
+
+
+Route::get('/account', [ProfileController::class, 'show'])->name('account');
+
+Route::post('/order', [Orders::class, 'viewOrder'])->name('order');
+

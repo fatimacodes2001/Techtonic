@@ -42,14 +42,28 @@
                   @foreach ($product->specs as $spec)
                     <p class="d-block text-sm fw-light m-0">{{ $spec->spec }}</p>
                   @endforeach
-                 </div>
+                  </div>
                 </div>
               </td>
+
               <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                   <div class="item-control-buttons d-flex align-items-center">
+                     <?php 
+                      $leave = FALSE;
+                      if( $order->status === "Delivered" ){
+                         $leave = TRUE;
+                      }
+   
+                     ?>
+
+                    @if ($leave)
+                       <button><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
+                    @endif
+
+
                   </div>
                   <div class="item-price mt-auto">
-                    <h4 class="m-0 d-block fw-bold text-end text-md">Price </h4>
+                    <h4 class="m-0 d-block fw-bold text-end text-md">x{{ $product->pivot->quantity }} </h4>
                     <p class="m-0 d-block fw-light text-end text-md">{{ $product->price }} PKR</p>
                   </div>
               </td>

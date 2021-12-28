@@ -45,4 +45,12 @@ class Orders extends Controller
         return view('order-final',['order' => $order, "address" => $address]);
 
     }
+
+    public function viewOrder(Request $req){
+
+        $order = Order::find((int)$req->id);
+        $address = Address::find((int)$order->address_id);
+        return view('order-final',['order' => $order, "address" => $address]);
+
+    }
 }

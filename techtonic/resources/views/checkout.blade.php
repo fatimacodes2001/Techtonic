@@ -155,7 +155,7 @@
           
           <input type="hidden" name="data" class="data-con">
           <button type="submit" class="btn btn-dark checkout-button text-center text-sm">
-            Proceed to Payment
+            Finalize Order
             <img src="/img/chevron-right.svg" alt="checkout">
           </button>
 

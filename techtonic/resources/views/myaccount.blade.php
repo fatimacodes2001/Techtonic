@@ -21,7 +21,7 @@
       <div class="img-holder text-center">
         <img src="img/unsplash__1bPErRSKco.png" alt="">
       </div>
-      <h1>JEFF BEZOS</h1>
+      <h1>Jeff Bezos</h1>
       <div class="row table-holder justify-content-between">
         <div class="taab">
           <div class="">
@@ -59,22 +59,24 @@
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                              <div class="order-details d-flex justify-content-between">
-                                <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                                <a href="">View Order</a>
-                              </div>
-                              <div class="order-details d-flex justify-content-between pt-4">
-                                <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                                <a href="">View Order</a>
-                              </div>
-                              <div class="order-details d-flex justify-content-between pt-4">
-                                <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                                <a href="">View Order</a>
-                              </div>
-                              <div class="order-details d-flex justify-content-between pt-4">
-                                <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                                <a href="">View Order</a>
-                              </div>
+                            @foreach ($placed as $order)
+
+                            <div class="order-details d-flex justify-content-between pt-4">
+                            <h3>Order#{{$order->id}} - <span>{{$order->total}} PKR</span></h3>
+
+                                <form action="{{ route('order') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <a href="javascript:;" onclick="parentNode.submit();">View Order</a>
+                                    <input type="hidden" name="id" value="{{ $order->id }}"/>
+                                </form>
+
+                            </div>
+
+
+                            @endforeach
+                              
+                              
                             </div>
                           </div>
                         </div>
@@ -92,22 +94,21 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion-two">
                           <div class="accordion-body">
-                            <div class="order-details d-flex justify-content-between">
-                              <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                              <a href="">View Order</a>
-                            </div>
-                            <div class="order-details d-flex justify-content-between pt-4">
-                              <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                              <a href="">View Order</a>
-                            </div>
-                            <div class="order-details d-flex justify-content-between pt-4">
-                              <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                              <a href="">View Order</a>
-                            </div>
-                            <div class="order-details d-flex justify-content-between pt-4">
-                              <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                              <a href="">View Order</a>
-                            </div>
+                          @foreach ($processing as $order)
+
+                          <div class="order-details d-flex justify-content-between pt-4">
+                          <h3>Order#{{$order->id}} - <span>{{$order->total}} PKR</span></h3>
+                          <form action="{{ route('order') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <a href="javascript:;" onclick="parentNode.submit();">View Order</a>
+                                    <input type="hidden" name="id" value="{{ $order->id }}"/>
+                          </form>
+                          </div>
+
+
+                          @endforeach
+                            
                           </div>
                         </div>
                       </div>
@@ -125,22 +126,20 @@
                       </h2>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionThree">
                         <div class="accordion-body">
-                          <div class="order-details d-flex justify-content-between">
-                            <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                            <a href="">View Order</a>
-                          </div>
-                          <div class="order-details d-flex justify-content-between pt-4">
-                            <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                            <a href="">View Order</a>
-                          </div>
-                          <div class="order-details d-flex justify-content-between pt-4">
-                            <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                            <a href="">View Order</a>
-                          </div>
-                          <div class="order-details d-flex justify-content-between pt-4">
-                            <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                            <a href="">View Order</a>
-                          </div>
+
+                        @foreach ($shipped as $order)
+                        <div class="order-details d-flex justify-content-between pt-4">
+                        <h3>Order#{{$order->id}} - <span>{{$order->total}} PKR</span></h3>
+
+                                <form action="{{ route('order') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <a href="javascript:;" onclick="parentNode.submit();">View Order</a>
+                                    <input type="hidden" name="id" value="{{ $order->id }}"/>
+                                </form>
+                        </div>
+                        @endforeach
+                          
                         </div>
                       </div>
                     </div>
@@ -157,23 +156,22 @@
                       </button>
                     </h2>
                     <div id="collapse-four" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion-two">
-                      <div class="accordion-body">
-                        <div class="order-details d-flex justify-content-between">
-                          <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                          <a href="">View Order</a>
-                        </div>
+                      <div class="accordion-body">           
+
+                        @foreach ($delivered as $order)
                         <div class="order-details d-flex justify-content-between pt-4">
-                          <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                          <a href="">View Order</a>
+                            <h3>Order#{{$order->id}} - <span>{{$order->total}} PKR</span></h3>
+
+                             <form action="{{ route('order') }}" method="POST">
+                                    {{ csrf_field() }}
+
+                                    <a href="javascript:;" onclick="parentNode.submit();">View Order</a>
+                                    <input type="hidden" name="id" value="{{ $order->id }}"/>
+                             </form>
+
                         </div>
-                        <div class="order-details d-flex justify-content-between pt-4">
-                          <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                          <a href="">View Order</a>
-                        </div>
-                        <div class="order-details d-flex justify-content-between pt-4">
-                          <h3>Order # 729213 - <span>370,000 PKR</span></h3>
-                          <a href="">View Order</a>
-                        </div>
+                        @endforeach
+
                       </div>
                     </div>
                   </div>
