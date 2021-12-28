@@ -81,6 +81,10 @@ Route::post('/checkout', function(Request $req){
 Route::post('/final', [Orders::class, 'placeOrder'])->name("final");
 
 
+Route::post('/change-quantity', [CartProductsController::class, 'changeQuantity'])->name("change");
+
+
+
 
 Route::get('/account', [ProfileController::class, 'show'])->name('account');
 

@@ -40,8 +40,11 @@ class Orders extends Controller
 
         }
 
-    
+
         $address = Address::find($order->address_id);
+        $cart = Cart::where('customer_email', '=', "fatima@abc.com")->get();
+        $cart->products()->detach();
+
         return view('order-final',['order' => $order, "address" => $address]);
 
     }

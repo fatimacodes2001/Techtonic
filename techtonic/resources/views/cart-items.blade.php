@@ -119,6 +119,25 @@
 
       var $arr = <?php echo json_encode($products); ?>;
 
+      function sendAjax(p_id, quantity, stock){
+
+
+        let _token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+                  url: "/change-quantity",
+                  type:"POST",
+                  data:{
+                    _token: _token,
+                    quantity: quantity,
+                    id: p_id,
+                    stock: stock
+                  }     
+              });
+
+              
+
+      }
+
 
       $(".fw-bold.plus").on('click',function(){
         var $parent = $(this).parent();
@@ -134,6 +153,8 @@
               $arr[i].pivot.quantity += 1;
               $arr[i].stock_quantity -= 1;
               $field.val(parseInt($field.val()) + 1);
+              sendAjax(parseInt($name), $arr[i].pivot.quantity, $arr[i].stock_quantity)
+
 
 
             }
@@ -158,10 +179,12 @@
 
                 $arr[i].pivot.quantity -= 1;
                 $arr[i].stock_quantity += 1;
-                delete $arr[i];
-              }
+                sendAjax(parseInt($name), $arr[i].pivot.quantity, $arr[i].stock_quantity)
 
-              }
+                delete $arr[i];
+                }}
+
+                
         }
         
         else{
@@ -173,11 +196,15 @@
 
               $arr[i].pivot.quantity -= 1;
               $arr[i].stock_quantity += 1;
+              sendAjax(parseInt($name), $arr[i].pivot.quantity, $arr[i].stock_quantity)
+
+
 
             }
           }
 
         }
+
 
         
       
@@ -197,11 +224,16 @@
               if($arr[i].id === parseInt($name)){
 
                 $arr[i].stock_quantity += $arr[i].pivot.quantity;
+                $arr[i].pivot.quantity = 0;
+                sendAjax(parseInt($name), $arr[i].pivot.quantity, $arr[i].stock_quantity)
+
                 delete $arr[i];
 
               }
 
             }
+
+
 
 
 
