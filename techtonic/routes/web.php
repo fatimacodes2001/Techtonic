@@ -28,11 +28,24 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
 
+
+//Auth Routes
+Route::get('/login', function () {
+    return view('sign-in');
+})->name('login');
+
+Route::get('/signup', function () {
+    return view('sign-up');
+})->name('signup');
+
+
 // ABOUT-US ROUTE
 
 Route::get('/about-us', function () {
     return view('about-us');
 })->name('about-us');
+
+
 
 
 // CATEGORY ROUTES
