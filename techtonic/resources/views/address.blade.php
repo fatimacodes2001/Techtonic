@@ -34,55 +34,56 @@
             justify-content-center
           "
         >
-          <h2>Sign up</h2>
-          <p>Dive into a world of Luxury</p>
+          <h2>Address</h2>
+          <p>Just a step away</p>
         </div>
         <div class="col-md-7">
           <form action="">
             <input
-              type="email"
+              type="text"
+              name = "country"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="Email"
+              placeholder="Country"
             />
             <div class="d-flex justify-content-between">
               <input
                 type="text"
+                name = "city"
                 class="form-control w-50 me-3"
                 id="exampleFormControlInput1"
-                placeholder="First Name"
+                placeholder="City"
               />
               <input
                 type="text"
                 class="form-control w-50"
                 id="exampleFormControlInput1"
-                placeholder="Last Name"
+                name = "state"
+                placeholder="State"
               />
             </div>
-            <div class="password">
-              <input
-                type="password"
+            <div class="address">
+            <input
+                type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
-                placeholder="Password"
+                placeholder="Street Address"
+                name = "street"
+
               />
-              <div class="eye">
-                <img class="img-fluid" src="img/eye.png" alt="" />
-              </div>
-            </div>
-            <div class="password repeat-password">
               <input
-                type="password"
+                type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
-                placeholder="Repeat Password"
+                placeholder="Postal Code"
+                name = "postal code"
+
               />
-              <div class="eye">
-                <img class="img-fluid" src="img/eye.png" alt="" />
-              </div>
+              
             </div>
+           
             <button type="submit" class="btn btn-dark">
-              Upload Picture
+              Create Account
               <img style="width: 20px; padding-left: 5px;" src="assets/upload.png" alt="" />
             </button>
           </form>

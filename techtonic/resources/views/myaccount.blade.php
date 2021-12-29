@@ -7,16 +7,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- bootstrap -->
+
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Css main -->
+
+
+
     <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+
+
+
+
+
     
   </head>
   <body>
+  <div class="container-lg">   
+    
+  <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-start">
+      <a class="navbar-brand" href="{{route('home')}}" style="margin-left: 5px;">
+          <img src="/img/logo.svg" height="35" alt="techtonic-logo">
+      </a>
+
+      <a class="show nav-item nav-link mob" href="cart-items.html"> <img src="/img/cart.svg" alt="cart"> </a>
+      <a class="show nav-item nav-link mob"> <img src="/img/user.svg" alt="user"></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div style="width: 100%;">
+          <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="navbarTogglerDemo01">
+              <ul class="navbar-nav">
+                  <a class="nav-item nav-link" href="{{route('about-us')}}"> About Us </a>
+                  <a class="nav-item nav-link" > Store </a>
+                  <a class="nav-item nav-link" href="{{route('categories.index')}}"> Categories </a>
+              </ul>
+          </div>
+      </div>
+
+      <a class="hide nav-item nav-link mob" href="{{ route('cart') }}"> <img src="/img/cart.svg" alt="cart"> </a>
+      <a class="hide nav-item nav-link mob" href="{{route('account')}}" > <img src="/img/user.svg" alt="user"></a>
+    </nav>
+
+
+
+
+
     <section id="jeff">
       <div class="img-holder text-center">
         <img src="img/unsplash__1bPErRSKco.png" alt="">
@@ -30,8 +74,6 @@
                 <div class="nav side-bar flex-md-column  nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <button class="nav-link col-6 col-md-12" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</button>
                   <button class="nav-link active col-6 col-md-12 " id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Orders</button>
-                  <button class="nav-link col-6 col-md-12" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Wallet</button>
-                  <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Refunds</button>
                   <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Addresses</button>
                   <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Payment Options</button>
                 
@@ -212,6 +254,52 @@
         
       </div>
     </section>
+
+
+    <div class="footer">
+        <div class="footer-sec col-sm-4 col-12 d-flex flex-column justify-content-between">
+          <div class="address">
+            <div class="lines address-parts"> <span class="dark">781 </span>Sheila Lane</div>
+            <div class="lines address-parts"><span class="dark">City </span>Goshute</div>
+            <div class="lines address-parts"><span class="dark">State/Province </span>Nevada</div>
+          </div>
+          <div class="address">
+            <div class="lines address-parts"><span class="dark">2187</span> College Street</div>
+            <div class="lines address-parts"><span class="dark">City </span>Florence</div>
+            <div class="lines address-parts"><span class="dark">State/Province </span>Albama</div>
+          </div>
+        </div>
+
+        <div class="footer-sec col-sm-4 col-12 items">
+          <h2 class="page-title bottom-name">
+            TECHTONIC
+          </h2>
+          <P class="normal bottom-subtitle">
+            Welcome to a world of Luxury
+          </P>
+          <img class="bottom-logo" src="/img/big-logo.svg" alt="logo">
+        </div>
+
+        <div class="footer-sec col-sm-4 col-12 right">
+          <h4 class="footer-heading">Reach Out</h4>
+          <div class="icons">
+            <img src="/img/sn1.svg" alt="facebook">
+            <img src="/img/sn2.svg" alt="linkedin">
+            <img src="/img/sn3.svg" alt="twitter">
+            <img src="/img/sn4.svg" alt="phone">
+          </div>
+          <p class="normal copyright">Copyright © 2021 <span>TECHTONIC</span> Inc. All rights reserved</p>
+        </div>
+</div>
+     
+  
+  </div>
+
+
+
+
+
+
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

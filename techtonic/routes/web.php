@@ -38,6 +38,11 @@ Route::get('/signup', function () {
     return view('sign-up');
 })->name('signup');
 
+Route::get('/address', function () {
+    return view('address');
+})->name('address');
+
+
 
 // ABOUT-US ROUTE
 
