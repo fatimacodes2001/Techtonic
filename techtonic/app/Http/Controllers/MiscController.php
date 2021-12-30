@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 
-class HomeController extends Controller
+class MiscController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
         $topTrends = Category::has('products')->limit(4)->get();
         $topProducts = Product::limit(5)->get();
@@ -22,6 +22,26 @@ class HomeController extends Controller
             'topTrends' => $topTrends,
             'topProducts' => $topProducts
         ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function aboutUs()
+    {   
+        return view('about-us');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin()
+    {   
+        return view('admin.home');
     }
 
     /**

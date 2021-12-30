@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MiscController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartProductsController;
@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 
 // HOME ROUTE
 
-Route::get('/', [HomeController::class, 'index'])
+Route::get('/', [MiscController::class, 'home'])
     ->name('home');
 
 
@@ -46,9 +46,8 @@ Route::get('/address', function () {
 
 // ABOUT-US ROUTE
 
-Route::get('/about-us', function () {
-    return view('about-us');
-})->name('about-us');
+Route::get('/about-us', [MiscController::class, 'aboutUs'])
+    ->name('about-us');
 
 
 
@@ -111,18 +110,53 @@ Route::post('/change-quantity', [CartProductsController::class, 'changeQuantity'
 Route::get('/account', [ProfileController::class, 'show'])->name('account');
 
 
-//ADMIN ROUTES
+/*===================
+    ADMIN ROUTES
+====================*/
+
+Route::get('/admin', [MiscController::class, 'admin'])
+    ->name('admin');
+
+// USER ROUTES
 
 Route::get('/admin/users', [UserController::class, 'adminIndex'])
     ->name('admin.users.index');
 
+
+// CATEGORY ROUTES
+
 Route::get('/admin/categories', [CategoryController::class, 'adminIndex'])
     ->name('admin.categories.index');
+
+Route::get('/admin/categories/create', [CategoryController::class, 'adminCreate'])
+    ->name('admin.categories.create');
+
+Route::post('/admin/categories', [CategoryController::class, 'adminStore'])
+    ->name('admin.categories.store');
 
 Route::get('/admin/categories/{category}', [CategoryController::class, 'adminShow'])
     ->name('admin.categories.show');
 
+Route::get('/admin/categories/{category}/edit', [CategoryController::class, 'adminEdit'])
+    ->name('admin.categories.edit');
+
+Route::put('/admin/categories/{category}', [CategoryController::class, 'adminUpdate'])
+    ->name('admin.categories.update');
+
+Route::delete('/admin/categories/{category}', [CategoryController::class, 'adminDestroy'])
+    ->name('admin.categories.destroy');
+
+    
+// PRODUCT ROUTES
+
+Route::get('/admin/categories/{category}/products/create', [ProductController::class, 'adminCreate'])
+    ->name('admin.products.create');
+
+Route::post('/admin/categories/{category}/products', [ProductController::class, 'adminStore'])
+    ->name('admin.products.store');
+
+
+// ORDER ROUTES
+
 Route::get('/admin/orders', [Orders::class, 'adminIndex'])
     ->name('admin.orders.index');
-
-

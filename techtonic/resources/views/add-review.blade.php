@@ -32,9 +32,9 @@
                   <p>There were some problems with your input.</p>
                   <hr>
 
-                    @foreach ($errors->all() as $error)
-                      <p class="mb-0">{{ $error }}</p> 
-                    @endforeach
+                  @foreach ($errors->all() as $error)
+                    <p class="mb-0">{{ $error }}</p> 
+                  @endforeach
 
               </div>
           @endif
@@ -47,7 +47,6 @@
                   <td class="item-info">
                     <div class="d-flex flex-column">
                       <p class="review-heading text-md m-0">Overall Rating</p>
-
                     </div>
                   </td>
 
@@ -56,7 +55,7 @@
 
                       @for ($i = 5; $i > 0 ; $i--)
 
-                         <label>
+                        <label>
                           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 0L13.09 6.26L20 7.27L15 12.14L16.18 19.02L10 15.77L3.82 19.02L5 12.14L0 7.27L6.91 6.26L10 0Z" fill="currentColor"/>
                           </svg>

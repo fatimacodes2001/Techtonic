@@ -36,9 +36,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function adminCreate()
     {
-        //
+         return view('admin.add-category');
     }
 
     /**
@@ -47,9 +47,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function adminStore(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'pic_path' => 'required|image',
+        ]);
+
+        $attributes['pic_path'] = $request->file('pic_path')->store('categories');
+        Category::create($attributes);
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -67,7 +75,7 @@ class CategoryController extends Controller
         ]);
     }
 
-     public function adminShow($id)
+    public function adminShow($id)
     {
         $category = Category::with('products')->find($id);
         
@@ -79,34 +87,48 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function adminEdit(Category $category)
     {
-        //
+        return view('admin.edit-category', [
+            'category' => $category
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function adminUpdate(Request $request, Category $category)
     {
-        //
+         $attributes = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'pic_path' => 'image',
+        ]);
+
+        if(isset($attributes['pic_path'])) {
+            $attributes['pic_path'] = $request->file('pic_path')->store('categories');
+        }
+
+        $category->update($attributes);
+        return redirect()->route('admin.categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function adminDestroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index');
     }
 }
