@@ -55,12 +55,6 @@ class CategoryController extends Controller
             'pic_path' => 'required|image',
         ]);
 
-        // $category = new Category([
-        //     'name' => $request->name, 
-        //     'description' => $request->description,
-        //     'pic_path' => $request->file('pic_path')->store('categories'),
-        // ]);
-
         $attributes['pic_path'] = $request->file('pic_path')->store('categories');
         Category::create($attributes);
         return redirect()->route('admin.categories.index');
@@ -93,34 +87,48 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function adminEdit(Category $category)
     {
-        //
+        return view('admin.edit-category', [
+            'category' => $category
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function adminUpdate(Request $request, Category $category)
     {
-        //
+         $attributes = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'pic_path' => 'image',
+        ]);
+
+        if(isset($attributes['pic_path'])) {
+            $attributes['pic_path'] = $request->file('pic_path')->store('categories');
+        }
+
+        $category->update($attributes);
+        return redirect()->route('admin.categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function adminDestroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index');
     }
 }

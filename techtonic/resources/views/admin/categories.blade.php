@@ -29,9 +29,16 @@
 
                 <tr>
                     <td>{{ $category->id }}</td>
-                    <td><img width='65px' height='70px' src="{{ asset('storage/' . $category->pic_path) }}"></td>
+                    <td><img width="65px" height="70px" src="{{ asset('storage/' . $category->pic_path) }}"></td>
                     <td>{{ $category->name }}</td>
-                    <td><a href="">Edit</a> | <a href="" onClick="return confirm('Are you sure you want to delete?')">Delete</a</td>
+                    <td>
+                        <a href="{{route('admin.categories.edit', $category->id)}}">Edit</a> | 
+                        <form class="d-inline" method="POST" action="{{ route('admin.categories.destroy', $category->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-link" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+                        </form>
+                    </td>
                     <td><a href="{{route('admin.categories.show', $category->id)}}">View Products</a></td>
                 </tr>  
 

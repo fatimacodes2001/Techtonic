@@ -90,7 +90,7 @@
             <div class="col-6">
               <div class="card trend-card text-white">
                 <img
-                  src="{{ $trend->pic_path }}" class="card-img" alt="{{ $trend->name }}">
+                  src="{{ asset('storage/' . $trend->pic_path) }}" class="card-img" alt="{{ $trend->name }}">
                 <div class="card-img-overlay">
                   <a href="{{route('categories.show', $trend->id)}}">
                     <h5 class="category-title">{{ $trend->name }}</h5>

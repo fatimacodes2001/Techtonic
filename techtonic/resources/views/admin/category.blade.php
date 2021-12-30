@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Categories')
+@section('title', $category->name)
 
 @section('styles')
     @parent

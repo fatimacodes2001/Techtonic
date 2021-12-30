@@ -65,11 +65,11 @@ body {
     padding: 20px;
 }
 
-td img {
+img {
     object-fit: cover;
 }
 
-form {
+.form {
     margin: 0 auto;
     padding: 2rem;
     width: 35rem;
@@ -79,6 +79,10 @@ form {
 
 textarea {
     height: 100px;
+}
+
+.btn-link {
+    padding: 0 !important;
 }
 
 @media screen and (max-height: 450px) {
