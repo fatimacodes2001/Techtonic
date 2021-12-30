@@ -8,7 +8,10 @@
 @endsection
 
 @section('content')
-    <h1 class="page-title text-center gap">{{ $category->title }}</h1>
+    <h1 class="page-title text-center pb-3">{{ $category->name }}</h1>
+    <div class="text-center gap">
+        <a href="{{route('admin.products.create', $category->id)}}">Add New Product</a>
+    </div>
 
     <table class="table table-striped table-hover">
         <thead>
@@ -32,7 +35,10 @@
                     <td><img width='65px' height='70px' src="{{ $product->images->first()->pic_path }}"></td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }}</td>
-                    <td style="font-weight:500; color: {{ $product->color->hex }}">{{ $product->color->name  }}</td>
+                    <td>
+                        <p style="width: 1.25rem; height: 1.25rem; background-color: {{ $product->color->hex }}; margin-right: 0.5rem;"></p>
+                        {{ $product->color->name  }}
+                    </td>
                     <td>{{ $product->stock_quantity }}</td>
                     <td>
                         <ul>
