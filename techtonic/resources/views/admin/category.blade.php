@@ -49,7 +49,7 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td><a href="">Edit</a> | <a href="">Delete</a</td>
+                    <td><a href="">Edit</a> | <a href="" onClick="return confirm('Are you sure you want to delete?')">Delete</a</td>
                 </tr>  
 
             @endforeach

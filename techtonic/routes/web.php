@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 
 // HOME ROUTE
 
-Route::get('/', [HomeController::class, 'home'])
+Route::get('/', [MiscController::class, 'home'])
     ->name('home');
 
 
@@ -107,19 +107,19 @@ Route::get('/admin/users', [UserController::class, 'adminIndex'])
 
 // CATEGORY ROUTES
 
+Route::get('/admin/categories/create', [CategoryController::class, 'adminCreate'])
+    ->name('admin.categories.create');
+    
+Route::post('/admin/categories', [CategoryController::class, 'adminStore'])
+    ->name('admin.categories.store');
+
 Route::get('/admin/categories', [CategoryController::class, 'adminIndex'])
     ->name('admin.categories.index');
 
 Route::get('/admin/categories/{category}', [CategoryController::class, 'adminShow'])
     ->name('admin.categories.show');
 
-Route::get('/admin/categories/create', [CategoryController::class, 'adminCreate'])
-    ->name('admin.categories.create');
-
-Route::post('/admin/categories', [CategoryController::class, 'adminStore'])
-    ->name('admin.categories.store');
-
-
+    
 // PRODUCT ROUTES
 
 Route::get('/admin/categories/{category}/products/create', [ProductController::class, 'adminCreate'])

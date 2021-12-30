@@ -69,6 +69,18 @@ td img {
     object-fit: cover;
 }
 
+form {
+    margin: 0 auto;
+    padding: 2rem;
+    width: 35rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+}
+
+textarea {
+    height: 100px;
+}
+
 @media screen and (max-height: 450px) {
     .sidebar {
         padding-top: 15px;

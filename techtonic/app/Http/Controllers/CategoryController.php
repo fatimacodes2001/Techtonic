@@ -36,9 +36,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function adminCreate()
     {
-        //
+         return view('admin.add-category');
     }
 
     /**
@@ -47,9 +47,23 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function adminStore(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'pic_path' => 'required|image',
+        ]);
+
+        // $category = new Category([
+        //     'name' => $request->name, 
+        //     'description' => $request->description,
+        //     'pic_path' => $request->file('pic_path')->store('categories'),
+        // ]);
+
+        $attributes['pic_path'] = $request->file('pic_path')->store('categories');
+        Category::create($attributes);
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -67,7 +81,7 @@ class CategoryController extends Controller
         ]);
     }
 
-     public function adminShow($id)
+    public function adminShow($id)
     {
         $category = Category::with('products')->find($id);
         
