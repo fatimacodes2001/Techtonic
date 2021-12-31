@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-
     protected $table = 'categories';
-
+    protected $fillable = ['name', 'description', 'pic_path'];
     public $timestamps = false;
 
     public function products()
     {
         return $this->hasMany(Product::class, 'category_id');
+    }
+
+    public function productsThree()
+    {
+        return $this->hasMany(Product::class)->limit(3);
     }
 }

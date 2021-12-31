@@ -23,6 +23,7 @@
           <hr>
           <p class="mb-0">Proceed to payment after confirmation of the order items.</p>
         </div>
+        
         <?php
 
             $grand = 0;
@@ -116,11 +117,52 @@
             </tbody>
           </table>
         </div>
+
+        <div class="order-details w-100 d-flex flex-column" style="margin-top: 15px;">
+
+            <div class="divide">
+              <h3>Choose Address</h3>
+              <form action="">
+                  <button class="btn btn-dark address-button text-center text-sm">
+                      Add New Address
+                  </button>
+              </form>            
+            </div>
+
+
+            <div class="divide">
+              <h3>Select Payment Method</h3>
+                  <select name="payment" id="payment-options">
+
+                    <option value="cod">Cash On Delivery</option>
+                    <option value="card">Credit/Debit Card</option>
+
+                  </select>
+
+            </div>
+            
+          </div>
       </div>
-      <button class="btn btn-dark checkout-button text-center text-sm">
-        Proceed to Payment
-        <img src="/img/chevron-right.svg" alt="checkout">
-      </button>
+
+
+
+      <form action="{{ route('final') }}" method="post" class="checkout-form">
+        {{ csrf_field() }}
+
+        
+
+
+          
+          <input type="hidden" name="data" class="data-con">
+          <button type="submit" class="btn btn-dark checkout-button text-center text-sm">
+            Finalize Order
+            <img src="/img/chevron-right.svg" alt="checkout">
+          </button>
+
+      
+      </form>
+      
+      
     </div>
     <!-- End Orders section -->
 @endsection
@@ -130,4 +172,57 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+
+      $( document ).ready(function() {
+        var $arr = <?php echo json_encode($products); ?>;
+        console.log($arr)
+
+
+
+        $("#payment-options").on("change", function () {
+          var $mode = $(this).find(":selected").val()
+          if ($mode === "cod"){
+            $(".checkout-button").text("Finalize Order")
+          }else{
+            $(".checkout-button").text("Proceed To Payment")
+
+          }
+          
+        })
+
+        $(".checkout-form").submit(function(e){
+          var $arr = <?php echo json_encode($products); ?>;
+          $(".data-con").val(JSON.stringify($arr))
+
+          var $total = $('<input type="hidden" name="total"></input>')
+          $total.val(<?php echo $grand;?>);
+
+          var $mode = $('<input type="hidden" name="mode"></input>')
+          $mode.val($("#payment-options").find(":selected").val());
+
+          var $comment = $('<input type="hidden" name="comment" value="{{$comment}}"></input>')
+
+          $(this).append($mode)
+          $(this).append($total)
+          $(this).append($comment)
+
+          return true
+
+
+        })
+
+
+      });
+
+      
+    </script>
+        
+
+    
+
+
+    
 @endsection

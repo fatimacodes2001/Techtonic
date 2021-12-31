@@ -78,61 +78,29 @@
     <div id="trends" class="row">
       <div class="col-12 col-md-5 col-lg-6 trends-left">
         <h1 class="page-title">TOP<br>TRENDS</h1>
-        <button type="button" class="btn btn-dark">Explore All Categories <i class="bi bi-chevron-right"></i></button>
+        <a class="btn btn-dark" href="{{route('categories.index')}}">Explore All Categories
+          <i class="bi bi-chevron-right"></i>
+        </a>
       </div>
       <div class="col-12 col-md-7 col-lg-6 trends-right">
         <div class="row">
-          <div class="col-6">
-            <div class="card trend-card text-white">
-              <img
-                src="https://images.unsplash.com/photo-1578840602674-bd891cb7ea5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <a href="#">
-                  <h5 class="category-title">Smartphones</h5>
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card trend-card text-white">
-              <img
-                src="https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80"
-                class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <a href="#">
-                  <h5 class="category-title">Watches</h5>
-                </a>
-              </div>
-            </div>
-          </div>
+          @foreach ($topTrends as $trend)
 
-          <div class="col-6">
-            <div class="card trend-card text-white">
-              <img
-                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <a href="#">
-                  <h5 class="category-title">Fragrances</h5>
-                </a>
+            <div class="col-6">
+              <div class="card trend-card text-white">
+                <img
+                  src="{{ asset('storage/' . $trend->pic_path) }}" class="card-img" alt="{{ $trend->name }}">
+                <div class="card-img-overlay">
+                  <a href="{{route('categories.show', $trend->id)}}">
+                    <h5 class="category-title">{{ $trend->name }}</h5>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card trend-card text-white">
-              <img
-                src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                class="card-img" alt="...">
-              <div class="card-img-overlay">
-                <a href="#">
-                  <h5 class="category-title">Finest<br>Commodities</h5>
-                </a>
-              </div>
-            </div>
-          </div>
+          @endforeach
+        
         </div>
       </div>
     </div>
@@ -142,49 +110,21 @@
       <p class="category-subtitle text-center">Furnishing your every Desire</p>
 
       <div class="row-scroll">
-        <div class="card category-card text-white">
-          <img
-            src="https://images.unsplash.com/photo-1578840602674-bd891cb7ea5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-            class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <a href="#">
-              <h5 class="category-title">iPhone 13</h5>
-            </a>
-          </div>
-        </div>
 
-        <div class="card category-card text-white">
-          <img
-            src="https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80"
-            class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <a href="#">
-              <h5 class="category-title">Piaget</h5>
-            </a>
-          </div>
-        </div>
+        @foreach ($topProducts as $product)
 
-        <div class="card category-card text-white">
-          <img
-            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-            class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <a href="#">
-              <h5 class="category-title">CHANEL</h5>
-            </a>
+          <div class="card category-card text-white">
+            <img
+              src="{{ $product->images->first()->pic_path }}" class="card-img" alt="{{ $product->name}}">
+            <div class="card-img-overlay">
+              <a href="{{route('products.show', $product->id)}}">
+                <h5 class="category-title">{{ $product->name }}</h5>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="card category-card text-white">
-          <img
-            src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            class="card-img" alt="...">
-          <div class="card-img-overlay">
-            <a href="#">
-              <h5 class="category-title">Lubiton <br /> Sandal</h5>
-            </a>
-          </div>
-        </div>
+        @endforeach
+  
       </div>
     </div>
 @endsection

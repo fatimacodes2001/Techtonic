@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-
     protected $table = 'products';
-
     public $timestamps = false;
-
-    // protected $with = ['color', 'specs', 'images'];
+    protected $with = ['images'];
+    protected $guarded = [];  
 
     public function color()
     {
@@ -35,6 +33,16 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id');
+    }
+
+    public function reviewsThree()
+    {
+        return $this->hasMany(Review::class)->limit(3);
+    }
+
     public function orders()
     {
         return $this->belongsToMany(Order::class, "order_has_products", "product_id", "order_id")->withPivot('quantity','product_total');
@@ -43,5 +51,5 @@ class Product extends Model
     public function carts()
     {
         return $this->belongsToMany(Cart::class, "cart_has_products", "product_id", "cart_id")->withPivot('quantity');;
-    }
+    }    
 }

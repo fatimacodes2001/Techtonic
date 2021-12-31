@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductSpec extends Model
 {
     use HasFactory;
-
     protected $table = 'product_specs';
-
     public $timestamps = false;
 
     public function product()

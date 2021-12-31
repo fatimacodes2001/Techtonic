@@ -9,15 +9,16 @@ class Order extends Model
 {
     use HasFactory;
     protected $table = 'orders';
+    public $timestamps = false;
 
     public function address()
     {
-        return $this->hasOne(Address::class, 'address_id');
+        return $this->belongsTo(Address::class, 'address_id');
     }
 
     public function user()
     {
-        return $this->hasOne(User::class, 'cutsomer_email');
+        return $this->hasOne(User::class, 'customer_email');
     }
 
     public function products()

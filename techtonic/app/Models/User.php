@@ -9,13 +9,14 @@ class User extends Model
 {
     use HasFactory;
     protected $table = 'users';
+    public $timestamps = false;
     protected $primaryKey = 'email';
     protected $keyType = 'string';
     public $timestamps = false;
     
     public function address()
     {
-        return $this->hasOne(Address::class, 'address_id');
+        return $this->belongsTo(Address::class, 'address_id');
     }
 
     public function cart()
@@ -23,4 +24,8 @@ class User extends Model
         return $this->belongsTo(Cart::class, 'customer_email');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'email');
+    }
 }

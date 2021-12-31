@@ -15,7 +15,8 @@
     cursor: pointer;
 }
 
-.show {
+
+.show-it{
     display: none;
 }
 
@@ -24,12 +25,16 @@
     text-align: center;
 }
 
+.image-sec {
+    object-fit: contain;
+}
+
 .main-img {
     height: auto;
     width: 100%;
     border-radius: 4vw;
     max-height: 500px;
-    min-height: 300px;
+    min-height: 500px;
     object-fit: cover;
     margin-bottom: 3vw;
 }
@@ -169,6 +174,8 @@
     font-family: "Jost", sans-serif;
     font-weight: 500;
 }
+
+
 
 @media (min-width: 360px) {
     .splendour {

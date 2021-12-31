@@ -1,0 +1,75 @@
+.review-heading {
+    color: #4c4c4c;
+    font-weight: 800;
+}
+
+.review-btn {
+    background-color: #000;
+    color: #f2f1ef;
+    font-size: 1.1rem;
+}
+
+.btn-small {
+    border-radius: 0.75rem;
+    padding: 0.5rem 2rem;
+}
+
+.btn-big {
+    margin: 1rem 0;
+    border-radius: 1.25rem;
+    padding: 1.2rem 6rem;
+}
+
+.item-info {
+    padding-left: 0 !important;
+}
+
+.review-input {
+    background-color: #faf9f6;
+    font-size: 1.15rem;
+    text-align: justify;
+    border-color: #faf9f6;
+    padding: 1.25rem;
+    padding-bottom: 5rem;
+    border-radius: 1rem;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.review-input:focus-visible {
+    outline: none;
+    border-color: #000000;
+}
+
+.margin {
+    margin-bottom: 3.125rem;
+}
+
+.rating-sec {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rating-sec label {
+    color: #d9d9d9;
+    padding: 0.1rem;
+    transition: color 0.2s;
+}
+
+.rating-sec svg {
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+.rating-sec label:hover,
+.rating-sec label:hover ~ label,
+.rating-sec label.active,
+.rating-sec label.active ~ label {
+    color: #414141;
+}
+
+.rating-sec input {
+    display: none;
+}

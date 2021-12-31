@@ -11,8 +11,8 @@ h2 {
 }
 
 .sign-up-box {
-    position: absolute;
-    top: 15%;
+    position: relative;
+    /* background-color: rgba(242, 241, 239, 0.85); */
     z-index: 55;
 }
 

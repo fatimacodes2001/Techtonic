@@ -8,6 +8,7 @@ use App\Models\ProductColor;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductSpec;
+use App\Models\Review;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
                     ->count(5)
                     ->has(ProductImage::factory()->count(3), 'images')
                     ->has(ProductSpec::factory()->count(3), 'specs')
+                    ->has(Review::factory()->count(3), 'reviews')
                     ->for($color, 'color'),
                     'products'
                     )

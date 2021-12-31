@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Product Description')
+@section('title', $product->name)
 
 @section('styles')
     @parent
@@ -19,11 +19,18 @@
     <link rel="stylesheet" href="/css/home-categories.css">
     <link rel="stylesheet" href="/css/product-desc.css">
     <link rel="stylesheet" href="/css/cart.css">
+
+    <style>
+        .color-card {
+            background-image: linear-gradient(to bottom right, {{ $product->color->hex }}, #000000);
+            color: #fcfcfc;
+        }
+    </style>
 @endsection
 
 @section('content')
     <div class="gap">
-        <h1 class="page-title text-center gap">Iphone 12 pro max</h1>
+        <h1 class="page-title text-center gap">{{ $product->name }}</h1>
     </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -33,77 +40,94 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="image-sec">
-                    <img src="https://images.unsplash.com/photo-1607936854279-55e8a4c64888?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="" class="main-img ">
-                </div>
-            </div>
 
-            <div class="carousel-item">
-                <div class="image-sec">
-                    <img src="https://images.unsplash.com/photo-1604671368394-2240d0b1bb6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2062&q=80" alt="" class="main-img ">
-                </div>
-            </div>
+            @foreach ($product->images as $image)
 
-
-            <div class="carousel-item">
-                <div class="image-sec">
-                    <img src="https://images.unsplash.com/photo-1608547492806-7e6c70ffdea4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" class="main-img ">
+                <div @class(['carousel-item', 'active' => $loop->first])>
+                    <div class="image-sec">
+                        <img src="{{ $image->pic_path }}" alt="{{ $product->name . '-' . $loop->index + 1 }}" class="main-img">
+                    </div>
                 </div>
-            </div>
+
+            @endforeach
 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span   class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span  class="visually-hidden">Previous</span>
-    </button>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
 
     </div>
 
-    <div class="cart-button">
-        <button class="btn btn-dark checkout-button text-center text-sm">
-            Proceed to Checkout
-            <img src="/img/chevron-right.svg" alt="checkout">
+    @php
+        $outOfStock = ($product->stock_quantity) === 0 ? true : false;
+
+        $inCart = false;
+        foreach ($cartItems as $item) {
+            if ($item->id === $product->id){
+                $inCart = true;
+                break;
+            }
+        }
+    @endphp
+
+    <form action="{{ route('cart.update', $product->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div class="cart-button">
+            <button type="submit" @class(['btn', 'btn-dark', 'checkout-button', 'text-center', 'text-sm', 'disabled' => ($outOfStock || $inCart)])>
+                @if ($inCart)
+                    Added to Cart
+                @else
+                    Add to Cart
+                @endif
+                <img src="/img/cart-light.svg" alt="checkout">
             </button>
-    </div>
+        </div>
+    </form>
+
+    @if($outOfStock)
+        <h5 class="out-of-stock">Out of Stock</h5>
+    @endif
 
     <div class="desc-card-price">
         <div class="desc-card-body">
             <h5 class="desc-card-title">Price</h5>
 
-            <p class="desc-card-text-price">370,000 PKR
+            <p class="desc-card-text-price">{{ $product->price }} PKR
             </p>
 
         </div>
 
-
         <div class="desc-card-body">
             <h5 class="desc-card-title">Description</h5>
-            <p class="desc-card-text">The iPhone 12 Pro Max display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle
+            <p class="desc-card-text">{{ $product->description }}
             </p>
         </div>
         <div class="desc-card-body">
             <h5 class="desc-card-title">Specifications</h5>
-            <ul class="desc-card-text">
-                <p>5G Connectivity</p>
-                <p>Single Sim + eSim</p>
-                <p>8GB Ram</p>
-                <p>512GB Storage</p>
-                <p>6.1" Display</p>
+            <ul class="desc-card-text px-5">
+                @foreach ($product->specs as $specification)
+
+                    <li class="pb-1">{{ $specification->spec }}</li>
+
+                @endforeach
             </ul>
             </p>
         </div>
         <div class="desc-card-body">
-            <h5 class="desc-card-title">Colors</h5>
+            <h5 class="desc-card-title">Color</h5>
             <ul class="color-card-text">
-                <p id="color-card-blue">Midnight <br> Blue</p>
-                <p id="color-card-green">Winston <br> Green</p>
-                <p id="color-card-gold">Caviar <br> Gold</p>
-                <p id="color-card-black">Apex <br> Black</p>
+                <p class="color-card">{{ $product->color->name }}</p>
+                {{-- <p id="color-card-blue">Midnight Blue</p>
+                <p id="color-card-green">Winston Green</p>
+                <p id="color-card-gold">Caviar Gold</p>
+                <p id="color-card-black">Apex Black</p> --}}
             </ul>
         </div>
     </div>
@@ -111,124 +135,67 @@
     <div id="top-categories" class="category-row">
         <h1 class="category-title text-center mt-5">Appraisals</h1>
         <p class="category-subtitle text-center">Beyond satisfaction</p>
+        <p class="browse text-end"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i class="bi bi-chevron-right"></i></a></p>
         <table class="order-items-table table table-borderless">
             <tbody class="d-flex flex-column">
 
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1456444029056-7dfaeeb83a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Jeff Bezos</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">You've saved our business! It's exactly what I've been looking for. Absolutely wonderful! I could probably go into sales for you</p>
+                @foreach ($product->reviewsThree as $review)
+
+                    <tr class="order-item d-flex">
+                        <td class="item-img p-0">
+                            <img class="responsive-img" src="{{ $review->user->profile_pic }}" alt="{{ $review->user->first_name }}">
+                        </td>
+                        <td class="item-info">
+                            <div class="d-flex flex-column">
+                                <p class="item-title fw-bold text-md m-0 mb-2">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
+                                <div class="item-description px-0">
+                                    <p class="d-block text-sm fw-light m-0">{{ $review->text }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        </td>
+                        <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
 
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
+                            <div class="number-control-buttons d-flex align-items-center">
 
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1616645004064-aebe96923cbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Elon Musk</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">Just what I was looking for.</p>
+                                @for ($i = 0; $i < $review->rating; $i++)
+                                    <img src="/img/star-fill.svg">
+                                @endfor
+
+                                @for ($i = 0; $i < (5-$review->rating); $i++)
+                                    <img src="/img/star-empty.svg">
+                                @endfor
+
                             </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                        </td>
+                    </tr>
 
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-empty.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
-
-                <tr class="order-item d-flex">
-                    <td class="item-img p-0">
-                        <img class="responsive-img" src="https://images.unsplash.com/photo-1551299335-7337a578ef8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80" alt="item img">
-                    </td>
-                    <td class="item-info">
-                        <div class="d-flex flex-column">
-                            <p class="item-title fw-bold text-md m-0">Mr.Beast</p>
-                            <div class="item-description">
-                                <p class="d-block text-sm fw-light m-0">Iphone 12 pro max saved my business. Iphone 12 pro max saved my business. Iphone 12 pro max is awesome! No matter where you go, iphone 12 pro max is the coolest, most happening thing around!</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
-
-                        <div class="number-control-buttons d-flex align-items-center">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                            <img src="/img/star-fill.svg">
-                        </div>
-                    </td>
-                </tr>
+                @endforeach
 
             </tbody>
         </table>
+        <p class="browse-md text-center"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i
+            class="bi bi-chevron-right"></i></a>
+        </p>
     </div>
     <div id="top-categories" class="category-row">
         <h1 class="category-title text-center">Similar Merchandise</h1>
         <p class="category-subtitle text-center">Furnishing your every Desire</p>
 
         <div class="row-scroll">
-            <div class="card category-card text-white">
-                <img src="https://images.unsplash.com/photo-1578840602674-bd891cb7ea5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <a href="#">
-                        <h5 class="category-title">Smartphones</h5>
-                    </a>
-                </div>
-            </div>
 
-            <div class="card category-card text-white">
-                <img src="https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=710&q=80" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <a href="#">
-                        <h5 class="category-title">Watches</h5>
-                    </a>
-                </div>
-            </div>
+            @foreach ($similarMerch as $merch)
 
-            <div class="card category-card text-white">
-                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <a href="#">
-                        <h5 class="category-title">Fragrances</h5>
-                    </a>
+                 <div class="card category-card text-white">
+                    <img src="{{ $merch->images->first()->pic_path }}" class="card-img" alt="{{ $merch->name }}">
+                    <div class="card-img-overlay">
+                        <a href="{{route('products.show', $merch->id)}}">
+                            <h5 class="category-title">{{ $merch->name }}</h5>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card category-card text-white">
-                <img src="https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                    <a href="#">
-                        <h5 class="category-title">Finest<br>Commodities</h5>
-                    </a>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 @endsection

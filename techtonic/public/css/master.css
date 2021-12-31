@@ -1,0 +1,184 @@
+body {
+  background-color: #F2F1EF;
+  font-family: 'Raleway', sans-serif;
+}
+.row {
+  --bs-gutter-x: 0;
+}
+#jeff {
+  margin-top: 100px;
+}
+#jeff .img-holder {
+  border-radius: 19px;
+  margin-bottom: 25px;
+}
+#jeff .img-holder img {
+  width: 226px;
+}
+#jeff h1 {
+  font-size: 87px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 75px;
+}
+#jeff .table-holder{
+  background: #EDECE9;
+  border-radius: 24px;
+  padding: 25px;
+}
+.table>:not(caption)>*>* {
+  border: 0;
+  padding: 0;
+}
+#jeff .table-holder .table-responsive{
+  padding: 25px;
+  background: #FAF9F6;
+  border-radius: 16px;
+}
+.accordion-button:not(.collapsed){
+  color: #4C4C4C;
+  font-size: 24px;
+  font-weight: 800;
+}
+.accordion {
+  margin-bottom: 11px;
+}
+.accordion-item {
+  border: none;
+}
+.accordion-button{
+  background-color: #FAF9F6;
+}
+.accordion-button.collapsed {
+  background: #FAF9F6;
+}
+.accordion-button::after{
+  background-image: url(../img/chv.svg)
+}
+.accordion-button:not(.collapsed)::after{
+  background-image: url(../img/chevron-down.svg);
+}
+.accordion-item:last-of-type .accordion-button.collapsed{
+  background-color: #F2F1EF;
+  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+  border-radius: 8px;
+}
+
+.accordion-header .accordion-button{
+  color: #4C4C4C;
+  background: #FAF9F6;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.accordion-body {
+  background: #F2F1EF;
+  box-shadow: 0px 1px 15px rgb(225 221 212 / 25%);
+  border-radius: 8px;
+  padding: 16px 25px;
+}
+.accordion-body h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+.accordion-body h3 span {
+  font-size: 18px;
+  font-weight: 300;
+}
+.accordion-body a {
+  font-weight: 500;
+  font-size: 14px;
+  color: black;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+/* sidebar */
+.taab {
+  padding: 25px;
+}
+#jeff .side-bar{
+  padding: 32px 25px;
+  background: #FAF9F6;
+  border-radius: 16px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background: #1D1D1D;
+  border-radius: 12px;
+  color: #F2F1EF;
+}
+.nav-pills .nav-link {
+  font-size: 19px;
+  font-weight: 400;
+  color: #888888;
+}
+@media(min-width:768px){
+  .content-t {
+    width: 72%;
+  }
+}
+@media(max-width:992px){
+  .side-bar{
+    margin-bottom: 15px;
+  }
+  .nav-pills .nav-link{
+    font-size: 16px;
+  }
+  .accordion-header .accordion-button{
+    font-size: 22px;
+  }
+  .accordion-body h3{
+    font-size: 14px;
+  }
+  .accordion-body h3 span{
+    font-size: 14px;
+  }
+  .accordion-body a{
+    font-size: 10px;
+  }
+  #jeff .table-holder{
+    padding: 0;
+  }
+  #jeff h1 {
+    font-size: 70px;
+  }
+  
+}
+@media(max-width:767px){
+  .side-bar{
+    margin-bottom: 15px;
+  }
+  .nav-pills .nav-link{
+    font-size: 14px;
+  }
+  .accordion-header .accordion-button{
+    font-size: 20px;
+  }
+  .accordion-body h3{
+    font-size: 12px;
+  }
+  .accordion-body h3 span{
+    font-size: 12px;
+  }
+  .accordion-body a{
+    font-size: 8px;
+  }
+  #jeff .table-holder{
+    padding: 0;
+  }
+  #jeff h1 {
+    font-size: 50px;
+  }
+  
+}
+
+.tab-container { 
+
+  padding: 25px;
+  background: #FAF9F6;
+  border-radius: 16px;
+}
