@@ -1,188 +1,139 @@
 .sign-up {
-    font-family: "Raleway", sans-serif;
-    height: 100vh;
-    /* background-image: url(../assets/unsplash_SyESKw2UKc0.png);
-    background-repeat: no-repeat;
-    background-size: cover; */
-}
-
-h2 {
-    font-family: 'Beckman', serif;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  background-image: url(../img/unsplash_AWjAGG-u_eE.png);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  overflow-y: auto;
+  
 }
 
 .sign-up-box {
-    position: relative;
-    /* background-color: rgba(242, 241, 239, 0.85); */
-    z-index: 55;
+  background: rgba(242, 241, 239, 0.85);
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+  z-index: 55;
 }
-
-.sign-up-box::before {
-    border-radius: 27px;
-    background-color: rgba(242, 241, 239, 0.85);
-    backdrop-filter: blur(20px);
-    top: 0;
-    left: 0;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    filter: blur(radius);
-    z-index: -1;
-}
-
 .sign-up-box h2 {
-    /* margin-top: 197px; */
-    color: #000;
-    font-size: 80px;
-    font-weight: 400;
-    text-transform: uppercase;
-    margin-top: 76px;
+  /* margin-top: 197px; */
+  color: #000;
+  font-size: 80px;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* margin-top: 76px; */
 }
-
 .sign-up-box p {
-    margin: 10px 102px 50px;
-    color: #888888;
-    font-size: 28px;
-    font-weight: 300;
+  margin: 10px 50px;
+  color: #888888;
+  font-size: 28px;
+  font-weight: 300;
 }
-
 .sign-up-box form {
-    padding: 75px 76px 75px;
+  padding: 75px 76px 75px;
 }
-
 .sign-up-box form input {
-    margin-bottom: 25px;
-    padding: 15px 20px;
-    background-color: #faf9f6;
-    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
-    border-radius: 12px;
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  background-color: #faf9f6;
+  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+  border-radius: 12px;
 }
-
 .sign-up-box form input::placeholder {
-    font-size: 18px;
-    font-weight: 700;
-    color: #888888;
+  font-size: 18px;
+  font-weight: 700;
+  color: #888888;
 }
-
 .sign-up-box form .btn {
-    padding: 13px 0;
-    border-radius: 11px;
-    width: 100%;
+  margin-bottom: 15px;
+  padding: 13px 0;
+  border-radius: 11px;
+  width: 100%;
 }
-
 .password {
-    position: relative;
+  position: relative;
 }
-
 .eye {
-    cursor: pointer;
-    width: 24px;
-    position: absolute;
-    top: 25%;
-    right: 4%;
+  cursor: pointer;
+  width: 24px;
+  position: absolute;
+  top: 25%;
+  right: 4%;
+}
+.skip {
+  font-size: 18px;
+  color: #888888;
+  text-decoration: none;
 }
 
-.modal-container {
-    background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(4px);
-    box-shadow: rgba(0, 0, 0, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 200;
-    transition: opacity 0.3s ease-in-out;
+@media (max-width: 992px) {
+  .sign-up-box form {
+    margin-top: 30px;
+    padding: 20px 20px 32px;
+  }
+  .sign-up-box form input::placeholder {
+    font-size: 15px;
+  }
+  .sign-up-box h2 {
+    padding-top: 30px;
+    font-size: 60px;
+  }
+  .sign-up-box p {
+    font-size: 20px;
+  }
 }
-
-.modal-container.show {
-    pointer-events: auto;
-    opacity: 1;
+@media (max-width: 768px) {
+  .sign-up-box form input::placeholder {
+    font-size: 15px;
+  }
+  .sign-up-box form {
+    margin-top: 30px;
+    padding: 0px 20px 15px;
+  }
+  .sign-up-box form input {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+  }
+  .name-container {
+    flex-direction: column !important;
+  }
+  .sign-up-box .first-name {
+    width: 100% !important;
+  }
+  .sign-up-box .last-name {
+    width: 100% !important;
+  }
+  .sign-up-box h2 {
+    font-size: 50px;
+  }
+  .sign-up-box p {
+    font-size: 18px;
+  }
 }
-
-.modal-popup {
-    background-color: #fff;
-    border-radius: 25px;
-    padding: 20px;
-    width: 450px;
-    max-width: 100%;
-    text-align: center;
-    z-index: 210;
-}
-
-.modal-popup label {
-    margin-top: 20px;
-    width: 98%;
-}
-
-.upload-profile-pic,
-.upload-profile-pic label {
-    height: 400px;
-    width: 400px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.upload-hidden {
-    background-color: black;
-    color: white;
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
-    z-index: 300;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.upload-hidden:hover {
-    opacity: 0.5;
-}
-
-.upload-profile-pic label {
-    height: 400px;
-    width: 400px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.old-profile-pic {
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    text-align: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.upload-profile-pic-head {
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#close {
-    margin-top: -1vh;
-    height: 4vh;
+@media (max-width: 400px) {
+  .sign-up-box form input::placeholder {
+    font-size: 13px;
+  }
+  .sign-up-box form {
+    margin-top: 30px;
+    padding: 0px 20px 15px;
+  }
+  .sign-up-box form input {
+    padding: 7px 20px;
+    margin-bottom: 10px;
+  }
+  .name-container {
+    flex-direction: column !important;
+  }
+  .sign-up-box .first-name {
+    width: 100% !important;
+  }
+  .sign-up-box .last-name {
+    width: 100% !important;
+  }
+  .sign-up-box h2 {
+    font-size: 50px;
+  }
+  .sign-up-box p {
+    font-size: 18px;
+  }
 }

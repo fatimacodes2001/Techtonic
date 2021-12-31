@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/signup.css">
     <link rel="stylesheet" href="/css/cart.css">
+    
+
+
 
     
 @endsection

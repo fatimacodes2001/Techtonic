@@ -1,28 +1,19 @@
 .sign-in {
-    font-family: "Raleway", sans-serif;
-    height: 100vh;
-    background-image: url(../img/unsplash_SyESKw2UKc0.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  background-image: url(../img/unsplash_AWjAGG-u_eE.png);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-size: 100% 100%;
 }
 
 .sign-in-box {
-    position: relative;
-    /* background-color: rgba(242, 241, 239, 0.85); */
-    z-index: 55;
-}
-
-.sign-in-box::before {
-    border-radius: 27px;
-    background-color: rgba(242, 241, 239, 0.85);
-    top: 0;
-    left: 0;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    filter: blur(radius);
-    z-index: -1;
+  position: relative;
+  background: rgba(242, 241, 239, 0.85);
+  backdrop-filter: blur(50px);
+  border-radius: 27px;
+  z-index: 55;
 }
 
 .sign-in-box h2 {
@@ -70,9 +61,47 @@
 }
 
 .eye {
-    cursor: pointer;
-    width: 24px;
-    position: absolute;
-    top: 25%;
-    right: 4%;
+  cursor: pointer;
+  width: 24px;
+  position: absolute;
+  top: 25%;
+  right: 4%;
+}
+
+@media (max-width: 992px) {
+  .sign-in-box form {
+    margin-top: 30px;
+    padding: 20px 20px 32px;
+  }
+  .sign-in-box form input::placeholder {
+    font-size: 15px;
+  }
+  .sign-in-box h2 {
+    font-size: 60px;
+    margin-top: 40px;
+  }
+  .sign-in-box p {
+    font-size: 20px;
+    margin: 10px 20px 30px;
+  }
+}
+@media (max-width: 768px) {
+  .sign-in-box form {
+    padding: 0px 20px 32px;
+  }
+  .name-container {
+    flex-direction: column !important;
+  }
+  .sign-in-box .first-name {
+    width: 100% !important;
+  }
+  .sign-in-box .last-name {
+    width: 100% !important;
+  }
+  .sign-in-box h2 {
+    font-size: 50px;
+  }
+  .sign-in-box p {
+    font-size: 18px;
+  }
 }

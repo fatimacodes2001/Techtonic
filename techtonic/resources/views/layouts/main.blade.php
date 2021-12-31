@@ -18,12 +18,16 @@
         @show
     </head>
     <body>
-        <div class="container-lg">        
+
+        
+
+    <div class="container-lg">        
             @include('partials.nav')
         
             @yield('content')
         
-        </div>
+    </div>
+        
 
         @section('scripts')
             <script src="/js/bootstrap.min.js"></script>

@@ -13,10 +13,9 @@
       integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/signup.css">
-    <link rel="stylesheet" href="/css/home-categories.css">
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
 
     
 @endsection
@@ -24,7 +23,7 @@
 @section('content')
     <!-- login -->
     <section class="sign-up d-flex justify-content-center align-items-center">
-      <div class="sign-up-box text-center row">
+      <div class="sign-up-box text-center row mx-4 mb-2 mt-4">
         <div
           class="
             col-md-5
@@ -34,58 +33,58 @@
             justify-content-center
           "
         >
-          <h2>Address</h2>
-          <p>Just a step away</p>
+
+        <h2>Address</h2>
+        <p>Just One Step Away</p>
+
         </div>
-        <div class="col-md-7">
-          <form action="">
+        <div class="col-12 col-sm-10 col-md-7 mt-1 m-auto">
+          <form action="" class="">
             <input
               type="text"
-              name = "country"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="Country"
+              placeholder="Street Address"
             />
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between name-container">
               <input
                 type="text"
-                name = "city"
-                class="form-control w-50 me-3"
+                class="form-control w-50 me-3 first-name"
                 id="exampleFormControlInput1"
                 placeholder="City"
               />
               <input
                 type="text"
-                class="form-control w-50"
+                class="form-control w-50 last-name"
                 id="exampleFormControlInput1"
-                name = "state"
                 placeholder="State"
               />
             </div>
-            <div class="address">
-            <input
+
+            <div class="password">
+              <input
                 type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
-                placeholder="Street Address"
-                name = "street"
-
+                placeholder="Country"
               />
+              
+            </div>
+
+            <div class="password">
               <input
                 type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
                 placeholder="Postal Code"
-                name = "postal code"
-
               />
               
             </div>
-           
+            
             <button type="submit" class="btn btn-dark">
-              Create Account
-              <img style="width: 20px; padding-left: 5px;" src="assets/upload.png" alt="" />
+              Add Address
             </button>
+
           </form>
         </div>
       </div>
