@@ -14,7 +14,9 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
   
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <link rel="stylesheet" href="/css/signup2.css">
     <link rel="stylesheet" href="/css/cart.css">
     
 
@@ -25,8 +27,8 @@
 
 @section('content')
     <!-- login -->
-    <section class="sign-up d-flex justify-content-center align-items-center">
-      <div class="sign-up-box text-center row">
+    <section class="sign-up">
+      <div class="sign-up-box text-center row mx-4 mb-2 mt-4">
         <div
           class="
             col-md-5
@@ -39,24 +41,24 @@
           <h2>Sign up</h2>
           <p>Dive into a world of Luxury</p>
         </div>
-        <div class="col-md-7">
-          <form action="">
+        <div class="col-12 col-sm-10 col-md-7 mt-1 m-auto">
+          <form action="" class="">
             <input
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Email"
             />
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between name-container">
               <input
                 type="text"
-                class="form-control w-50 me-3"
+                class="form-control w-50 me-3 first-name"
                 id="exampleFormControlInput1"
                 placeholder="First Name"
               />
               <input
                 type="text"
-                class="form-control w-50"
+                class="form-control w-50 last-name"
                 id="exampleFormControlInput1"
                 placeholder="Last Name"
               />
@@ -87,6 +89,7 @@
               Upload Picture
               <img style="width: 20px; padding-left: 5px;" src="img/upload.png" alt="" />
             </button>
+            <a class="skip" href="">Skip for now</a>
           </form>
         </div>
       </div>

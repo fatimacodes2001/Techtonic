@@ -14,11 +14,8 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
   
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/sign-in.css">
-    <link rel="stylesheet" href="/css/categories.css">
-    <link rel="stylesheet" href="/css/home-categories.css">
-    <link rel="stylesheet" href="/css/product-desc.css">
-    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/sign-in2.css">
+    <link rel="stylesheet" href="/css/home.css">
 
     
 @endsection
@@ -26,7 +23,7 @@
 @section('content')
     <!-- login -->
     <section class="sign-in d-flex justify-content-center align-items-center">
-      <div class="sign-in-box text-center">
+      <div class="sign-in-box text-center mx-4">
         <h2>Sign in</h2>
         <p>Welcome back to a world of Luxury</p>
         <form action="">
@@ -44,7 +41,7 @@
               placeholder="Password"
             />
             <div class="eye">
-              <img class="img-fluid" src="img/eye.png" alt="" />
+              <img class="img-fluid" src="assets/eye.png" alt="" />
             </div>
           </div>
           <button type="submit" class="btn btn-dark">Sign In</button>

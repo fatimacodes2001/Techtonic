@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.general')
 
 @section('title', "Address")
 
@@ -13,16 +13,20 @@
       integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-    <link rel="stylesheet" href="/css/signup.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
+
+    <link rel="stylesheet" href="/css/signup2.css">
+    
+
+
 
     
 @endsection
 
 @section('content')
     <!-- login -->
-    <section class="sign-up d-flex justify-content-center align-items-center">
+    <section class="sign-up">
       <div class="sign-up-box text-center row mx-4 mb-2 mt-4">
         <div
           class="
@@ -33,10 +37,8 @@
             justify-content-center
           "
         >
-
-        <h2>Address</h2>
-        <p>Just One Step Away</p>
-
+          <h2>Address</h2>
+          <p>Just One Step Away</p>
         </div>
         <div class="col-12 col-sm-10 col-md-7 mt-1 m-auto">
           <form action="" class="">
@@ -51,11 +53,19 @@
                 type="text"
                 class="form-control w-50 me-3 first-name"
                 id="exampleFormControlInput1"
-                placeholder="City"
+                placeholder="Country"
               />
               <input
                 type="text"
                 class="form-control w-50 last-name"
+                id="exampleFormControlInput1"
+                placeholder="City"
+              />
+            </div>
+            <div class="password">
+              <input
+                type="text"
+                class="form-control"
                 id="exampleFormControlInput1"
                 placeholder="State"
               />
@@ -66,25 +76,13 @@
                 type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
-                placeholder="Country"
-              />
-              
-            </div>
-
-            <div class="password">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
                 placeholder="Postal Code"
               />
-              
             </div>
             
             <button type="submit" class="btn btn-dark">
               Add Address
             </button>
-
           </form>
         </div>
       </div>

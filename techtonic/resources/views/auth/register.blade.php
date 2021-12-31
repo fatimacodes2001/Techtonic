@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/categories.css">
-    <link rel="stylesheet" href="/css/home-categories.css">
     <link rel="stylesheet" href="/css/signup.css" />
+
+
 @endsection
 
 @section('content')
