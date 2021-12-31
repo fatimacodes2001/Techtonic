@@ -1,0 +1,70 @@
+.sign-in {
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  background-image: url(../assets/unsplash_SyESKw2UKc0.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sign-in-box {
+  position: relative;
+  /* background-color: rgba(242, 241, 239, 0.85); */
+
+  z-index: 55;
+}
+.sign-in-box::before {
+  border-radius: 27px;
+  background-color: rgba(242, 241, 239, 0.85);
+  top: 0;
+  left: 0;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(radius);
+  z-index: -1;
+}
+.sign-in-box h2 {
+  margin-top: 76px;
+  color: #000;
+  font-size: 80px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 76px;
+}
+.sign-in-box p {
+  margin: 10px 102px 50px;
+  color: #888888;
+  font-size: 28px;
+  font-weight: 300;
+}
+.sign-in-box form {
+  padding: 0px 76px 75px;
+}
+.sign-in-box form input {
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  background-color: #faf9f6;
+  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+  border-radius: 12px;
+}
+.sign-in-box form input::placeholder {
+  font-size: 18px;
+  font-weight: 700;
+  color: #888888;
+}
+.sign-in-box form .btn {
+  padding: 13px 0;
+  border-radius: 11px;
+  width: 100%;
+}
+.password {
+  position: relative;
+}
+.eye {
+  cursor: pointer;
+  width: 24px;
+  position: absolute;
+  top: 25%;
+  right: 4%;
+}

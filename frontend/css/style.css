@@ -36,6 +36,11 @@ a:hover {
     color: #888888;
 }
 
+.signing {
+    color: #888888;
+    padding: 100px;
+}
+
 .gap {
     margin: 4.25rem 0;
 }

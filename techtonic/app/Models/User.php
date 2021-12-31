@@ -11,7 +11,8 @@ class User extends Model
     protected $table = 'users';
     protected $primaryKey = 'email';
     protected $keyType = 'string';
-
+    public $timestamps = false;
+    
     public function address()
     {
         return $this->hasOne(Address::class, 'address_id');

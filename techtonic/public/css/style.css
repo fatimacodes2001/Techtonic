@@ -1,57 +1,101 @@
 body {
-  font-family: 'Raleway', sans-serif;
-  background-color: #f2f1ef;
-  color: #000000;
-  font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f2f1ef;
+    color: #000000;
+    font-weight: 300;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 a:hover {
-  cursor: pointer;
-  color: inherit;
+    cursor: pointer;
+    color: inherit;
+}
+
+#skip-btn {
+    background: none;
+    color: #888888;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    margin-top: 0.5vw;
+    font: inherit;
+    /* cursor: pointer; */
+    outline: inherit;
+}
+
+.main-gallery {
+    background: #EEE;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-gallery div {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-gallery img {
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
 }
 
 .btn {
-  color: #f2f1ef;
-  font-size: 1.1rem;
-  border-radius: 1.25rem;
-  padding: 1.2rem 2.5rem;
+    color: #f2f1ef;
+    font-size: 1.1rem;
+    border-radius: 1.25rem;
+    padding: 1.2rem 2.5rem;
 }
 
 .page-title {
-  font-family: 'Jost', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 1.1;
+    font-family: 'Jost', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.1;
 }
 
 .page-subtitle {
-  font-size: 1.6rem;
-  margin-top: -1.25rem;
-  color: #888888;
+    font-size: 1.6rem;
+    margin-top: -1.25rem;
+    color: #888888;
 }
 
 .gap {
-  margin: 4.25rem 0;
+    margin: 4.25rem 0;
 }
 
 @media only screen and (max-width: 992px) {
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    margin: 0 4%;
-  }
+    html {
+        font-size: 14px;
+    }
+    body {
+        margin: 0 4%;
+    }
 }
 
 @media only screen and (max-width: 576px) {
-  html {
-    font-size: 12px;
-  }
+    html {
+        font-size: 12px;
+    }
 }
