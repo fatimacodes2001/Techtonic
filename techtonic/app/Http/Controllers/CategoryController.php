@@ -130,7 +130,7 @@ class CategoryController extends Controller
     {
         $carts = Cart::get();
         foreach ($carts as $cart) {
-            $cart->products()->whereNotIn('product_id', $category->productIds())->detach();
+            $cart->products()->wherePivotIn('product_id', $category->productIds())->detach();
         }
         $category->products()->update(['deleted' => true]);
         $category->deleted = true;
