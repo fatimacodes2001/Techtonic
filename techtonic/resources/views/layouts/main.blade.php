@@ -21,7 +21,7 @@
 
         
 
-    <div class="container-lg">        
+    <div>        
             @include('partials.nav')
         
             @yield('content')
