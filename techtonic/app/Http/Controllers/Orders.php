@@ -39,7 +39,7 @@ class Orders extends Controller
         $order->status = "Placed";
         $order->order_total = (int)$req->total;
         $order->payment_method = $req->mode;
-        $order->customer_email = "fatima@abc.com";
+        $order->customer_email = session("email");
         $order->date = Carbon::today();
         if(isset($address)){
             $order->address_id = $address->id;
@@ -57,7 +57,7 @@ class Orders extends Controller
 
 
         $address = Address::find($order->address_id);
-        $cart = Cart::where('customer_email', "fatima@abc.com")->first();
+        $cart = Cart::where('customer_email', session("email"))->first();
 
         //$cart->products()->detach();
 
@@ -74,7 +74,7 @@ class Orders extends Controller
     }
 
     public function changeAddr(Request $req){
-        $cart = Cart::where('customer_email', "fatima@abc.com")->first();
+        $cart = Cart::where('customer_email', session("email"))->first();
         $products = $cart->products;
         $address = new Address;
         $address->street_address = $req->street;

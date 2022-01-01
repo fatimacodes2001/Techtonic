@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <link rel="stylesheet" href="/css/signup2.css">
-<link rel="stylesheet" href="/css/cart.css">
 
 
 

@@ -90,6 +90,8 @@ class AuthController extends Controller
             $save_user = $user->save();
             if($save_user){
                 $request->session()->put('logged_user',$email);
+                session(['email' => $email]);
+
                 return redirect('/');
             }else{
                 return back()->with('fail','Something did not go well, Kindly try again');
@@ -110,6 +112,7 @@ class AuthController extends Controller
             return back()->with('fail','User with this email does not exist, Kindlly try again');
         }else{
             if(Hash::check($request->password,$user_info->password)){
+                session(['email' => $user_info->email]);
                 $request->session()->put('logged_user',$user_info->email);
                 return redirect('/');
             }else{
