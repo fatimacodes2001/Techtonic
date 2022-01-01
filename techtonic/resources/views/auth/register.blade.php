@@ -336,7 +336,7 @@
         <div class="password">
           <input type="password" class="form-control" name='password' placeholder="Enter password" id="pwd">
           <div class="eye">
-            <img class="img-fluid" onclick="showPassword()" src="/img/eye.png" alt="" />
+            <img class="img-fluid" onclick="showPassword()" src="/img/eye.png" alt="show" />
           </div>
         </div>
         <div class="password repeat-password">

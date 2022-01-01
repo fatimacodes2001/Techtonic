@@ -299,29 +299,27 @@
 
 <section class="sign-in d-flex justify-content-center align-items-center">
   <div class="sign-in-box text-center mx-4">
-      <h2>Sign in</h2>
-      <p>Welcome back to a world of Luxury</p>
-      <form action="{{route('auth.check')}}" method="post">
-        @if(Session::get('fail'))
-        <div class="alert alert-danger>">
-          {{Session::get('fail')}}
-        </div>
-        @endif
-        @csrf
-        <div class="form-group">
-          <input type="email" class="form-control" name='email' placeholder="Enter email" id="email" value="{{old('email')}}">
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" name='password' placeholder="Enter password" id="pwd">
-        </div>
+    <h2>Sign in</h2>
+    <p>Welcome back to a world of Luxury</p>
+    <form action="{{route('auth.check')}}" method="post">
+      @if(Session::get('fail'))
+      <div class="alert alert-danger>">
+        {{Session::get('fail')}}
+      </div>
+      @endif
+      @csrf
+      <input type="email" class="form-control" name='email' placeholder="Enter email" id="email" value="{{old('email')}}">
+      <div class="password">
+        <input type="password" class="form-control" name='password' placeholder="Enter password" id="pwd">
         <div class="eye">
-          <img class="img-fluid" src="assets/eye.png" alt="" />
+          <img class="img-fluid" onclick="showPassword()" src="/img/eye.png" alt="show" />
         </div>
+      </div>
 
 
-        <button type="submit" class="btn btn-dark">Submit</button>
-        <a class="skip link-dark" href="{{route('auth.register')}}"> Sign Up</a>
-      </form>
+      <button type="submit" class="btn btn-dark">Submit</button>
+      <a class="skip link-dark" href="{{route('auth.register')}}"> Sign Up</a>
+    </form>
   </div>
 </section>
 @endsection

@@ -42,7 +42,12 @@ class AuthController extends Controller
         }
         $password = Hash::make($request->password);
 
-      
+        $request->session()->put('email',$email);
+        $request->session()->put('first_name',$first_name);
+        $request->session()->put('last_name',$last_name);
+        $request->session()->put('password',$password);
+        $request->session()->put('select_file',$newpfp);
+        
         return redirect()->route( 'auth.registerAddr' )->with( [ 'first_name' => $first_name ] )->with( [ 'last_name' => $last_name ] )->with( [ 'email' => $email ] )->with( [ 'password' => $password ] )->with(['select-file'=>$newpfp]);
 
     }

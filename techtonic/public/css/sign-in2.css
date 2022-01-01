@@ -74,7 +74,16 @@
     right: 4%;
 }
 
+@media (max-width: 1200px) {
+    .eye {
+        width: 17px;
+    }
+}
+
 @media (max-width: 992px) {
+    .eye {
+        width: 15px;
+    }
     .sign-in-box form {
         margin-top: 30px;
         padding: 20px 20px 32px;
@@ -115,13 +124,25 @@
 
 @media (max-height: 768px) {
     .sign-in {
-        margin-top: 20px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 400px) {
+    .eye {
+        width: 12px;
+    }
+}
+
+@media (max-width: 300px) {
+    .eye {
+        width: 11px;
     }
 }
 
 @media (max-width: 205px) {
     .sign-in {
-        margin-top: 60px;
+        margin-top: 90px;
     }
     .sign-in-box {
         border-radius: 0px;
@@ -136,12 +157,12 @@
 
 @media (max-width: 106px) {
     .sign-in {
-        margin-top: 100px;
+        margin-top: 130px;
     }
 }
 
 @media (max-width: 98px) {
     .sign-in {
-        margin-top: 140px;
+        margin-top: 160px;
     }
 }

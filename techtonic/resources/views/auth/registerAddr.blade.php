@@ -325,26 +325,38 @@
         </div>
         @endif
         @csrf
+
+        <input type="text" class="form-control" name='street-address' placeholder="Enter Street Address" id="street-address" value="{{old('street-address')}}">
+
+        <input type="text" class="form-control" name='city' placeholder="Enter City" id="city" value="{{old('city')}}">
+
+        <input type="text" class="form-control" name='country' placeholder="Enter Country" id="country" value="{{old('country')}}">
+
+        <input type="number" class="form-control" name='postal-code' placeholder="Enter Postal Code" id="postal-code" value="{{old('postal-code')}}">
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+        @if(count($errors)==0)
         <input type="email" class="form-control" name='email' id="email" value="{{session()->get( 'email' ) }}" hidden>
         <input type="text" class="form-control w-50 me-3" name='first-name' id="first-name" value="{{session()->get( 'first_name' ) }}" hidden>
         <input type="text" class="form-control w-50" name='last-name' id="last-name" value="{{session()->get( 'last_name' ) }}" hidden>
         <input type="password" class="form-control" name='password' id="pwd" value="{{session()->get( 'password' ) }}" hidden>
         <input type="text" id="select-file" name="select-file" value="{{session()->get( 'select-file' )}}" hidden>
-
-        <input type="text" class="form-control" name='street-address' placeholder="Enter Street Address" id="street-address" value="{{old('street-address')}}">
-        <span class="text-danger">@error('street-address'){{$message}}@enderror</span>
-
-        <input type="text" class="form-control" name='city' placeholder="Enter City" id="city" value="{{old('city')}}">
-        <span class="text-danger">@error('city'){{$message}}@enderror</span>
-
-        <input type="text" class="form-control" name='country' placeholder="Enter Country" id="country" value="{{old('country')}}">
-        <span class="text-danger">@error('country'){{$message}}@enderror</span>
-
-        <input type="number" class="form-control" name='postal-code' placeholder="Enter Postal Code" id="postal-code" value="{{old('postal-code')}}">
-        <span class="text-danger">@error('postal-code'){{$message}}@enderror</span>
-
-        <button type="submit" class="btn btn-dark">Submit</button>
-
+        @endif
+        @if(count($errors)>0)
+        <input type="email" class="form-control" name='email' id="email" value="{{old('email')}}" hidden>
+        <input type="text" class="form-control w-50 me-3" name='first-name' id="first-name" value="{{old('first-name')}}" hidden>
+        <input type="text" class="form-control w-50" name='last-name' id="last-name" value="{{old('last-name')}}" hidden>
+        <input type="password" class="form-control" name='password' id="pwd" value="{{old('password')}}" hidden>
+        <input type="text" id="select-file" name="select-file" value="{{old('select-file')}}" hidden>
+        <div class="alert alert-danger">
+          <br>
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
       </form>
     </div>
   </div>
