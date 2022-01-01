@@ -9,6 +9,7 @@ class ProductColor extends Model
 {
     use HasFactory;
     protected $table = 'product_colors';
+    protected $fillable = ['name', 'hex'];
     public $timestamps = false;
 
     public function products()

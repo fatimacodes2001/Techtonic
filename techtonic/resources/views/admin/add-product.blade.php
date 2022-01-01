@@ -45,8 +45,13 @@
         </div>
 
         <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="price" name="price" placeholder="Price" required>
+            <label for="price">Price (PKR)</label>
+        </div>
+
+        <div class="form-floating mb-3">
             <input type="number" class="form-control" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" required>
-            <label for="name">Stock Quantity</label>
+            <label for="stock_quantity">Stock Quantity</label>
         </div>
 
         <div class="mb-4">

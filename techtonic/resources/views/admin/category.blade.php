@@ -32,7 +32,7 @@
 
                 <tr>
                     <td>{{ $product->id }}</td>
-                    <td><img width='65px' height='70px' src="{{ $product->images->first()->pic_path }}"></td>
+                    <td><img width='65px' height='70px' src="{{ asset('storage/' . $product->images->first()->pic_path) }}"></td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>
