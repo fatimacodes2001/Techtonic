@@ -42,7 +42,7 @@
                 <label for="pic_path" class="me-2">Picture</label>
                 <img width="100px" height="110px" src="{{ asset('storage/' . $category->pic_path) }}">
             </div>
-            <input type="file" id="pic_path" name="pic_path">
+            <input type="file" accept="image/*" id="pic_path" name="pic_path">
         </div>
 
         <button type="submit" class="btn btn-dark mt-2 px-3">Update</button>
