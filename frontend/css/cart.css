@@ -48,6 +48,13 @@ body {
     margin-bottom: 15px;
 }
 
+.order-item2 {
+    background-color: #FAF9F6 !important;
+    border-radius: 16px;
+    padding: 27px !important;
+    margin-bottom: 7px;
+}
+
 .item-img img {
     border-radius: 9px;
     width: 143px;

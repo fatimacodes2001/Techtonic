@@ -39,6 +39,7 @@
         >
           <h2>Address</h2>
           <p>Just One Step Away</p>
+
         </div>
         <div class="col-12 col-sm-10 col-md-7 mt-1 m-auto">
           <form action="{{ route('rollback') }}" class="" id="main" >
@@ -79,6 +80,9 @@
 
               />
             </div>
+            <div class="alert alert-danger wrong" style="display: none;" role="alert">
+              A simple danger alert—check it out!
+            </div>
             
             <button type="submit" class="btn btn-dark">
               Add Address
@@ -101,6 +105,26 @@
     <script src="/js/main.js"></script>
     <script>
       $("#main").submit(function(e){
+          var street = $('[name="street"]');
+          var city = $('[name="city"]');
+          var country = $('[name="country"]');
+          var postalCode = $('[name="postal"]');
+
+          if((!street.val()) || (!city.val()) || (!country.val()) || (!postalCode.val())){
+            var alert = $('.wrong');
+            alert.show()
+            alert.text("Please fill all the fields!")
+            return false
+          }
+
+          if(isNaN(postalCode.val())){
+            var alert = $('.wrong');
+            alert.show()
+            alert.text("Postal Code should only contain numbers!")
+            return false
+
+          }
+          
 
           var $comment = $('<input type="hidden" name="comment" value="{{$comment}}"></input>')
           $(this).append($comment)
@@ -108,5 +132,6 @@
 
 
         })
+      
     </script>
 @endsection
