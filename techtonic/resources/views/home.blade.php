@@ -115,7 +115,7 @@
 
           <div class="card category-card text-white">
             <img
-              src="{{ $product->images->first()->pic_path }}" class="card-img" alt="{{ $product->name}}">
+              src="{{ asset('storage/' . $product->images->first()->pic_path) }}" class="card-img" alt="{{ $product->name}}">
             <div class="card-img-overlay">
               <a href="{{route('products.show', $product->id)}}">
                 <h5 class="category-title">{{ $product->name }}</h5>

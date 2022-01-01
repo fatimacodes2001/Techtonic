@@ -8,10 +8,8 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\Product;
-
+use Illuminate\Validation\Rule;
 use Carbon\Carbon;
-
-
 
 class Orders extends Controller
 {
@@ -96,10 +94,30 @@ class Orders extends Controller
      */
     public function adminIndex()
     {
-        $orders = Order::with('address')->get();
+        $orders = Order::with('address', 'products')->get();
         
         return view('admin.orders', [
             'orders' => $orders
         ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Order $order
+     * @return \Illuminate\Http\Response
+     */
+    public function adminUpdate(Request $request, Order $order)
+    {
+        $request->validate([
+            'status' => [
+                'required',
+                Rule::in(['Placed', 'Processing', 'Shipped', 'Delivered']),
+            ],
+        ]);
+
+        $order->status = $request->status;
+        $order->save();
     }
 }

@@ -26,7 +26,7 @@
 
                     <div class="col-6 col-md-4">
                         <div class="card text-white">
-                            <img src="{{ $product->images->first()->pic_path }}" class="card-img" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->images->first()->pic_path) }}" class="card-img" alt="{{ $product->name }}">
                             <div class="card-img-overlay">
                                 <h5 class="card-title">{{ $product->name }}</h5>
                                 <a href="{{route('products.show', $product->id)}}">Explore <i class="bi bi-chevron-down"></i></a>
