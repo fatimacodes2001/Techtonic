@@ -20,7 +20,6 @@
                 <th>City</th>
                 <th>Country</th>
                 <th>Postal Code</th>
-                <th>Update</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +34,6 @@
                     <td>{{ $user->address->city }}</td>
                     <td>{{ $user->address->country }}</td>
                     <td>{{ $user->address->postal_code }}</td>
-                    <td><a href="">Edit</a> | <a href="">Delete</a</td>
                 </tr>  
 
             @endforeach

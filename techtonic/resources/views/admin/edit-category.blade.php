@@ -31,10 +31,12 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ $category->name }}" required>
             <label for="name">Name</label>
         </div>
+
         <div class="form-floating mb-3">
             <textarea class="form-control" placeholder="Description" id="description" name="description" style="height: 10rem;" required>{{ $category->description }}</textarea>
             <label for="description">Description</label>
         </div>
+        
         <div class="mb-3">
             <div class="mb-3">
                 <label for="pic_path" class="me-2">Picture</label>

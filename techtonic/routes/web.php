@@ -162,6 +162,15 @@ Route::get('/admin/categories/{category}/products/create', [ProductController::c
 Route::post('/admin/categories/{category}/products', [ProductController::class, 'adminStore'])
     ->name('admin.products.store');
 
+Route::get('/admin/categories/{category}/products/{product}/edit', [ProductController::class, 'adminEdit'])
+    ->name('admin.products.edit');
+
+Route::put('/admin/categories/{category}/products/{product}', [ProductController::class, 'adminUpdate'])
+    ->name('admin.products.update');
+
+Route::delete('/admin/categories/{category}/products/{product}', [ProductController::class, 'adminDestroy'])
+    ->name('admin.products.destroy');
+
 
 // ORDER ROUTES
 

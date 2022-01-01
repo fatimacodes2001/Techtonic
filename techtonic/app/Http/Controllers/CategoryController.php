@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Cart;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::has('products')->get();
+        $categories = Category::where('deleted', false)->has('products')->get();
         
         return view('categories', [
             'categories' => $categories
@@ -23,14 +24,13 @@ class CategoryController extends Controller
 
     public function adminIndex()
     {
-        $categories = Category::get();
+        $categories = Category::where('deleted', false)->get();
         
         return view('admin.categories', [
             'categories' => $categories
         ]);
     }
     
-
     /**
      * Show the form for creating a new resource.
      *
@@ -128,7 +128,13 @@ class CategoryController extends Controller
      */
     public function adminDestroy(Category $category)
     {
-        $category->delete();
+        $carts = Cart::get();
+        foreach ($carts as $cart) {
+            $cart->products()->whereNotIn('product_id', $category->productIds())->detach();
+        }
+        $category->products()->update(['deleted' => true]);
+        $category->deleted = true;
+        $category->save();
         return redirect()->route('admin.categories.index');
     }
 }
