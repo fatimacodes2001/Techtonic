@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
 
 class MiscController extends Controller
 {
@@ -41,7 +43,14 @@ class MiscController extends Controller
      */
     public function admin()
     {   
-        return view('admin.home');
+        $count['users'] = User::where('is_admin', 0)->count();
+        $count['categories'] = Category::where('deleted', false)->count();
+        $count['products'] = Product::where('deleted', false)->count();
+        $count['orders'] = Order::count();
+        
+        return view('admin.home', [
+            'count' => $count,
+        ]);
     }
 
     /**

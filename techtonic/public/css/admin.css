@@ -85,6 +85,10 @@ textarea {
     padding: 0 !important;
 }
 
+.form-select {
+    width: auto;
+}
+
 @media screen and (max-height: 450px) {
     .sidebar {
         padding-top: 15px;

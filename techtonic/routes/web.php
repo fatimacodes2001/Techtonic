@@ -177,6 +177,9 @@ Route::delete('/admin/categories/{category}/products/{product}', [ProductControl
 Route::get('/admin/orders', [Orders::class, 'adminIndex'])
     ->name('admin.orders.index');
 
+Route::post('/admin/orders/{order}', [Orders::class, 'adminUpdate'])
+    ->name('admin.orders.update');
+
 
 
 Route::any('/rollback', [Orders::class, 'changeAddr'])->name('rollback');
