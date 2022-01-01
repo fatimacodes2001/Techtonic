@@ -38,7 +38,7 @@
         
         <div class="mb-3">
             <label for="pic_path" class="d-block mb-2">Picture</label>
-            <input type="file" id="pic_path" name="pic_path" required>
+            <input type="file" accept="image/*" id="pic_path" name="pic_path" required>
         </div>
 
         <button type="submit" class="btn btn-dark mt-2 px-3">Create</button>

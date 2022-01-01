@@ -5,6 +5,7 @@
 @section('styles')
     @parent
 
+    <script type="text/javascript" src="https://chir.ag/projects/ntc/ntc.js"></script>
 @endsection
 
 @section('content')
@@ -25,6 +26,13 @@
 
             </div>
         @endif
+
+        <div id="error-display" class="alert alert-danger d-none" role="alert">
+            <h4 class="alert-heading">Whoops!</h4>
+            <p>There were some problems with your input.</p>
+            <hr>
+            <p id="error" class="mb-0"></p> 
+        </div>
     
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
@@ -41,16 +49,16 @@
             <label for="name">Stock Quantity</label>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <label for="pic_path" class="d-block mb-2">Pictures</label>
-            <input type="file" id="pic_path" name="pic_path[]" multiple required>
+            <input type="file" accept="image/*" id="pic_path" name="pic_path[]" multiple required>
         </div>
 
-        <div class="d-flex">
+        <div class="d-flex mb-3">
             <label class="d-block mt-1 me-2">Specs</label>
             <div>
                 <div id="inputFormRow">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-2">
                         <input type="text" name="spec[]" class="form-control m-input" placeholder="Spec" required>
                         <div class="input-group-append">                
                             <button id="removeRow" type="button" class="btn btn-danger"><img src="/img/dash-lg.svg"></button>
@@ -58,21 +66,15 @@
                     </div>
                 </div>
                 <div id="newRow"></div>
-                <button id="addRow" type="button" class="btn btn-info d-block mb-4"><img src="/img/plus-lg.svg"></button>
             </div>
+            <button id="addRow" type="button" class="btn btn-dark d-block ms-3 align-self-start">Add Spec</button>
         </div>
         
-
         <div class="mb-3 d-flex">
             <label for="color" class="mb-2 me-2">Color</label>
             <input type="color" id="color" value="#000000" name="color[hex]" required>
+            <input type="text" id="color-name" value="Black" name="color[name]" hidden>
         </div>
-
-        <!-- <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="spec" name="spec[]" placeholder="Spec" required>
-            <label for="spec">Spec</label>
-        </div> -->
-        
 
         <button type="submit" class="btn btn-dark mt-2 px-3 submit">Create</button>
     </form>
