@@ -12,7 +12,6 @@ class User extends Model
     public $timestamps = false;
     protected $primaryKey = 'email';
     protected $keyType = 'string';
-    public $timestamps = false;
     
     public function address()
     {
