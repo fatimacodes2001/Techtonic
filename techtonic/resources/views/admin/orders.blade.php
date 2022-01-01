@@ -83,48 +83,20 @@
 
     <script>
 
-// $(function () {
-//         let _token = $('meta[name="csrf-token"]').attr('content');
-//         $('.status').on("change", function() {
-//             var orderId = $(this).closest('tr').find('td').first().text();
-//             $.ajax({
-//                 url: `/admin/orders/${orderId}`,
-//                 type: "POST",
-//                 data: {
-//                     _token: _token,
-//                     status: this.value 
-//                 } 
-//             })
-//         });
-//         });
-
-         function sendAjax(order, status){
-
-
-        let _token = $('meta[name="csrf-token"]').attr('content');
-        $.ajax({
-                  url: "/admin/orders/"+order,
-                  type:"POST",
-                  data:{
-                    _token: _token,
-                    status: status
-                  },
-                   success: function (data) {
-    },
-    error: function (data) {
-     console.log('Error:', data);
-    },
-                  dataType: "json"
-                  
-              });
-
-              
-
-      }
-
-      $('.status').on("change", function() {
-            var orderId = $(this).closest('tr').find('td').first().text();
-            sendAjax(orderId, this.value)
+        $(function () {
+            let _token = $('meta[name="csrf-token"]').attr('content');
+            $('.status').on("change", function() {
+                var orderId = $(this).closest('tr').find('td').first().text();
+                $.ajax({
+                    url: `/admin/orders/${orderId}`,
+                    type: "POST",
+                    data: {
+                        _token: _token,
+                        status: this.value 
+                    } 
+                })
+            });
         });
+
     </script>
 @endsection
