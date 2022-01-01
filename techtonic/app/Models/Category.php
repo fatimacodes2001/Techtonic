@@ -14,11 +14,16 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->hasMany(Product::class, 'category_id')->where('deleted', false);
     }
 
     public function productsThree()
     {
-        return $this->hasMany(Product::class)->limit(3);
+        return $this->hasMany(Product::class)->where('deleted', false)->limit(3);
+    }
+
+    public function productIds()
+    {
+        return $this->hasMany(Product::class)->where('deleted', false)->pluck('id')->toArray();
     }
 }

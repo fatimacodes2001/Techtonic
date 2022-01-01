@@ -49,7 +49,14 @@
                             @endforeach
                         </ul>
                     </td>
-                    <td><a href="">Edit</a> | <a href="" onClick="return confirm('Are you sure you want to delete?')">Delete</a</td>
+                    <td>
+                        <a href="{{route('admin.products.edit', [$category->id, $product->id])}}">Edit</a> | 
+                        <form class="d-inline" method="POST" action="{{ route('admin.products.destroy', [$category->id, $product->id])}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-link" onClick="return confirm('Are you sure you want to delete?')">Delete</button>
+                        </form>
+                    </td>
                 </tr>  
 
             @endforeach

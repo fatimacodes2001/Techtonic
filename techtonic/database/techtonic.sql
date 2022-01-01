@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2021 at 10:34 AM
+-- Generation Time: Dec 31, 2021 at 07:00 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -68,7 +68,8 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `pic_path` varchar(600) NOT NULL
+  `pic_path` varchar(600) NOT NULL,
+  `deleted` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -114,7 +115,8 @@ CREATE TABLE `products` (
   `price` double NOT NULL,
   `color_id` int(11) NOT NULL,
   `stock_quantity` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+  `category_id` int(11) NOT NULL,
+  `deleted` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
