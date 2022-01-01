@@ -45,7 +45,7 @@
 
                 <div @class(['carousel-item', 'active' => $loop->first])>
                     <div class="image-sec">
-                        <img src="{{ $image->pic_path }}" alt="{{ $product->name . '-' . $loop->index + 1 }}" class="main-img">
+                        <img src="{{ asset('storage/' . $image->pic_path) }}" alt="{{ $product->name . '-' . $loop->index + 1 }}" class="main-img">
                     </div>
                 </div>
 
@@ -186,7 +186,7 @@
             @foreach ($similarMerch as $merch)
 
                  <div class="card category-card text-white">
-                    <img src="{{ $merch->images->first()->pic_path }}" class="card-img" alt="{{ $merch->name }}">
+                    <img src="{{ asset('storage/' . $merch->images->first()->pic_path) }}" class="card-img" alt="{{ $merch->name }}">
                     <div class="card-img-overlay">
                         <a href="{{route('products.show', $merch->id)}}">
                             <h5 class="category-title">{{ $merch->name }}</h5>

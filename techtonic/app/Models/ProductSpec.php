@@ -9,6 +9,7 @@ class ProductSpec extends Model
 {
     use HasFactory;
     protected $table = 'product_specs';
+    protected $fillable = ['spec'];
     public $timestamps = false;
 
     public function product()

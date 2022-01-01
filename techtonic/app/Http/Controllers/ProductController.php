@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
+use App\Models\ProductSpec;
+use App\Models\ProductColor;
 use App\Models\User;
 use App\Models\Cart;
 
@@ -41,17 +44,57 @@ class ProductController extends Controller
      */
     public function adminStore(Request $request, Category $category)
     {
-        ddd($request->all());
-        ddd($request->file('pic_path'));
-        // $attributes = $request->validate([
-        //     'name' => 'required|string',
-        //     'description' => 'required|string',
-        //     'pic_path' => 'required|image',
-        // ]);
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock_quantity' => 'required|numeric|min:0',
+            'spec' => 'required|array',
+            'spec.*' => 'required|string',
+            'color' => 'required|array',
+            'color.*' => 'required|string',
+            'pic_path' => 'required|array|min:1|max:3',
+            'pic_path.*' => 'required|image'
+        ]);
 
-        // $attributes['pic_path'] = $request->file('pic_path')->store('categories');
-        // Product::create($attributes);
-        // return redirect()->route('admin.categories.index');
+        $color = ProductColor::where('name', $request->color['name'])
+                ->where('hex', $request->color['hex'])
+                ->first();
+
+        if($color) {
+            $productColor = $color;
+        } else{
+            $productColor = ProductColor::create([
+                'name' => $request->color['name'],
+                'hex' => $request->color['hex'],
+            ]);
+        }
+
+        $product = new Product([
+            'name' => $request->name, 
+            'description' => $request->description,
+            'price' => $request->price,
+            'color_id' => $productColor->id,
+            'stock_quantity' => $request->stock_quantity,
+        ]);
+
+        $category->products()->save($product);
+
+        foreach ($request->spec as $spec) {
+            $productSpec = new ProductSpec([
+                'spec' => $spec, 
+            ]);
+            $product->specs()->save($productSpec);
+        }
+
+        foreach ($request->pic_path as $pic_path) {
+            $productImage = new ProductImage([
+                'pic_path' => $pic_path->store('products'), 
+            ]);
+            $product->images()->save($productImage);
+        }
+
+        return redirect()->route('admin.categories.show', $category->id);
     }
 
     /**
