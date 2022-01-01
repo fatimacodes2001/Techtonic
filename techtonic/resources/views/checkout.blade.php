@@ -113,24 +113,65 @@
                 </td>
               </tr>
 
+              @if(isset($address))
+
+              <tr class="order-item d-flex">
+
+              
+              <td class="item-info">
+                <div class="d-flex flex-column">
+                  <h3>Shipping Address</h3>
+                  <p class="item-title text-md m-0"> <strong>Country -</strong> {{ $address->country }} </p>
+                  <p class="item-title text-md m-0"> <strong>City - </strong> {{ $address->city }}  </p>
+                  <p class="item-title text-md m-0"> <strong>Street -</strong> {{ $address->street_address }} </p>
+                  <p class="item-title text-md m-0"> <strong>Postal Code -</strong> {{ $address->postal_code }}  </p>
+
+                  
+                </div>
+              </td>
+                                         
+                 <!-- End Order Item -->
+
+              
+              </tr>
+
+              @endif
+
+              
+
               <!-- End Order Item -->
             </tbody>
           </table>
         </div>
+        
 
-        <div class="order-details w-100 d-flex flex-column" style="margin-top: 15px;">
+
+        <div class="order-details w-100 d-flex flex-column" style="margin-top: 5px;">
 
             <div class="divide">
-              <h3>Choose Address</h3>
+              @if(!(isset($address)))
+                <h3>Choose Address</h3>
+              @endif
+
+              
               
               <form action="{{ route('address') }}" method="POST" id="address-form">
               {{ csrf_field() }}
 
+
                   <button class="btn btn-dark address-button text-center text-sm">
-                      Add New Address
+                    <?php 
+
+                    if(isset($address)){
+                        echo "Change Address";
+                    }else{
+                        echo "Add New Address";
+                    }  
+                    ?>
                   </button>
               </form>            
             </div>
+
 
 
             <div class="divide">
@@ -155,7 +196,10 @@
         
 
 
-          
+          @if(isset($address))
+              <input type="hidden" name="address" value="{{ $address }}">
+          @endif
+
           <input type="hidden" name="data" class="data-con">
           <button type="submit" class="btn btn-dark checkout-button text-center text-sm">
             Finalize Order

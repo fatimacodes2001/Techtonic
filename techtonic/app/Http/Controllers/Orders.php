@@ -25,12 +25,29 @@ class Orders extends Controller
             $order->remarks = $req->comment;
         }
 
+        if(isset($req->address)){
+
+            $req->address = json_decode($req->address);
+            $address = new Address;
+            $address->street_address = $req->address->street_address;
+            $address->country = $req->address->country;
+            $address->city = $req->address->city;
+            $address->postal_code = (int) $req->address->postal_code;
+            $address->save();
+
+        }
+        
+
         $order->status = "Placed";
         $order->order_total = (int)$req->total;
         $order->payment_method = $req->mode;
         $order->customer_email = "fatima@abc.com";
         $order->date = Carbon::today();
-        $order->address_id = 1;
+        if(isset($address)){
+            $order->address_id = $address->id;
+        }else{
+            $order->address_id = 1;
+        }
         $order->save();
 
         foreach (json_decode($req->data) as $product) {
@@ -44,7 +61,7 @@ class Orders extends Controller
         $address = Address::find($order->address_id);
         $cart = Cart::where('customer_email', "fatima@abc.com")->first();
 
-        $cart->products()->detach();
+        //$cart->products()->detach();
 
         return view('order-final',['order' => $order, "address" => $address]);
 
@@ -62,10 +79,10 @@ class Orders extends Controller
         $cart = Cart::where('customer_email', "fatima@abc.com")->first();
         $products = $cart->products;
         $address = new Address;
-        //$address->street_adress = $req->street;
-        //$address->country = $req->country;
-        //$address->city = $req->city;
-        //$address->postal_code = (int) $req->postal;
+        $address->street_address = $req->street;
+        $address->country = $req->country;
+        $address->city = $req->city;
+        $address->postal_code = (int) $req->postal;
 
         return view('checkout', ['products' => $products, "comment" => $req->comment, 'address' => $address]);
 
