@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/css/add-review.css">
+
+    <link rel="stylesheet" href="/css/cart.css">
+
 
 @endsection
 
@@ -32,18 +34,19 @@
 
 
           <tr class="order-item d-flex" item="">
-              <td class="item-img p-0">
+          <td class="item-img p-0">
                 <img class="responsive-img" src="/img/phone.png" alt="item img">
               </td>
               <td class="item-info">
                 <div class="d-flex flex-column">
-                <p class="item-title fw-bold text-md m-0">{{$product->name}}</p>
-                  
+                  <p class="item-title fw-bold text-md m-0">{{ $product->name }}</p>
                   <div class="item-description">
+                    @foreach ($product->specs as $spec)
 
-                  @foreach ($product->specs as $spec)
                     <p class="d-block text-sm fw-light m-0">{{ $spec->spec }}</p>
-                  @endforeach
+
+                    @endforeach
+
                   </div>
                 </div>
               </td>

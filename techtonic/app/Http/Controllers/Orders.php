@@ -42,7 +42,8 @@ class Orders extends Controller
 
 
         $address = Address::find($order->address_id);
-        $cart = Cart::where('customer_email', '=', "fatima@abc.com")->get();
+        $cart = Cart::where('customer_email', "fatima@abc.com")->first();
+
         $cart->products()->detach();
 
         return view('order-final',['order' => $order, "address" => $address]);
@@ -54,6 +55,20 @@ class Orders extends Controller
         $order = Order::find((int)$req->id);
         $address = Address::find((int)$order->address_id);
         return view('order-final',['order' => $order, "address" => $address]);
+
+    }
+
+    public function changeAddr(Request $req){
+        $cart = Cart::where('customer_email', "fatima@abc.com")->first();
+        $products = $cart->products;
+        $address = new Address;
+        //$address->street_adress = $req->street;
+        //$address->country = $req->country;
+        //$address->city = $req->city;
+        //$address->postal_code = (int) $req->postal;
+
+        return view('checkout', ['products' => $products, "comment" => $req->comment, 'address' => $address]);
+
 
     }
 

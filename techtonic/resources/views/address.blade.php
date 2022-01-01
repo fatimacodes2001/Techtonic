@@ -41,12 +41,13 @@
           <p>Just One Step Away</p>
         </div>
         <div class="col-12 col-sm-10 col-md-7 mt-1 m-auto">
-          <form action="" class="">
+          <form action="{{ route('rollback') }}" class="" id="main" >
             <input
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Street Address"
+              name="street"
             />
             <div class="d-flex justify-content-between name-container">
               <input
@@ -54,22 +55,19 @@
                 class="form-control w-50 me-3 first-name"
                 id="exampleFormControlInput1"
                 placeholder="Country"
+                name="country"
+
               />
               <input
                 type="text"
                 class="form-control w-50 last-name"
                 id="exampleFormControlInput1"
                 placeholder="City"
+                name="city"
+
               />
             </div>
-            <div class="password">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="State"
-              />
-            </div>
+            
 
             <div class="password">
               <input
@@ -77,6 +75,8 @@
                 class="form-control"
                 id="exampleFormControlInput1"
                 placeholder="Postal Code"
+                name="postal"
+
               />
             </div>
             
@@ -99,4 +99,14 @@
       integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
       crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/main.js"></script>
+    <script>
+      $("#main").submit(function(e){
+
+          var $comment = $('<input type="hidden" name="comment" value="{{$comment}}"></input>')
+          $(this).append($comment)
+          return true
+
+
+        })
+    </script>
 @endsection

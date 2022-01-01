@@ -122,7 +122,10 @@
 
             <div class="divide">
               <h3>Choose Address</h3>
-              <form action="">
+              
+              <form action="{{ route('address') }}" method="POST" id="address-form">
+              {{ csrf_field() }}
+
                   <button class="btn btn-dark address-button text-center text-sm">
                       Add New Address
                   </button>
@@ -210,6 +213,15 @@
           $(this).append($comment)
 
           return true
+
+
+        })
+
+        $("#address-form").submit(function(e){
+
+            var $comment = $('<input type="hidden" name="comment" value="{{$comment}}"></input>')
+            $(this).append($comment)
+            return true
 
 
         })

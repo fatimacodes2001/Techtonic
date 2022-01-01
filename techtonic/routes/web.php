@@ -45,8 +45,8 @@ Route::get('/signup', function () {
     return view('sign-up');
 })->name('signup');
 
-Route::get('/address', function () {
-    return view('address');
+Route::post('/address', function (Request $req) {
+    return view('address', ['comment' => $req->comment]);
 })->name('address');
 
 
@@ -176,3 +176,7 @@ Route::delete('/admin/categories/{category}/products/{product}', [ProductControl
 
 Route::get('/admin/orders', [Orders::class, 'adminIndex'])
     ->name('admin.orders.index');
+
+
+
+Route::any('/rollback', [Orders::class, 'changeAddr'])->name('rollback');
