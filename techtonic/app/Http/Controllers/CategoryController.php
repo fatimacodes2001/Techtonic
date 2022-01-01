@@ -100,13 +100,13 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function adminUpdate(Request $request, Category $category)
     {
-         $attributes = $request->validate([
+        $attributes = $request->validate([
             'name' => 'required|string',
             'description' => 'required|string',
             'pic_path' => 'image',

@@ -39,7 +39,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request, Category $category
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function adminStore(Request $request, Category $category)
@@ -124,24 +125,80 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $categoryId
+     * @param  \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function adminEdit($categoryId, Product $product)
     {
-        //
+        return view('admin.edit-product', [
+            'categoryId' => $categoryId,
+            'product' => $product
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Category $category
+     * @param  \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function adminUpdate(Request $request, Category $category, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock_quantity' => 'required|numeric|min:0',
+            'spec' => 'required|array',
+            'spec.*' => 'required|string',
+            'color' => 'required|array',
+            'color.*' => 'required|string',
+            'pic_path' => 'array|min:1|max:3',
+            'pic_path.*' => 'image'
+        ]);
+
+        $color = ProductColor::where('name', $request->color['name'])
+                ->where('hex', $request->color['hex'])
+                ->first();
+
+        if($color) {
+            $productColor = $color;
+        } else{
+            $productColor = ProductColor::create([
+                'name' => $request->color['name'],
+                'hex' => $request->color['hex'],
+            ]);
+        }
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->color_id = $productColor->id;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->save();
+
+        $product->specs()->delete();
+        foreach ($request->spec as $spec) {
+            $productSpec = new ProductSpec([
+                'spec' => $spec, 
+            ]);
+            $product->specs()->save($productSpec);
+        }
+
+        if(isset($request->pic_path)) {
+            $product->images()->delete();
+            foreach ($request->pic_path as $pic_path) {
+                $productImage = new ProductImage([
+                    'pic_path' => $pic_path->store('products'), 
+                ]);
+                $product->images()->save($productImage);
+            }
+        }
+
+        return redirect()->route('admin.categories.show', $category->id);
     }
 
     /**
