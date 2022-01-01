@@ -4,19 +4,12 @@
     width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    position: absolute;
-    top: 0%;
-    margin: auto;
-    pointer-events: none;
-    z-index: 0;
+    background-image: url("https://images.unsplash.com/photo-1605311364334-723fff035793?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2962&q=80");
 }
 
 .sign-in-box {
-    z-index: 10;
-    pointer-events: auto;
     background: rgba(242, 241, 239, 0.8);
     backdrop-filter: blur(20px);
     border-radius: 27px;
@@ -122,12 +115,6 @@
     }
 }
 
-@media (max-height: 768px) {
-    .sign-in {
-        margin-top: 60px;
-    }
-}
-
 @media (max-width: 400px) {
     .eye {
         width: 12px;
@@ -140,29 +127,3 @@
     }
 }
 
-@media (max-width: 205px) {
-    .sign-in {
-        margin-top: 90px;
-    }
-    .sign-in-box {
-        border-radius: 0px;
-        width: 100%;
-        margin: 0;
-    }
-    .sign-in-box form {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-}
-
-@media (max-width: 106px) {
-    .sign-in {
-        margin-top: 130px;
-    }
-}
-
-@media (max-width: 98px) {
-    .sign-in {
-        margin-top: 160px;
-    }
-}

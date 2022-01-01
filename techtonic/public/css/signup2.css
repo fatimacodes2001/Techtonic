@@ -7,11 +7,8 @@
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    position: absolute;
-    top: 0%;
-    margin: auto;
-    pointer-events: none;
-    z-index: 0;
+    background-image: url("https://images.unsplash.com/photo-1568115286680-d203e08a8be6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+    
 }
 
 h2 {
@@ -19,7 +16,6 @@ h2 {
 }
 
 .sign-up-box {
-    z-index: 10;
     pointer-events: auto;
     background: rgba(242, 241, 239, 0.8);
     backdrop-filter: blur(20px);
@@ -332,16 +328,10 @@ h2 {
     }
 }
 
-@media (max-height: 768px) {
-    .sign-up {
-        margin-top: 60px;
-    }
-}
+
 
 @media (max-width: 205px) {
-    .sign-up {
-        margin-top: 90px;
-    }
+    
     .sign-up-box {
         border-radius: 0px;
         width: 100%;
@@ -358,17 +348,10 @@ h2 {
 }
 
 @media (max-width: 106px) {
-    .sign-up {
-        margin-top: 130px;
-    }
+   
     .upload-profile-pic-head {
         flex-direction: column;
         flex-wrap: wrap;
     }
 }
 
-@media (max-width: 98px) {
-    .sign-up {
-        margin-top: 160px;
-    }
-}
