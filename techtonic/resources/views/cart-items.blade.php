@@ -104,6 +104,8 @@
         </table>
         </div>
       </div>
+      
+      @if(count($products) != 0)
       <form class="next" action="{{ route('checkout') }}" method="post">
           {{ csrf_field() }}
           <input type="hidden" name="data" class="data">
@@ -114,6 +116,8 @@
         </button>
 
       </form>
+      @endif
+
       
     </div>
     <!-- End Orders section -->
