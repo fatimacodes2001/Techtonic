@@ -80,6 +80,7 @@
                     @endif
 
 
+
                   </div>
                   <div class="item-price mt-auto">
                     <h4 class="m-0 d-block fw-bold text-end text-md">x{{ $product->pivot->quantity }} </h4>
