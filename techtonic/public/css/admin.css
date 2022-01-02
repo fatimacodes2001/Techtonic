@@ -69,6 +69,38 @@ body {
     overflow: auto;
 }
 
+.card {
+    padding-top: 1rem;
+    max-width: 30rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    margin-top: -1.5rem;
+}
+
+.card img {
+    width: auto;
+    max-height: 10rem;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.card-text {
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+.card-text span {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+[class*="col-"] {
+    /* padding: 0.5rem; */
+}
+
 ::-webkit-scrollbar {
     height: 4px;
     width: 4px;

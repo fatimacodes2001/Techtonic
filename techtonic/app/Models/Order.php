@@ -18,7 +18,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'customer_email');
+        return $this->belongsTo(User::class, 'customer_email');
     }
 
     public function products()

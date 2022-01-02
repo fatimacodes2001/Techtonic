@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Orders')
+@section('title', $title)
 
 @section('styles')
     @parent
@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <h1 class="page-title text-center gap">Orders</h1>
+    <h1 class="page-title text-center gap">{{ $title }}</h1>
 
     <div class="wrapper">
         <table class="table table-striped table-hover">
@@ -19,7 +19,7 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Remarks</th>
-                    <th>Total</th>
+                    <th>Total (PKR)</th>
                     <th>Payment Method</th>
                     <th>Shipping Address</th>
                     <th>City</th>
@@ -60,7 +60,8 @@
                         <td>{{ $order->address->city }}</td>
                         <td>{{ $order->address->country }}</td>
                         <td>{{ $order->address->postal_code }}</td>
-                        <td>
+                        <td><a href="{{route('admin.orders.show', $order->id)}}">View Products</a></td>
+                        <!-- <td>
                             <ul>
                                 @foreach ($order->products as $product)
 
@@ -68,7 +69,7 @@
 
                                 @endforeach
                             </ul>
-                        </td>
+                        </td> -->
                     </tr>  
 
                 @empty
