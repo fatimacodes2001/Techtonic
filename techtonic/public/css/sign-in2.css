@@ -1,101 +1,129 @@
 .sign-in {
-  font-family: "Raleway", sans-serif;
-  background-image: url(../img/unsplash_AWjAGG-u_eE.png);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden;
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url("https://images.unsplash.com/photo-1605311364334-723fff035793?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2962&q=80");
 }
 
 .sign-in-box {
-  background: rgba(242, 241, 239, 0.85);
-  backdrop-filter: blur(50px);
-  border-radius: 27px;
-  height: fit-content;
-
+    background: rgba(242, 241, 239, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 27px;
+    height: fit-content;
 }
 
 .sign-in-box h2 {
-  margin-top: 76px;
-  color: #000;
-  font-size: 80px;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin-top: 76px;
+    color: #000;
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 76px;
 }
+
 .sign-in-box p {
-  margin: 10px 102px 50px;
-  color: #888888;
-  font-size: 28px;
-  font-weight: 300;
+    margin: 10px 102px 50px;
+    color: #888888;
+    font-size: 28px;
+    font-weight: 300;
 }
+
 .sign-in-box form {
-  padding: 0px 76px 75px;
+    padding: 0px 76px 75px;
 }
+
 .sign-in-box form input {
-  margin-bottom: 25px;
-  padding: 15px 20px;
-  background-color: #faf9f6;
-  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
-  border-radius: 12px;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background-color: #faf9f6;
+    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+    border-radius: 12px;
 }
+
 .sign-in-box form input::placeholder {
-  font-size: 18px;
-  font-weight: 700;
-  color: #888888;
+    font-size: 18px;
+    font-weight: 700;
+    color: #888888;
 }
+
 .sign-in-box form .btn {
-  padding: 13px 0;
-  border-radius: 11px;
-  width: 100%;
+    padding: 13px 0;
+    border-radius: 11px;
+    width: 100%;
 }
+
 .password {
-  position: relative;
+    position: relative;
 }
+
 .eye {
-  cursor: pointer;
-  width: 24px;
-  position: absolute;
-  top: 25%;
-  right: 4%;
+    cursor: pointer;
+    width: 24px;
+    position: absolute;
+    top: 25%;
+    right: 4%;
+}
+
+@media (max-width: 1200px) {
+    .eye {
+        width: 17px;
+    }
 }
 
 @media (max-width: 992px) {
-  .sign-in-box form {
-    margin-top: 30px;
-    padding: 20px 20px 32px;
-  }
-  .sign-in-box form input::placeholder {
-    font-size: 15px;
-  }
-  .sign-in-box h2 {
-    font-size: 60px;
-    margin-top: 40px;
-  }
-  .sign-in-box p {
-    font-size: 20px;
-    margin: 10px 20px 30px;
-  }
+    .eye {
+        width: 15px;
+    }
+    .sign-in-box form {
+        margin-top: 30px;
+        padding: 20px 20px 32px;
+    }
+    .sign-in-box form input::placeholder {
+        font-size: 15px;
+    }
+    .sign-in-box h2 {
+        font-size: 60px;
+        margin-top: 40px;
+    }
+    .sign-in-box p {
+        font-size: 20px;
+        margin: 10px 20px 30px;
+    }
 }
+
 @media (max-width: 768px) {
-  .sign-in-box form {
-    padding: 0px 20px 32px;
-  }
-  .name-container {
-    flex-direction: column !important;
-  }
-  .sign-in-box .first-name {
-    width: 100% !important;
-  }
-  .sign-in-box .last-name {
-    width: 100% !important;
-  }
-  .sign-in-box h2 {
-    font-size: 50px;
-  }
-  .sign-in-box p {
-    font-size: 18px;
-  }
+    .sign-in-box form {
+        padding: 0px 20px 32px;
+    }
+    .name-container {
+        flex-direction: column !important;
+    }
+    .sign-in-box .first-name {
+        width: 100% !important;
+    }
+    .sign-in-box .last-name {
+        width: 100% !important;
+    }
+    .sign-in-box h2 {
+        font-size: 50px;
+    }
+    .sign-in-box p {
+        font-size: 18px;
+    }
 }
+
+@media (max-width: 400px) {
+    .eye {
+        width: 12px;
+    }
+}
+
+@media (max-width: 300px) {
+    .eye {
+        width: 11px;
+    }
+}
+

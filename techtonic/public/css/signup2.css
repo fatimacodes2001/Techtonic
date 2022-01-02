@@ -1,162 +1,357 @@
 .sign-up {
-  font-family: "Raleway", sans-serif;
-  background-image: url(../img/unsplash_AWjAGG-u_eE.png);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url("https://images.unsplash.com/photo-1568115286680-d203e08a8be6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+    
 }
 
-
+h2 {
+    font-family: 'Beckman', serif;
+}
 
 .sign-up-box {
-
-  background: rgba(242, 241, 239, 0.85);
-  backdrop-filter: blur(50px);
-  border-radius: 27px;
-  height: fit-content;
-  overflow-y: none;
+    pointer-events: auto;
+    background: rgba(242, 241, 239, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 27px;
+    height: fit-content;
+    overflow-y: none;
 }
 
 .sign-up-box h2 {
-  /* margin-top: 197px; */
-  color: #000;
-  font-size: 80px;
-  font-weight: 400;
-  text-transform: uppercase;
-  /* margin-top: 76px; */
+    /* margin-top: 197px; */
+    color: #000;
+    font-size: 80px;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* margin-top: 76px; */
 }
+
 .sign-up-box p {
-  margin: 10px 50px;
-  color: #888888;
-  font-size: 28px;
-  font-weight: 300;
+    margin: 10px 50px;
+    color: #888888;
+    font-size: 28px;
+    font-weight: 300;
 }
+
 .sign-up-box form {
-  padding: 75px 76px 75px;
+    padding: 75px 76px 75px;
 }
+
 .sign-up-box form input {
-  margin-bottom: 25px;
-  padding: 15px 20px;
-  background-color: #faf9f6;
-  box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
-  border-radius: 12px;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background-color: #faf9f6;
+    box-shadow: 0px 1px 15px rgba(225, 221, 212, 0.25);
+    border-radius: 12px;
 }
+
 .sign-up-box form input::placeholder {
-  font-size: 18px;
-  font-weight: 700;
-  color: #888888;
+    font-size: 18px;
+    font-weight: 700;
+    color: #888888;
 }
+
 .sign-up-box form .btn {
-  margin-bottom: 15px;
-  padding: 13px 0;
-  border-radius: 11px;
-  width: 100%;
+    margin-bottom: 15px;
+    padding: 13px 0;
+    border-radius: 11px;
+    width: 100%;
 }
+
 .password {
-  position: relative;
+    position: relative;
 }
+
 .eye {
-  cursor: pointer;
-  width: 24px;
-  position: absolute;
-  top: 25%;
-  right: 4%;
+    cursor: pointer;
+    width: 24px;
+    position: absolute;
+    top: 25%;
+    right: 4%;
 }
-@media (max-width: 768px) {
+
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    box-shadow: rgba(0, 0, 0, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 200;
+    transition: opacity 0.3s ease-in-out;
 }
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal-popup {
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 20px;
+    width: 450px;
+    max-width: 100%;
+    text-align: center;
+    z-index: 210;
+}
+
+.modal-popup label {
+    margin-top: 20px;
+    width: 98%;
+}
+
+.upload-profile-pic,
+.upload-profile-pic label {
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.upload-hidden {
+    background-color: black;
+    color: white;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    z-index: 300;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.upload-hidden:hover {
+    opacity: 0.5;
+}
+
+.upload-profile-pic label {
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.old-profile-pic {
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.upload-profile-pic-head {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close {
+    margin-top: -1vh;
+    height: 4vh;
+}
+
+#select-file {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    z-index: 0;
+}
+
+@media (max-width: 768px) {}
+
 .skip {
-  font-size: 18px;
-  color: #888888;
-  text-decoration: none;
+    font-size: 18px;
+    color: #888888;
+    text-decoration: none;
 }
 
 @media (max-width: 1200px) {
-  .eye {
-    width: 17px;
-  }
-  .sign-up-box form {
-    margin-top: 30px;
-    padding: 20px 20px 32px;
-  }
-  .sign-up-box form input::placeholder {
-    font-size: 15px;
-  }
-  .sign-up-box h2 {
-    padding-top: 30px;
-    font-size: 60px;
-  }
-  .sign-up-box p {
-    font-size: 20px;
-  }
+    .eye {
+        width: 17px;
+    }
+    .sign-up-box form {
+        margin-top: 30px;
+        padding: 20px 20px 32px;
+    }
+    .sign-up-box form input::placeholder {
+        font-size: 15px;
+    }
+    .sign-up-box h2 {
+        padding-top: 30px;
+        font-size: 60px;
+    }
+    .sign-up-box p {
+        font-size: 20px;
+    }
 }
+
 @media (max-width: 918px) {
-  .eye {
-    width: 15px;
-  }
-  .sign-up-box form input::placeholder {
-    font-size: 15px;
-  }
-  .sign-up-box form {
-    margin-top: 30px;
-    padding: 0px 20px 15px;
-  }
-  .sign-up-box form input {
-    padding: 10px 20px;
-    margin-bottom: 10px;
-  }
-  .name-container {
-    flex-direction: column !important;
-  }
-  .sign-up-box .first-name {
-    width: 100% !important;
-  }
-  .sign-up-box .last-name {
-    width: 100% !important;
-  }
-  .sign-up-box h2 {
-    font-size: 50px;
-  }
-  .sign-up-box p {
-    font-size: 18px;
-  }
+    .eye {
+        width: 15px;
+    }
+    .sign-up-box form input::placeholder {
+        font-size: 15px;
+    }
+    .sign-up-box form {
+        margin-top: 30px;
+        padding: 0px 20px 15px;
+    }
+    .sign-up-box form input {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+    .name-container {
+        flex-direction: column !important;
+    }
+    .sign-up-box .first-name {
+        width: 100% !important;
+    }
+    .sign-up-box .last-name {
+        width: 100% !important;
+    }
+    .sign-up-box h2 {
+        font-size: 50px;
+    }
+    .sign-up-box p {
+        font-size: 18px;
+    }
 }
+
 @media (max-width: 400px) {
-  .eye {
-    width: 12px;
-  }
-  .sign-up-box form input::placeholder {
-    font-size: 11px;
-  }
-  .sign-up-box form {
-    margin-top: 30px;
-    padding: 0px 20px 15px;
-  }
-  .sign-up-box form input {
-    padding: 7px 20px;
-    margin-bottom: 10px;
-  }
-  .name-container {
-    flex-direction: column !important;
-  }
-  .sign-up-box .first-name {
-    width: 100% !important;
-  }
-  .sign-up-box .last-name {
-    width: 100% !important;
-  }
-  .sign-up-box h2 {
-    font-size: 50px;
-  }
-  .sign-up-box p {
-    font-size: 18px;
-  }
+    .eye {
+        width: 12px;
+    }
+    .sign-up-box form input::placeholder {
+        font-size: 11px;
+    }
+    .sign-up-box form {
+        margin-top: 30px;
+        padding: 0px 20px 15px;
+    }
+    .sign-up-box form input {
+        padding: 7px 20px;
+        margin-bottom: 10px;
+    }
+    .name-container {
+        flex-direction: column !important;
+    }
+    .sign-up-box .first-name {
+        width: 100% !important;
+    }
+    .sign-up-box .last-name {
+        width: 100% !important;
+    }
+    .sign-up-box h2 {
+        font-size: 50px;
+    }
+    .sign-up-box p {
+        font-size: 18px;
+    }
 }
+
+@media (max-width: 460px) {
+    .modal-popup {
+        width: 240px;
+    }
+    .upload-profile-pic,
+    .upload-profile-pic label,
+    .upload-hidden {
+        width: 200px;
+        height: 200px;
+    }
+    #close {
+        margin-top: -1vh;
+        height: 3vh;
+    }
+}
+
+@media (max-width: 240px) {
+    .modal-popup {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    .upload-profile-pic,
+    .upload-profile-pic label {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+    }
+    .upload-hidden {
+        width: auto;
+        height: auto;
+        padding: 2.5% 5% 0% 5%;
+        border-radius: 4px;
+    }
+    #close {
+        margin-top: -1vh;
+        height: 2vh;
+    }
+}
+
 @media (max-width: 300px) {
-  .eye {
-    width: 11px;
-  }
+    .eye {
+        width: 11px;
+    }
 }
+
+
+
+@media (max-width: 205px) {
+    
+    .sign-up-box {
+        border-radius: 0px;
+        width: 100%;
+        margin: 0;
+    }
+    .sign-up-box form {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    #sign-up-form {
+        padding-left: 0px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 106px) {
+   
+    .upload-profile-pic-head {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+

@@ -29,6 +29,7 @@
           <tr class="order-item d-flex" item="{{ $product->id }}">
               <td class="item-img p-0">
                 <img class="responsive-img" src="{{ asset('storage/' . $product->images->first()->pic_path) }}" alt="item img">
+
               </td>
               <td class="item-info">
                 <div class="d-flex flex-column">

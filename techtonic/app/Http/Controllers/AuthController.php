@@ -32,12 +32,22 @@ class AuthController extends Controller
         $last_name = $request->get('last-name');
         $image = $request->file('select-file');
         $email = $request->email;
-        $newpfp = $email.'.'.$image->getClientOriginalExtension();
-        $end_path = 'img/'.$email;
-        $image->move(public_path($end_path),$newpfp);
+        if($image){
+            $newpfp = $email.'.'.$image->getClientOriginalExtension();
+            $end_path = 'img/'.$email;
+            $image->move(public_path($end_path),$newpfp);
+        }else{
+            $newpfp = 'default_pfp.jpg';
+            $end_path = 'img/default_pfp.jpg';
+        }
         $password = Hash::make($request->password);
 
-      
+        $request->session()->put('email',$email);
+        $request->session()->put('first_name',$first_name);
+        $request->session()->put('last_name',$last_name);
+        $request->session()->put('password',$password);
+        $request->session()->put('select_file',$newpfp);
+        
         return redirect()->route( 'auth.registerAddr' )->with( [ 'first_name' => $first_name ] )->with( [ 'last_name' => $last_name ] )->with( [ 'email' => $email ] )->with( [ 'password' => $password ] )->with(['select-file'=>$newpfp]);
 
     }
@@ -72,11 +82,17 @@ class AuthController extends Controller
             
             $newpfp = $request->get('select-file');
             // $user->profile_pic = $request->get('select-file');
-            $user->profile_pic = '/img'.'/'.$email.'/'.$newpfp;
+            if($newpfp == 'default_pfp.jpg'){
+                $user->profile_pic = '/img'.'/'.$newpfp;
+            }else{
+                $user->profile_pic = '/img'.'/'.$email.'/'.$newpfp;
+            }
             $save_user = $user->save();
             if($save_user){
-                return back()->with('success','New user created, Welcome');
-                
+                $request->session()->put('logged_user',$email);
+                session(['email' => $email]);
+
+                return redirect('/');
             }else{
                 return back()->with('fail','Something did not go well, Kindly try again');
             }            
@@ -96,8 +112,9 @@ class AuthController extends Controller
             return back()->with('fail','User with this email does not exist, Kindlly try again');
         }else{
             if(Hash::check($request->password,$user_info->password)){
+                session(['email' => $user_info->email]);
                 $request->session()->put('logged_user',$user_info->email);
-                return redirect('/home');
+                return redirect('/');
             }else{
                 return back()->with('fail','Incorrect password, Kindlly try again');
             }
