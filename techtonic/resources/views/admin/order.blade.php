@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Order#' . $order->id)
+@section('title', 'Order #' . $order->id)
 
 @section('styles')
     @parent
@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <h1 class="page-title text-center gap">{{ 'Order#' . $order->id }}</h1>
+    <h1 class="page-title text-center gap">{{ 'Order #' . $order->id }}</h1>
 
     <div class="wrapper">
         <table class="table table-striped table-hover">

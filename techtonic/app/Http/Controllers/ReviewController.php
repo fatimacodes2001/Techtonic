@@ -33,6 +33,11 @@ class ReviewController extends Controller
      */
     public function create($productId)
     {
+        $email = session("email");
+        if(!isset($email)){
+            return redirect('/auth/login');
+        }
+
         $product = Product::find($productId)->only('id', 'name');
         
         return view('add-review', [
@@ -48,6 +53,11 @@ class ReviewController extends Controller
      */
     public function store(Request $request, $productId)
     {
+        $email = session("email");
+        if(!isset($email)){
+            return redirect('/auth/login');
+        }
+
         $request->validate([
             'text' => 'required|string',
             'rating' => 'required|numeric|min:0|max:5',
@@ -56,12 +66,12 @@ class ReviewController extends Controller
         $review = new Review([
             'text' => $request->text, 
             'rating' => $request->rating,
-            'customer_email' => 'fatima@abc.com',
+            'customer_email' => session('email'),
         ]);
 
         $product = Product::find($productId);
         $product->reviews()->save($review);
-        return redirect()->route('home');
+        return redirect()->route('account');
     }
 
     /**

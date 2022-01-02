@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cart')
+@section('title', 'Order #' . $order->id)
 
 @section('styles')
     @parent
@@ -35,7 +35,7 @@
 
           <tr class="order-item d-flex" item="">
           <td class="item-img p-0">
-                <img class="responsive-img" src="/img/phone.png" alt="item img">
+                <img class="responsive-img" src="{{ asset('storage/' . $product->images->first()->pic_path) }}" alt="{{ $product->name }}">
               </td>
               <td class="item-info">
                 <div class="d-flex flex-column">
@@ -54,18 +54,30 @@
               <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                   <div class="item-control-buttons d-flex align-items-center">
                      <?php 
-                      $leave = FALSE;
+                      $leave = false;
                       if( $order->status === "Delivered" ){
-                         $leave = TRUE;
+                         $leave = true;
                       }
    
                      ?>
 
                     @if ($leave)
-                       <button class="btn btn-dark review-btn btn-small" ><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
+                      @php
+                        $email = session('email');
+                        $reviewed = false;
+                        foreach ($product->reviews as $review) {
+                            if ($review->customer_email === $email){
+                                $reviewed = true;
+                                break;
+                            }
+                        }
+                      @endphp
+                      @if($reviewed )
+                        <button class="btn btn-dark review-btn btn-small" disabled>Reviewed</button>
+                      @else
+                        <button class="btn btn-dark review-btn btn-small"><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>    
+                      @endif
                     @endif
-                    <button class="btn btn-dark review-btn btn-small" ><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>
-
 
 
                   </div>
