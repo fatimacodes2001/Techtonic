@@ -22,14 +22,14 @@ body {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 60px;
+    padding-top: 3.75rem;
     transition: 0.5s;
 }
 
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.5rem;
     color: #f1f1f1;
     display: block;
     transition: 0.3s;
@@ -42,17 +42,17 @@ body {
 .sidebar .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    right: 1.56rem;
+    font-size: 2.25rem;
+    margin-left: 3rem;
 }
 
 .openbtn {
-    font-size: 20px;
+    font-size: 1.85rem;
     cursor: pointer;
     background-color: #111;
     color: white;
-    padding: 10px 15px;
+    padding: 0.45rem 0.85rem;
     border: none;
 }
 
@@ -62,11 +62,36 @@ body {
 
 #main {
     transition: margin-left 0.5s;
-    padding: 20px;
+    padding: 1.5rem;
+}
+
+.wrapper {
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    background: gray;
+}
+::-webkit-scrollbar-thumb:horizontal,
+::-webkit-scrollbar-thumb:vertical {
+    background: #000;
+    border-radius: 10px;
 }
 
 img {
     object-fit: cover;
+}
+
+.img-sm {
+    width: 6.25rem;
+    height: 6.875rem;
+}
+
+.img-x-sm {
+    width: 4rem;
+    height: 4.375rem;
 }
 
 .form {
@@ -81,19 +106,61 @@ textarea {
     height: 100px;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    color: rgb(0, 0, 0, 0.75);
+}
+
+a.green:hover {
+    color: rgb(3, 182, 3);
+}
+
 .btn-link {
     padding: 0 !important;
+    color: black;
+}
+
+.btn-link.red:hover {
+    color: #dc3545;
+}
+
+.btn-link:focus,
+.btn-link:focus-visible {
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 0.25rem rgb(136 136 136 / 25%);
+}
+
+textarea:focus-visible {
+    outline: none;
 }
 
 .form-select {
     width: auto;
 }
 
-@media screen and (max-height: 450px) {
-    .sidebar {
-        padding-top: 15px;
+label {
+    font-weight: bold;
+}
+
+.m-top {
+    margin-top: 2.5rem;
+}
+
+@media only screen and (max-width: 992px) {
+    html {
+        font-size: 14px;
     }
-    .sidebar a {
-        font-size: 18px;
+}
+
+@media only screen and (max-width: 576px) {
+    html {
+        font-size: 12px;
     }
 }
