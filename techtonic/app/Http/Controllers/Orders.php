@@ -94,10 +94,28 @@ class Orders extends Controller
      */
     public function adminIndex()
     {
-        $orders = Order::with('address', 'products')->get();
+        $orders = Order::with('address', 'products')
+                        ->orderBy('date', 'DESC')
+                        ->get();
         
         return view('admin.orders', [
-            'orders' => $orders
+            'orders' => $orders,
+            'title' => "Orders"
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function adminShow($id)
+    {
+        $order = Order::with('products')->find($id);
+        
+        return view('admin.order', [
+            'order' => $order
         ]);
     }
 
