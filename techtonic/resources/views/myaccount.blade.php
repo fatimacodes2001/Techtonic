@@ -83,20 +83,16 @@
                 <div class="nav side-bar flex-md-column  nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <button class="nav-link col-6 col-md-12" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</button>
                   <button class="nav-link active col-6 col-md-12 " id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Orders</button>
+                  <button class="nav-link col-6 col-md-12" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Wallet</button>
+                  <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Refunds</button>
                   <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Addresses</button>
                   <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Payment Options</button>
                 
                 </div>
               </div>
-              <div style="height: 640px;overflow-y: auto;overflow-x: hidden;" class="col-md-8 content-t">
+              <div  class="col-md-8 content-t">
                 <div class="tab-content" id="v-pills-tabContent">
-                  <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">  
-                    <div class="tab-container">
-
-                      Personal Details
-                    </div>
-
-                  </div>
+                  
                   <div class="tab-pane fade active show" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> <div class="table-responsive">
                     <table class="table">
                       <tr>
@@ -255,6 +251,73 @@
                       Payment Options
                     </div>
                   </div>
+
+                  <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">  
+                    <div class="tab-container">
+                      <div class="general-info d-flex justify-content-between">
+                        <h2>General Information</h2>
+                        <img src="img/edit.svg" alt="">
+                      </div>
+                      <div class="row ">
+                        <label for="inputEmail3" class="col-2  col-form-label d-flex align-items-center">Email</label>
+                        <div class="col-10 input-holder">
+                          <input type="email" class="form-control" id="inputEmail3" placeholder="jeff.bezos@amazon.com">
+                        </div>
+                        <div class="col-md-6 f-name mb-0">
+                          <div class="row">
+                            <label for="firstname" class="col-2 col-md-4 d-flex  col-form-label  align-items-center">First Name</label>
+                          <div class="col-10 col-md-8  input-holder ">
+                            <input type="text" class="form-control" id="firstname" placeholder="Jeff">
+                          </div>
+                          </div>
+                        </div>
+                          <div class="col-md-6 f-name ">
+                          <div class="row">
+                            <label for="lastname" class="col-form-label col-2 col-md-4 d-flex justify-content-md-center justify-content-start align-items-center">Last Name</label>
+                            <div class="col-10 col-md-8 input-holder">
+                              <input type="text" class="form-control" id="lastname" placeholder="Bezos">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <label for="phone" class="col-2 col-form-label d-flex align-items-center">Contact</label>
+                          <div class="col-md-6 col-10  input-holder">
+                            <input type="tel" class=" form-control" id="phone" placeholder="1-888-280-4331">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="btn-link">
+                        <a href="#">View Profile Picture</a>
+                      </div>
+                      <div class="security-info d-flex justify-content-between">
+                        <h2>Security Information</h2>
+                        <div class="save-link">
+                          <a href="#">Save Changes <img src="img/save.png" alt=""></a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <label for="inputPassword3" class="col-2 col-md-3 col-form-label d-flex align-items-center label-pass" >Current Passowrd</label>
+                        <div class="col-md-9 col-10 input-pass">
+                          <input type="password" class="form-control" id="inputPassword3" placeholder="Enter your Current password here">
+                          <img src="img/eye1.png" alt="">
+                        </div>
+                        <label for="inputPassword3" class="col-2 col-md-3 col-form-label f-name d-flex label-pass align-items-center">New Passowrd</label>
+                        <div class="col-md-9 col-10 input-pass f-name">
+                          <input type="password" class="form-control" id="inputPassword3" placeholder="Enter your New password here">
+                          <img src="img/eye1.png" alt="">
+                        </div>
+                        
+                        <label for="inputPassword3" class="col-2 col-md-3 col-form-label d-flex align-items-center label-pass">Repeat New Passowrd</label>
+                        <div class="col-md-9 col-10 input-pass">
+                          <input type="password" class="form-control" id="inputPassword3" placeholder="Kindly Repeat your New password ">
+                          <img class="pr" src="img/eye1.png" alt="">
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+                  
                 </div>
               </div>
             </div>
