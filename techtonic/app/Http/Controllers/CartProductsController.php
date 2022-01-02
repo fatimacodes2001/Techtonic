@@ -15,6 +15,10 @@ class CartProductsController extends Controller
     //
 
     public function show(){
+        $mail = session("email");
+        if(!isset($mail)){
+            return redirect('/');
+        }
 
         $user = User::find(session("email"));
         $cart = Cart::where("customer_email",$user->email)->first();
