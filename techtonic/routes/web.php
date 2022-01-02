@@ -37,13 +37,7 @@ Route::post('auth/check',[AuthController::class, 'check'])->name('auth.check');
 
 
 //Auth Routes
-Route::get('/login', function () {
-    return view('sign-in');
-})->name('login');
 
-Route::get('/signup', function () {
-    return view('sign-up');
-})->name('signup');
 
 Route::post('/address', function (Request $req) {
     return view('address', ['comment' => $req->comment]);

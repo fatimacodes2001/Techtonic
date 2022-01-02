@@ -40,17 +40,20 @@ class AuthController extends Controller
             $newpfp = 'default_pfp.jpg';
             $end_path = 'img/default_pfp.jpg';
         }
-        $password = Hash::make($request->password);
 
         $request->session()->put('email',$email);
         $request->session()->put('first_name',$first_name);
         $request->session()->put('last_name',$last_name);
-        $request->session()->put('password',$password);
+        $request->session()->put('password',$request->password);
         $request->session()->put('select_file',$newpfp);
+        session(["pass" => Hash::make($request->get('password')) ]);
+
         
-        return redirect()->route( 'auth.registerAddr' )->with( [ 'first_name' => $first_name ] )->with( [ 'last_name' => $last_name ] )->with( [ 'email' => $email ] )->with( [ 'password' => $password ] )->with(['select-file'=>$newpfp]);
+        return redirect()->route( 'auth.registerAddr')->with( [ 'first_name' => $first_name ] )->with( [ 'last_name' => $last_name ] )->with( [ 'email' => $email ] )->with( [ 'password' => $request->password ] )->with(['select-file'=>$newpfp]);
 
     }
+
+    
 
     function save(Request $request){
         // return $request->input();
@@ -74,7 +77,7 @@ class AuthController extends Controller
             $user->last_name = $request->get('last-name');
             $email = $request->get('email');
             $user->email = $email;
-            $user->password = Hash::make($request->get('password'));
+            $user->password = $request->pass;
             $user->address_id = $address->id;
 
             
@@ -108,16 +111,21 @@ class AuthController extends Controller
         ]);
         
         $user_info = User::where('email','=',$request->email)->first();
-        $password = Hash::make($request->password);
 
         if(!$user_info){
             return back()->with('fail','User with this email does not exist, Kindlly try again');
         }else{
-            if(Hash::check($request->password,$user_info->password)){
+            $pw = $request->password;
+            $hashed = $user_info->password;
+
+            if(Hash::check($pw, $hashed)){
+
                 session(['email' => $user_info->email]);
                 $request->session()->put('logged_user',$user_info->email);
                 return redirect('/');
+
             }else{
+
                 return back()->with('fail','Incorrect password, Kindlly try again');
             }
         }
