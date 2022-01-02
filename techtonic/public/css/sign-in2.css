@@ -9,6 +9,10 @@
     background-image: url("https://images.unsplash.com/photo-1605311364334-723fff035793?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2962&q=80");
 }
 
+h2 {
+    font-family: "Beckman", serif;
+}
+
 .sign-in-box {
     background: rgba(242, 241, 239, 0.8);
     backdrop-filter: blur(20px);
@@ -126,4 +130,3 @@
         width: 11px;
     }
 }
-
