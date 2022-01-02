@@ -18,15 +18,13 @@
         @show
     </head>
     <body>
+        <div class="container-lg">  
 
-        
-
-    <div class="container-lg">        
             @include('partials.nav')
+                
+        </div>
         
-            @yield('content')
-        
-    </div>
+        @yield('content')
         
 
         @section('scripts')

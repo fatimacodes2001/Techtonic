@@ -26,7 +26,29 @@ body {
     transition: 0.5s;
 }
 
-.sidebar a {
+.sidebar button {
+    background: none;
+    border: none;
+}
+
+.sidebar button:focus {
+    background: none;
+    box-shadow: none;
+}
+
+.sidebar button:active,
+.sidebar button:hover {
+    background: none;
+}
+
+.sidebar button:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.sidebar a,
+.sidebar button {
     padding: 0.5rem 0.5rem 0.5rem 2rem;
     text-decoration: none;
     font-size: 1.5rem;
@@ -35,7 +57,8 @@ body {
     transition: 0.3s;
 }
 
-.sidebar a:hover {
+.sidebar a:hover,
+.sidebar button:hover {
     color: #818181;
 }
 
@@ -87,18 +110,14 @@ body {
 }
 
 .card-text {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 200;
     text-align: center;
 }
 
 .card-text span {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
-}
-
-[class*="col-"] {
-    /* padding: 0.5rem; */
 }
 
 ::-webkit-scrollbar {

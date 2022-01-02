@@ -53,13 +53,15 @@
                   <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                     <div class="rating-sec">
 
+                      <input type="radio" name="rating" value="0" hidden checked>
+
                       @for ($i = 5; $i > 0 ; $i--)
 
                         <label>
                           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                           <path d="M10 0L13.09 6.26L20 7.27L15 12.14L16.18 19.02L10 15.77L3.82 19.02L5 12.14L0 7.27L6.91 6.26L10 0Z" fill="currentColor"/>
                           </svg>
-                          <input type="radio" name="rating" value="{{ $i }}" />
+                          <input type="radio" name="rating" value="{{ $i }}" >
                         </label>
 
                       @endfor

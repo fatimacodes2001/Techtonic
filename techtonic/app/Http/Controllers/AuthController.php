@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Cart;
+
 use App\Models\Address;
 class AuthController extends Controller
 {
@@ -46,6 +48,9 @@ class AuthController extends Controller
         $request->session()->put('last_name',$last_name);
         $request->session()->put('password',$request->password);
         $request->session()->put('select_file',$newpfp);
+
+        
+
         session(["pass" => Hash::make($request->get('password')) ]);
 
         
@@ -93,6 +98,11 @@ class AuthController extends Controller
             $save_user = $user->save();
             if($save_user){
                 $request->session()->put('logged_user',$email);
+
+                $cart = new Cart;
+                $cart->customer_email = $request->get('email');
+                $cart->save();
+
                 session(['email' => $email]);
 
                 return redirect('/');
@@ -112,7 +122,7 @@ class AuthController extends Controller
         
         $user_info = User::where('email','=',$request->email)->first();
         if(!$user_info){
-            return back()->with('fail','User with this email does not exist, Kindlly try again');
+            return back()->with('fail','User with this email does not exist, Kindl-y try again');
         }else{
             $pw = $request->password;
             $hashed = $user_info->password;
@@ -121,11 +131,17 @@ class AuthController extends Controller
 
                 session(['email' => $user_info->email]);
                 $request->session()->put('logged_user',$user_info->email);
+
+                if($user_info->is_admin) {
+                    session(['is_admin' => true]);
+                    return redirect('/admin');
+                }
+
                 return redirect('/');
 
             }else{
 
-                return back()->with('fail','Incorrect password, Kindlly try again');
+                return back()->with('fail','Incorrect password, Kindly try again');
             }
         }
 

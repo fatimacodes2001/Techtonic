@@ -15,9 +15,9 @@ class CartProductsController extends Controller
     //
 
     public function show(){
-        $mail = session("email");
+        $email = session("email");
         if(!isset($mail)){
-            return redirect('/');
+            return redirect('/auth/login');
         }
 
         $user = User::find(session("email"));

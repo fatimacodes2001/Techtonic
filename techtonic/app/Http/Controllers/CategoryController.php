@@ -15,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('deleted', false)->has('products')->get();
+        $categories = Category::where('deleted', false)
+                    ->has('products')
+                    ->get();
         
         return view('categories', [
             'categories' => $categories

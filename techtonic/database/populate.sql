@@ -21,6 +21,13 @@ insert into product_specs(spec,product_id) values("5G",1);
 insert into product_specs(spec,product_id) values("Dual SIM",1);
 insert into product_specs(spec,product_id) values("Quad Core",1);
 
+insert into product_images(pic_path,product_id) values("phone.png",1);
+insert into product_images(pic_path,product_id) values("phone.png",2);
+insert into product_images(pic_path,product_id) values("phone.png",3);
+insert into product_images(pic_path,product_id) values("phone.png",4);
+
+
+
 insert into product_specs(spec,product_id) values("5G",2);
 insert into product_specs(spec,product_id) values("Dual SIM",2);
 insert into product_specs(spec,product_id) values("Quad Core",2);
