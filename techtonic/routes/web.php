@@ -129,6 +129,9 @@ Route::get('/admin', [MiscController::class, 'admin'])
 Route::get('/admin/users', [UserController::class, 'adminIndex'])
     ->name('admin.users.index');
 
+Route::post('/admin/users/orders', [UserController::class, 'adminShow'])
+    ->name('admin.users.show');
+
 
 // CATEGORY ROUTES
 
@@ -179,7 +182,6 @@ Route::get('/admin/orders', [Orders::class, 'adminIndex'])
 
 Route::post('/admin/orders/{order}', [Orders::class, 'adminUpdate'])
     ->name('admin.orders.update');
-
 
 
 Route::any('/rollback', [Orders::class, 'changeAddr'])->name('rollback');

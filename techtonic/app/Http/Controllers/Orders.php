@@ -97,7 +97,8 @@ class Orders extends Controller
         $orders = Order::with('address', 'products')->get();
         
         return view('admin.orders', [
-            'orders' => $orders
+            'orders' => $orders,
+            'title' => "Orders"
         ]);
     }
 

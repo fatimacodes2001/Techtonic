@@ -21,6 +21,7 @@
                     <th>City</th>
                     <th>Country</th>
                     <th>Postal Code</th>
+                    <th>Orders</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,14 @@
                         <td>{{ $user->address->city }}</td>
                         <td>{{ $user->address->country }}</td>
                         <td>{{ $user->address->postal_code }}</td>
+                        <td>
+                            <form class="d-inline" method="POST" action="{{route('admin.users.show')}}">
+                                @csrf
+                                <input type="eamil" id="email" name="email" value="{{ $user->email }}" hidden>
+                                <button class="btn btn-link">View Orders</button>
+                            </form>
+                        </td>
+                     
                     </tr>  
 
                 @empty

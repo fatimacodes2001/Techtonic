@@ -50,12 +50,18 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function adminShow(Request $request)
     {
-        //
+        $user = User::with('orders')->where('is_admin', 0)->find($request->email);
+        $orders = $user->orders;
+        
+        return view('admin.orders', [
+            'orders' => $orders,
+            'title' => $user->first_name . "'s Orders"
+        ]);
     }
 
     /**

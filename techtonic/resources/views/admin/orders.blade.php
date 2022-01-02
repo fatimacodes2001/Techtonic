@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <h1 class="page-title text-center gap">Orders</h1>
+    <h1 class="page-title text-center gap">{{ $title }}</h1>
 
     <div class="wrapper">
         <table class="table table-striped table-hover">
