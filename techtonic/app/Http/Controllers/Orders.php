@@ -74,13 +74,7 @@ class Orders extends Controller
 
     }
 
-    public function backToOrder(Request $req){
-
-        $order = Order::find((int)$req->id);
-        $address = Address::find((int)$order->address_id);
-        return view('order-final',['order' => $order, "address" => $address]);
-
-    }
+ 
 
     public function changeAddr(Request $req){
         $cart = Cart::where('customer_email', session("email"))->first();

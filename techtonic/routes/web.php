@@ -194,8 +194,6 @@ Route::any('/sign-out', function(){
 
 )->name('sign-out');
 
-Route::any('/submit', [Orders::class, 'backToOrder'] )->name('submit');
-
 
 
 

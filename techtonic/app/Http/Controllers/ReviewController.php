@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\Address;
+
+
 use App\Models\Review;
 
 class ReviewController extends Controller
@@ -74,7 +78,11 @@ class ReviewController extends Controller
 
         $product = Product::find($productId);
         $product->reviews()->save($review);
-        return redirect()->route('account');
+
+        $order = Order::find((int)$req->id);
+        $address = Address::find((int)$order->address_id);
+        return view('order-final',['order' => $order, "address" => $address]);
+        //return redirect()->route('account');
     }
 
     /**

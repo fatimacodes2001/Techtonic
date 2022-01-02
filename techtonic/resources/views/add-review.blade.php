@@ -86,13 +86,13 @@
             </table>
           </div>
           <div class="d-flex justify-content-center">
-            <form action="{{ route('submit') }}" method="post">
+            
               <input type="hidden" name="id" value="{{ $order->id }}">
               <button type="submit" class="btn btn-dark review-btn btn-big">
                 Post Review
               </button>
 
-            </form>
+            
             
           </div>
         </form>
