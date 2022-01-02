@@ -104,12 +104,14 @@ class AuthController extends Controller
             'email'=>'required|email',
             'password'=>'required|min:6|max:20',
         ]);
-
+        
         $user_info = User::where('email','=',$request->email)->first();
+        $password = Hash::make($request->password);
+
         if(!$user_info){
             return back()->with('fail','User with this email does not exist, Kindlly try again');
         }else{
-            if(Hash::check($request->password,$user_info->password)){
+            if(Hash::check($request->password,$password)){
                 $request->session()->put('logged_user',$user_info->email);
                 return redirect('/');
             }else{

@@ -2,6 +2,7 @@
     font-family: "Raleway", sans-serif;
     display: flex;
     width: 100%;
+    background-image: url(../assets/unsplash_SyESKw2UKc0.png);
     flex-direction: column;
     justify-content: center;
     align-items: center;

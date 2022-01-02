@@ -21,7 +21,7 @@
 
 @section('content')
 
-<div class="main-gallery js-flickity" id="background-carousel" data-flickity-options='{ "imagesLoaded": true , "cellAlign": "center", "contain": true , "wrapAround": true, "autoPlay" : true , "bgLazyLoad": 3 , "prevNextButtons": false , "pageDots": false}'>
+<!-- <div class="main-gallery js-flickity" id="background-carousel" data-flickity-options='{ "imagesLoaded": true , "cellAlign": "center", "contain": true , "wrapAround": true, "autoPlay" : true , "bgLazyLoad": 3 , "prevNextButtons": false , "pageDots": false}'>
   <div>
     <div class="carousel-img-cover">
       <img src="https://images.unsplash.com/photo-1527246574940-ebf9c5ffd9a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80" alt="carousel-img-1">
@@ -298,7 +298,7 @@
     </div>
   </div>
 
-</div>
+</div> -->
 
 
 
