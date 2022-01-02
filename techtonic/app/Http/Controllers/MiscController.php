@@ -33,7 +33,11 @@ class MiscController extends Controller
             $sales=array_slice($sales, 0, 4, false);
         }
         
-        $topTrends = Category::where('deleted', false)->whereIn('id', $sales)->get();      
+        $topTrends = Category::where('deleted', false)
+                     ->whereIn('id', $sales)
+                     ->limit(4)
+                     ->get();
+                           
         $topProducts = Product::withAvg('reviews as product_rating', 'rating')
                      ->where('deleted', false)
                      ->orderBy('product_rating', 'DESC')
