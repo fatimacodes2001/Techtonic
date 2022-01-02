@@ -108,8 +108,12 @@ class AuthController extends Controller
         ]);
         
         $user_info = User::where('email','=',$request->email)->first();
-        $password = Hash::make($request->password);
-
+        
+        dump($request->password);
+        dump($user_info->email);
+        dump($user_info->password);
+        dump(Hash::check($request->password,$user_info->password));
+        dd('done');
         if(!$user_info){
             return back()->with('fail','User with this email does not exist, Kindlly try again');
         }else{
