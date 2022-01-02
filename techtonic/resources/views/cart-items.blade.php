@@ -75,11 +75,23 @@
 
           @endforeach
 
+          @if(count($products) != 0)
+
           <tr class="order-item d-flex">
               <td class="item-img p-0">
                 <input type="text" name="comment" placeholder="Special Instructions..." class="comments">
               </td>
-            </tr>
+          </tr>
+          @else
+
+          <tr class="order-item d-flex">
+              <td class="item-img p-0" >
+                  <h2>Cart Empty!</h2>
+              </td>
+          </tr>
+
+
+          @endif
 
           
 

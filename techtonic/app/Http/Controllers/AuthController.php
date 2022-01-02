@@ -100,9 +100,9 @@ class AuthController extends Controller
                 $request->session()->put('logged_user',$email);
 
                 $cart = new Cart;
-                $cart->customer_email = $user->email;
+                $cart->customer_email = $request->get('email');
                 $cart->save();
-                
+
                 session(['email' => $email]);
 
                 return redirect('/');

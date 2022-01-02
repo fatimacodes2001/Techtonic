@@ -32,11 +32,11 @@
     
   <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-start">
       <a class="navbar-brand" href="{{route('home')}}" style="margin-left: 5px;">
-          <img src="{{ $user->profile_pic }}" height="35" alt="techtonic-logo">
+          <img src="/img/logo.svg" height="35" alt="techtonic-logo">
       </a>
 
-      <a class="show nav-item nav-link mob" href="cart-items.html"> <img src="/img/cart.svg" alt="cart"> </a>
-      <a class="show nav-item nav-link mob"> <img src="/img/user.svg" alt="user"></a>
+      <a class="show-it nav-item nav-link mob" href="cart-items.html"> <img src="/img/cart.svg" alt="cart"> </a>
+      <a class="show-it nav-item nav-link mob"> <img src="/img/user.svg" alt="user"></a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
           aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +61,10 @@
 
     <section id="jeff">
       <div class="img-holder text-center">
-        <img src="img/unsplash__1bPErRSKco.png" alt="">
+        <img src="{{ $user->profile_pic }}" alt="">
         <form action="{{ route('sign-out') }}">
 
-          <button type="submit" class="btn btn-dark  text-center text-sm">
+          <button type="submit" class="btn btn-dark  text-center text-sm" style="margin-top: 5px;">
             Sign Out
           </button>
 
