@@ -108,6 +108,7 @@ class ProductController extends Controller
     {
         $product = Product::with('color', 'specs', 'reviews')->find($id);
         $similarMerch = Product::where('category_id', $product->category_id)
+                        ->where('deleted', false)
                         ->where('id', '<>', $product->id)
                         ->limit(5)
                         ->get();
