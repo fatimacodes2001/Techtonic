@@ -62,8 +62,7 @@
     <section id="jeff">
       <div class="img-holder text-center">
         <img src="img/unsplash__1bPErRSKco.png" alt="">
-        <h3>{{ $mail }}</h3>
-        <form action="{{ route('about-us') }}">
+        <form action="{{ route('sign-out') }}">
 
           <button type="submit" class="btn btn-dark  text-center text-sm">
             Sign Out

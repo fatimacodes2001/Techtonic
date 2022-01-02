@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Cart;
+
 use App\Models\Address;
 class AuthController extends Controller
 {
@@ -46,6 +48,11 @@ class AuthController extends Controller
         $request->session()->put('last_name',$last_name);
         $request->session()->put('password',$request->password);
         $request->session()->put('select_file',$newpfp);
+        
+        $cart = new Cart;
+        $cart->customer_email = $email;
+        $cart->save();
+
         session(["pass" => Hash::make($request->get('password')) ]);
 
         

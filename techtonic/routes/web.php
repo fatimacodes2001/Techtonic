@@ -183,6 +183,16 @@ Route::post('/admin/orders/{order}', [Orders::class, 'adminUpdate'])
 
 Route::any('/rollback', [Orders::class, 'changeAddr'])->name('rollback');
 
+Route::any('/sign-out', function(){
+    
+    session()->forget('email');
+    return redirect("/");
+
+}
+
+)->name('sign-out');
+
+
 
 
 // 
