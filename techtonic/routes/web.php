@@ -116,78 +116,80 @@ Route::get('/account', [ProfileController::class, 'show'])->name('account');
 ====================*/
 
 Route::get('/admin', [MiscController::class, 'admin'])
-    ->name('admin');
+    ->name('admin')->middleware('admin');
 
 // USER ROUTES
 
 Route::get('/admin/users', [UserController::class, 'adminIndex'])
-    ->name('admin.users.index');
+    ->name('admin.users.index')->middleware('admin');
 
 Route::post('/admin/users/orders', [UserController::class, 'adminShow'])
-    ->name('admin.users.show');
+    ->name('admin.users.show')->middleware('admin');
 
 
 // CATEGORY ROUTES
 
 Route::get('/admin/categories', [CategoryController::class, 'adminIndex'])
-    ->name('admin.categories.index');
+    ->name('admin.categories.index')->middleware('admin');
 
 Route::get('/admin/categories/create', [CategoryController::class, 'adminCreate'])
-    ->name('admin.categories.create');
+    ->name('admin.categories.create')->middleware('admin');
 
 Route::post('/admin/categories', [CategoryController::class, 'adminStore'])
-    ->name('admin.categories.store');
+    ->name('admin.categories.store')->middleware('admin');
 
 Route::get('/admin/categories/{category}', [CategoryController::class, 'adminShow'])
-    ->name('admin.categories.show');
+    ->name('admin.categories.show')->middleware('admin');
 
 Route::get('/admin/categories/{category}/edit', [CategoryController::class, 'adminEdit'])
-    ->name('admin.categories.edit');
+    ->name('admin.categories.edit')->middleware('admin');
 
 Route::put('/admin/categories/{category}', [CategoryController::class, 'adminUpdate'])
-    ->name('admin.categories.update');
+    ->name('admin.categories.update')->middleware('admin');
 
 Route::delete('/admin/categories/{category}', [CategoryController::class, 'adminDestroy'])
-    ->name('admin.categories.destroy');
+    ->name('admin.categories.destroy')->middleware('admin');
 
     
 // PRODUCT ROUTES
 
 Route::get('/admin/categories/{category}/products/create', [ProductController::class, 'adminCreate'])
-    ->name('admin.products.create');
+    ->name('admin.products.create')->middleware('admin');
 
 Route::post('/admin/categories/{category}/products', [ProductController::class, 'adminStore'])
-    ->name('admin.products.store');
+    ->name('admin.products.store')->middleware('admin');
 
 Route::get('/admin/categories/{category}/products/{product}/edit', [ProductController::class, 'adminEdit'])
-    ->name('admin.products.edit');
+    ->name('admin.products.edit')->middleware('admin');
 
 Route::put('/admin/categories/{category}/products/{product}', [ProductController::class, 'adminUpdate'])
-    ->name('admin.products.update');
+    ->name('admin.products.update')->middleware('admin');
 
 Route::delete('/admin/categories/{category}/products/{product}', [ProductController::class, 'adminDestroy'])
-    ->name('admin.products.destroy');
+    ->name('admin.products.destroy')->middleware('admin');
 
 
 // ORDER ROUTES
 
 Route::get('/admin/orders', [Orders::class, 'adminIndex'])
-    ->name('admin.orders.index');
+    ->name('admin.orders.index')->middleware('admin');
 
 Route::get('/admin/orders/{order}', [Orders::class, 'adminShow'])
-    ->name('admin.orders.show');
+    ->name('admin.orders.show')->middleware('admin');
 
 Route::post('/admin/orders/{order}', [Orders::class, 'adminUpdate'])
-    ->name('admin.orders.update');
+    ->name('admin.orders.update')->middleware('admin');
 
 
 Route::any('/rollback', [Orders::class, 'changeAddr'])->name('rollback');
 
 Route::any('/sign-out', function(){
-    
+
+    if(session('is_admin')) {
+        session()->forget('is_admin');
+    }
     session()->forget('email');
     return redirect("/");
-
 }
 
 )->name('sign-out');
