@@ -15,10 +15,10 @@ class CartProductsController extends Controller
     //
 
     public function show(){
-        $user = User::find("fatima@abc.com");
+
+        $user = User::find(session("email"));
         $cart = Cart::where("customer_email",$user->email)->first();
         $prods = $cart->products;
-        
         return view('cart-items', ['products' => $prods]);
 
     }
@@ -27,7 +27,7 @@ class CartProductsController extends Controller
 
 
     public function changeQuantity(Request $req){
-        $user = User::find("fatima@abc.com");
+        $user = User::find(session("email"));
         $cart = Cart::where("customer_email", $user->email)->first();
         $product_id = (int) $req->id;
         $quantity = (int) $req->quantity;
@@ -59,7 +59,7 @@ class CartProductsController extends Controller
      */
     public function update(Request $request, $productId)
     {
-        $user = User::find("fatima@abc.com");
+        $user = User::find(session("email"));
         $cart = Cart::where("customer_email",$user->email)->first();
         $prods = $cart->products;
         $prod = Product::find($productId);
