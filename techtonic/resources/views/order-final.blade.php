@@ -75,7 +75,7 @@
                       @if($reviewed )
                         <button class="btn btn-dark review-btn btn-small" disabled>Reviewed</button>
                       @else
-                        <button class="btn btn-dark review-btn btn-small"><a href="{{ route('reviews.create', ['product' => $product->id] ) }}"> Leave Review </a></button>    
+                        <button class="btn btn-dark review-btn btn-small"><a href="{{ route('reviews.create', ['product' => $product->id, 'order' => $order->id] ) }}"> Leave Review </a></button>    
                       @endif
                     @endif
 

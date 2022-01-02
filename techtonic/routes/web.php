@@ -75,7 +75,7 @@ Route::get('/cart', [CartProductsController::class, 'show'])->name("cart");
 Route::get('/products/{product}/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');
 
-Route::get('/products/{product}/reviews/create', [ReviewController::class, 'create'])
+Route::get('/products/{order}/{product}/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
 
 Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])
@@ -193,6 +193,8 @@ Route::any('/sign-out', function(){
 }
 
 )->name('sign-out');
+
+Route::any('/submit', [Orders::class, 'backToOrder'] )->name('submit');
 
 
 

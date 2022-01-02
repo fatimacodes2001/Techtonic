@@ -31,17 +31,20 @@ class ReviewController extends Controller
      * @param  int  $productId
      * @return \Illuminate\Http\Response
      */
-    public function create($productId)
+    public function create($orderId, $productId)
     {
         $email = session("email");
         if(!isset($email)){
             return redirect('/auth/login');
         }
 
+        $order = Order::find($orderId);
+
         $product = Product::find($productId)->only('id', 'name');
         
         return view('add-review', [
             'product' => $product,
+            'order' => $order
         ]);
     }
 
