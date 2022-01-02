@@ -180,6 +180,9 @@ Route::delete('/admin/categories/{category}/products/{product}', [ProductControl
 Route::get('/admin/orders', [Orders::class, 'adminIndex'])
     ->name('admin.orders.index');
 
+Route::get('/admin/orders/{order}', [Orders::class, 'adminShow'])
+    ->name('admin.orders.show');
+
 Route::post('/admin/orders/{order}', [Orders::class, 'adminUpdate'])
     ->name('admin.orders.update');
 
