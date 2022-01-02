@@ -123,7 +123,7 @@ class AuthController extends Controller
         $user_info = User::where('email','=',$request->email)->first();
 
         if(!$user_info){
-            return back()->with('fail','User with this email does not exist, Kindlly try again');
+            return back()->with('fail','User with this email does not exist, Kindl-y try again');
         }else{
             $pw = $request->password;
             $hashed = $user_info->password;
@@ -132,11 +132,17 @@ class AuthController extends Controller
 
                 session(['email' => $user_info->email]);
                 $request->session()->put('logged_user',$user_info->email);
+
+                if($user_info->is_admin) {
+                    session(['is_admin' => true]);
+                    return redirect('/admin');
+                }
+
                 return redirect('/');
 
             }else{
 
-                return back()->with('fail','Incorrect password, Kindlly try again');
+                return back()->with('fail','Incorrect password, Kindly try again');
             }
         }
 
