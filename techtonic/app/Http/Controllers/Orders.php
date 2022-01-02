@@ -44,7 +44,8 @@ class Orders extends Controller
         if(isset($address)){
             $order->address_id = $address->id;
         }else{
-            $order->address_id = 1;
+            $addr = User::find(session("email"))->address;
+            $order->address_id = $addr->id;
         }
         $order->save();
 
@@ -59,7 +60,7 @@ class Orders extends Controller
         $address = Address::find($order->address_id);
         $cart = Cart::where('customer_email', session("email"))->first();
 
-        //$cart->products()->detach();
+        $cart->products()->detach();
 
         return view('order-final',['order' => $order, "address" => $address]);
 

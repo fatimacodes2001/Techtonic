@@ -16,7 +16,7 @@ class CartProductsController extends Controller
 
     public function show(){
         $email = session("email");
-        if(!isset($mail)){
+        if(!isset($email)){
             return redirect('/auth/login');
         }
 

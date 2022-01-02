@@ -132,51 +132,54 @@
         </div>
     </div>
 
-    <div id="top-categories" class="category-row">
-        <h1 class="category-title text-center mt-5">Appraisals</h1>
-        <p class="category-subtitle text-center">Beyond satisfaction</p>
-        <p class="browse text-end"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i class="bi bi-chevron-right"></i></a></p>
-        <table class="order-items-table table table-borderless">
-            <tbody class="d-flex flex-column">
+    @if(count($product->reviews) != 0)
+        <div id="top-categories" class="category-row">
+            <h1 class="category-title text-center mt-5">Appraisals</h1>
+            <p class="category-subtitle text-center">Beyond satisfaction</p>
+            <p class="browse text-end"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i class="bi bi-chevron-right"></i></a></p>
+            <table class="order-items-table table table-borderless">
+                <tbody class="d-flex flex-column">
 
-                @foreach ($product->reviewsThree as $review)
+                    @foreach ($product->reviewsThree as $review)
 
-                    <tr class="order-item d-flex">
-                        <td class="item-img p-0">
-                            <img class="responsive-img" src="{{ $review->user->profile_pic }}" alt="{{ $review->user->first_name }}">
-                        </td>
-                        <td class="item-info">
-                            <div class="d-flex flex-column">
-                                <p class="item-title fw-bold text-md m-0 mb-2">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
-                                <div class="item-description px-0">
-                                    <p class="d-block text-sm fw-light m-0">{{ $review->text }}</p>
+                        <tr class="order-item d-flex">
+                            <td class="item-img p-0">
+                                <img class="responsive-img" src="{{ $review->user->profile_pic }}" alt="{{ $review->user->first_name }}">
+                            </td>
+                            <td class="item-info">
+                                <div class="d-flex flex-column">
+                                    <p class="item-title fw-bold text-md m-0 mb-2">{{ $review->user->first_name . ' ' . $review->user->last_name }}</p>
+                                    <div class="item-description px-0">
+                                        <p class="d-block text-sm fw-light m-0">{{ $review->text }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                        <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
+                            </td>
+                            <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
 
-                            <div class="number-control-buttons d-flex align-items-center">
+                                <div class="number-control-buttons d-flex align-items-center">
 
-                                @for ($i = 0; $i < $review->rating; $i++)
-                                    <img src="/img/star-fill.svg">
-                                @endfor
+                                    @for ($i = 0; $i < $review->rating; $i++)
+                                        <img src="/img/star-fill.svg">
+                                    @endfor
 
-                                @for ($i = 0; $i < (5-$review->rating); $i++)
-                                    <img src="/img/star-empty.svg">
-                                @endfor
+                                    @for ($i = 0; $i < (5-$review->rating); $i++)
+                                        <img src="/img/star-empty.svg">
+                                    @endfor
 
-                            </div>
-                        </td>
-                    </tr>
+                                </div>
+                            </td>
+                        </tr>
 
-                @endforeach
+                    @endforeach
 
-            </tbody>
-        </table>
-        <p class="browse-md text-center"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i
-            class="bi bi-chevron-right"></i></a>
-        </p>
-    </div>
+                </tbody>
+            </table>
+            <p class="browse-md text-center"><a href="{{route('reviews.index', $product->id)}}">See all reviews <i
+                class="bi bi-chevron-right"></i></a>
+            </p>
+        </div>
+    @endif
+
     <div id="top-categories" class="category-row">
         <h1 class="category-title text-center">Similar Merchandise</h1>
         <p class="category-subtitle text-center">Furnishing your every Desire</p>
