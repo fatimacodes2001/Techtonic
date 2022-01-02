@@ -48,10 +48,8 @@ class AuthController extends Controller
         $request->session()->put('last_name',$last_name);
         $request->session()->put('password',$request->password);
         $request->session()->put('select_file',$newpfp);
+
         
-        $cart = new Cart;
-        $cart->customer_email = $email;
-        $cart->save();
 
         session(["pass" => Hash::make($request->get('password')) ]);
 
@@ -100,6 +98,11 @@ class AuthController extends Controller
             $save_user = $user->save();
             if($save_user){
                 $request->session()->put('logged_user',$email);
+
+                $cart = new Cart;
+                $cart->customer_email = $user->email;
+                $cart->save();
+                
                 session(['email' => $email]);
 
                 return redirect('/');

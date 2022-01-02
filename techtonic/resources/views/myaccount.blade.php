@@ -32,7 +32,7 @@
     
   <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-start">
       <a class="navbar-brand" href="{{route('home')}}" style="margin-left: 5px;">
-          <img src="/img/logo.svg" height="35" alt="techtonic-logo">
+          <img src="{{ $user->profile_pic }}" height="35" alt="techtonic-logo">
       </a>
 
       <a class="show nav-item nav-link mob" href="cart-items.html"> <img src="/img/cart.svg" alt="cart"> </a>
