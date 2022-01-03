@@ -46,12 +46,12 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="price" name="price" placeholder="Price" required>
+                <input type="number" class="form-control" min="0" id="price" name="price" placeholder="Price" required>
                 <label for="price">Price (PKR)</label>
             </div>
 
             <div class="form-floating mb-5">
-                <input type="number" class="form-control" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" required>
+                <input type="number" class="form-control" min="0" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" required>
                 <label for="stock_quantity">Stock Quantity</label>
             </div>
 

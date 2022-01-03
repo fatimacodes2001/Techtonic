@@ -47,12 +47,12 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="price" name="price" placeholder="Price" value="{{ $product->price }}" required>
+                <input type="number" class="form-control" min="0" id="price" name="price" placeholder="Price" value="{{ $product->price }}" required>
                 <label for="price">Price (PKR)</label>
             </div>
 
             <div class="form-floating mb-5">
-                <input type="number" class="form-control" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" value="{{ $product->stock_quantity }}" required>
+                <input type="number" class="form-control" min="0" id="stock_quantity" name="stock_quantity" placeholder="Stock Quantity" value="{{ $product->stock_quantity }}" required>
                 <label for="stock_quantity">Stock Quantity</label>
             </div>
 

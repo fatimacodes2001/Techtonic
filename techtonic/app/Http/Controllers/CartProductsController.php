@@ -67,6 +67,8 @@ class CartProductsController extends Controller
         $cart = Cart::where("customer_email",$user->email)->first();
         $prods = $cart->products;
         $prod = Product::find($productId);
+        $prod->stock_quantity = $prod->stock_quantity - 1;
+        $prod->save();
         $cart->products()->attach($prod, array('quantity' => 1));
 
         return redirect('cart');
