@@ -3,8 +3,8 @@
         <img src="/img/logo.svg" height="35" alt="techtonic-logo">
     </a>
 
-    <a class="show-it nav-item nav-link mob" href="cart-items.html"> <img src="/img/cart.svg" alt="cart"> </a>
-    <a class="show-it nav-item nav-link mob"> <img src="/img/user.svg" alt="user"></a>
+    <a class="show-it nav-item nav-link mob" href="{{ route('cart') }}"> <img src="/img/cart.svg" alt="cart"> </a>
+    <a class="show-it nav-item nav-link mob" href="{{route('account')}}"> <img src="/img/user.svg" alt="user"></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

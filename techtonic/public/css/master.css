@@ -461,8 +461,8 @@ body {
     }
 
     #jeff .img-holder img {
-        width: 280px;
-        height: 280px;
+        width: 250px;
+        height: 250px;
         border-radius: 19px;
     }
     
@@ -675,8 +675,8 @@ body {
     }
 
     #jeff .img-holder img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         border-radius: 19px;
     }
 }
