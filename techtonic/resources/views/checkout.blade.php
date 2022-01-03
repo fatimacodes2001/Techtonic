@@ -93,7 +93,7 @@
                 </td>
                 <td class="ms-auto p-0 h-auto d-flex flex-column justify-content-between">
                   <div class="item-price mt-auto">
-                    <p class="m-0 d-block fw-light text-end text-md">370,000 PKR </p>
+                    <p class="m-0 d-block fw-light text-end text-md">0 PKR </p>
                   </div>
                 </td>
               </tr>

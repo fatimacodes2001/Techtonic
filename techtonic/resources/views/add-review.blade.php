@@ -86,9 +86,14 @@
             </table>
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-dark review-btn btn-big">
-              Post Review
-            </button>
+            
+              <input type="hidden" name="id" value="{{ $order->id }}">
+              <button type="submit" class="btn btn-dark review-btn btn-big">
+                Post Review
+              </button>
+
+            
+            
           </div>
         </form>
       </div>

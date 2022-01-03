@@ -106,21 +106,27 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $email = session("email");
+        if(!isset($email)){
+            return redirect('/auth/login');
+        }
+
         $product = Product::with('color', 'specs', 'reviews')->find($id);
         $similarMerch = Product::where('category_id', $product->category_id)
                         ->where('deleted', false)
                         ->where('id', '<>', $product->id)
                         ->limit(5)
                         ->get();
-        $user = User::find("fatima@abc.com");
+        $user = User::find(session('email'));
         $cart = Cart::where("customer_email",$user->email)->first();
         $cartItems = $cart->products;
         
-        return view('product-desc', [
+        $content = view('product-desc', [
             'product' => $product,
             'similarMerch' => $similarMerch,
             'cartItems' => $cartItems
         ]);
+         return response($content)->header('Cache-Control', 'no-cache, must-revalidate');;
     }
 
     /**

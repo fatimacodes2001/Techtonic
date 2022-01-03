@@ -18,7 +18,7 @@ class MiscController extends Controller
      */
     public function home()
     {
-        $categories = Category::where('deleted', false)->get();
+        $categories = Category::where('deleted', false)->has('products')->get();
         $sales = [];
 
         foreach($categories as $category){
