@@ -61,8 +61,8 @@
 
     <section id="jeff">
       <div class="img-holder text-center">
-        <img class="dp" src="{{$user->profile_pic}}" alt="" >
-        <h3 id="name-heading">{{$user->first_name}} {{$user->last_name}}</h3>
+        <img class="dp" style="object-fit:cover;" src="{{$user->profile_pic}}" alt="" >
+        <h3 id="name-heading" class="my-4">{{$user->first_name}} {{$user->last_name}}</h3>
         <form action="{{ route('sign-out') }}">
 
           <button type="submit" class="btn btn-dark  text-center text-sm" id="sign-out-btn">
@@ -84,7 +84,6 @@
                 <div class="nav side-bar flex-md-column  nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                   <button class="nav-link col-6 col-md-12" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</button>
                   <button class="nav-link active col-6 col-md-12 " id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Orders</button>
-                  <button class="nav-link col-6 col-md-12" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Addresses</button>
 
                 </div>
               </div>

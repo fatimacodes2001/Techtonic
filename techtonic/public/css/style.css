@@ -1,5 +1,5 @@
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     background-color: #f2f1ef;
     color: #000000;
     font-weight: 300;
@@ -28,7 +28,7 @@ a:hover {
 }
 
 .main-gallery {
-    background: #EEE;
+    background: #eee;
     height: 100%;
     width: 100vw;
     overflow: hidden;
@@ -81,7 +81,7 @@ a:hover {
 }
 
 .page-title {
-    font-family: 'Beckman', sans-serif;
+    font-family: "Jost", sans-serif;
     font-size: 4.5rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -100,7 +100,7 @@ a:hover {
 
 #name-heading {
     margin-top: 4px;
-    font-family: 'Beckman', sans-serif;
+    font-family: "Jost", sans-serif;
     font-size: 4.5rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -114,7 +114,7 @@ a:hover {
     body {
         margin: 0 4%;
     }
-    #name-heading{
+    #name-heading {
         font-size: 3rem;
     }
 }
@@ -123,7 +123,7 @@ a:hover {
     html {
         font-size: 12px;
     }
-    #name-heading{
+    #name-heading {
         font-size: 2rem;
     }
 }
