@@ -78,7 +78,7 @@
     <div id="trends" class="row">
       <div class="col-12 col-md-5 col-lg-6 trends-left">
         <h1 class="page-title">TOP<br>TRENDS</h1>
-        <a class="btn btn-dark" href="{{route('categories.index')}}">Explore All Categories
+        <a class="btn btn-dark mb-md-0 mb-5" href="{{route('categories.index')}}">Explore All Categories
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>

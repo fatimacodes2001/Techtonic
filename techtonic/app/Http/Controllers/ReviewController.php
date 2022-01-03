@@ -79,10 +79,9 @@ class ReviewController extends Controller
         $product = Product::find($productId);
         $product->reviews()->save($review);
 
-        $order = Order::find((int)$req->id);
+        $order = Order::find((int)$request->id);
         $address = Address::find((int)$order->address_id);
         return view('order-final',['order' => $order, "address" => $address]);
-        //return redirect()->route('account');
     }
 
     /**
