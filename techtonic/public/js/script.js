@@ -28,15 +28,6 @@ function getImagePreview(input) {
     var image = URL.createObjectURL(input.target.files[0]);
     console.log(image);
     $('#old-img').attr('src', image);
-    // if (input.files && input.files[0]) {
-    //     var reader = new FileReader();
-
-    //     reader.onload = function(e) {
-    //         $('old-img').attr('src', e.target.result);
-    //     }
-
-    //     reader.readAsDataURL(input.files[0]);
-    // }
 }
 
 function showPassword() {
@@ -57,6 +48,16 @@ function showRepeatPassword() {
     }
 }
 
+function showOldPassword() {
+    var x = document.getElementById("inputPassword1");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+
 function openModal() {
     var x = document.getElementById("modal-container");
     x.classList.add("show");
@@ -65,4 +66,19 @@ function openModal() {
 function closeModal() {
     var x = document.getElementById("modal-container");
     x.classList.remove("show");
+}
+
+function edit() {
+    $("#edit-details").hide()
+    $("#inputEmail3").attr('disabled', false)
+    $("#firstname").attr('disabled', false)
+    $("#lastname").attr('disabled', false)
+    $("#inputPassword1").attr('disabled', false)
+    $("#pwd").attr('disabled', false)
+    $("#pwd-rpt").attr('disabled', false)
+    $("#save-details").attr('hidden', false)
+    $("#view-profile").css({
+        "pointer-events": "auto",
+        "background-color": "black"
+    })
 }

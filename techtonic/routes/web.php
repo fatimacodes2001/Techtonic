@@ -34,6 +34,7 @@ Route::get('/auth/registerAddr', [AuthController::class, 'registerAddr'])->name(
 Route::post('auth/verify',[AuthController::class, 'verify'])->name('auth.verify');   
 Route::post('auth/save',[AuthController::class, 'save'])->name('auth.save');   
 Route::post('auth/check',[AuthController::class, 'check'])->name('auth.check');   
+Route::post('auth/edit',[AuthController::class, 'edit'])->name('auth.edit');   
 
 
 //Auth Routes
