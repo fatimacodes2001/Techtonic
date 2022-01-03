@@ -10,7 +10,8 @@
 }
 
 h2 {
-    font-family: "Beckman", serif;
+    font-family: "Jost", serif;
+    font-weight: 500;
 }
 
 .sign-in-box {
@@ -23,7 +24,7 @@ h2 {
 .sign-in-box h2 {
     color: #000;
     font-size: 80px;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
     margin-top: 76px;
 }
