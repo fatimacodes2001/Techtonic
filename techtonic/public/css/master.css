@@ -18,7 +18,8 @@ body {
 }
 
 #jeff .img-holder img {
-    width: 226px;
+    width: 300px;
+    height: 300px;
     border-radius: 19px;
 }
 
@@ -458,6 +459,13 @@ body {
         font-size: 15px;
         color: #888888;
     }
+
+    #jeff .img-holder img {
+        width: 280px;
+        height: 280px;
+        border-radius: 19px;
+    }
+    
     .tab-container .btn-link a {
         background-color: #000000;
         text-align: center;
@@ -664,6 +672,12 @@ body {
     #close {
         margin-top: -1vh;
         height: 3vh;
+    }
+
+    #jeff .img-holder img {
+        width: 200px;
+        height: 200px;
+        border-radius: 19px;
     }
 }
 

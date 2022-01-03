@@ -99,6 +99,7 @@ a:hover {
 }
 
 #name-heading {
+    margin-top: 4px;
     font-family: 'Beckman', sans-serif;
     font-size: 4.5rem;
     font-weight: 500;
@@ -113,10 +114,16 @@ a:hover {
     body {
         margin: 0 4%;
     }
+    #name-heading{
+        font-size: 3rem;
+    }
 }
 
 @media only screen and (max-width: 576px) {
     html {
         font-size: 12px;
+    }
+    #name-heading{
+        font-size: 2rem;
     }
 }
